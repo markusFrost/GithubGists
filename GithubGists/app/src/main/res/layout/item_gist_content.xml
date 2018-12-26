@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="pingsub.sh"
+        android:typeface="serif"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:id="@+id/gist_file_name"/>
+
+    <TextView
+        android:background="@drawable/rect"
+        android:padding="15dp"
+        android:layout_marginTop="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gist_file_name"
+        android:singleLine="false"
+        android:textSize="18sp"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        android:id="@+id/gist_code_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

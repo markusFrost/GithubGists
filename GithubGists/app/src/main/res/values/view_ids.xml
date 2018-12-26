@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- general items -->
+    <item name="content_frame" type="id"/>
+    <item name="toolbar" type="id"/>
+    <item name="recyclerView" type="id"/>
+    <item name="empty" type="id"/>
+
+</resources>

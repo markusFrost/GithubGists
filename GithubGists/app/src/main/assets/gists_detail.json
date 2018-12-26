@@ -1,0 +1,180 @@
+{
+  "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e",
+  "forks_url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/forks",
+  "commits_url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/commits",
+  "id": "8795d3dc4102b73a9c262df6df47bf6e",
+  "node_id": "MDQ6R2lzdDg3OTVkM2RjNDEwMmI3M2E5YzI2MmRmNmRmNDdiZjZl",
+  "git_pull_url": "https://gist.github.com/8795d3dc4102b73a9c262df6df47bf6e.git",
+  "git_push_url": "https://gist.github.com/8795d3dc4102b73a9c262df6df47bf6e.git",
+  "html_url": "https://gist.github.com/8795d3dc4102b73a9c262df6df47bf6e",
+  "files": {
+    "CSV.py": {
+      "filename": "CSV.py",
+      "type": "application/x-python",
+      "language": "Python",
+      "raw_url": "https://gist.githubusercontent.com/jpcasa/8795d3dc4102b73a9c262df6df47bf6e/raw/f22cb931774cde0827c1c787ec52d1a7a3d6784a/CSV.py",
+      "size": 514,
+      "truncated": false,
+      "content": "# Import pandas as pd\nimport pandas as pd\n\n# Fix import by including index_col\ncars = pd.read_csv('cars.csv', index_col=0)\n\n# Print out cars\nprint(cars)\n\n# Print out country column as Pandas Series\nprint(cars['country'])\n\n# Print out country column as Pandas DataFrame\nprint(cars[['country']])\n\n# Print out DataFrame with country and drives_right columns\nprint(cars[['country', 'drives_right']])\n\n# Print out first 3 observations\nprint(cars[0:3])\n\n# Print out fourth, fifth and sixth observation\nprint(cars[3:6])\n\n"
+    },
+    "addColumn.py": {
+      "filename": "addColumn.py",
+      "type": "application/x-python",
+      "language": "Python",
+      "raw_url": "https://gist.githubusercontent.com/jpcasa/8795d3dc4102b73a9c262df6df47bf6e/raw/3327b2cd748750168718f6caef4b0029621824d3/addColumn.py",
+      "size": 317,
+      "truncated": false,
+      "content": "# Import cars data\nimport pandas as pd\ncars = pd.read_csv('cars.csv', index_col = 0)\n\n# Code for loop that adds COUNTRY column\nfor lab, row in cars.iterrows() :\n    cars.loc[lab, \"COUNTRY\"] = row[\"country\"].upper()\n\n# Same thing on one line\ncars[\"COUNTRY\"] = cars[\"country\"].apply(str.upper)\n\n# Print cars\nprint(cars)"
+    },
+    "dictToDataFrame.py": {
+      "filename": "dictToDataFrame.py",
+      "type": "application/x-python",
+      "language": "Python",
+      "raw_url": "https://gist.githubusercontent.com/jpcasa/8795d3dc4102b73a9c262df6df47bf6e/raw/b0d1b0f2bcd4b55d43959973102a8f780e6b5907/dictToDataFrame.py",
+      "size": 498,
+      "truncated": false,
+      "content": "import pandas as pd\n\n# Build cars DataFrame\nnames = ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt']\ndr =  [True, False, False, False, True, True, True]\ncpc = [809, 731, 588, 18, 200, 70, 45]\ndict = { 'country':names, 'drives_right':dr, 'cars_per_cap':cpc }\ncars = pd.DataFrame(dict)\nprint(cars)\n\n# Definition of row_labels\nrow_labels = ['US', 'AUS', 'JAP', 'IN', 'RU', 'MOR', 'EG']\n\n# Specify row labels of cars\ncars.index = row_labels\n\n# Print cars again\nprint(cars)"
+    },
+    "filtering.py": {
+      "filename": "filtering.py",
+      "type": "application/x-python",
+      "language": "Python",
+      "raw_url": "https://gist.githubusercontent.com/jpcasa/8795d3dc4102b73a9c262df6df47bf6e/raw/3a296e390bc6a2401702c0324d642ccabe02fa04/filtering.py",
+      "size": 333,
+      "truncated": false,
+      "content": "# Import cars data\nimport pandas as pd\ncars = pd.read_csv('cars.csv', index_col = 0)\n\n# Import numpy, you'll need this\nimport numpy as np\n\n# Create medium: observations with cars_per_cap between 100 and 500\ncpc = cars['cars_per_cap']\nbetween = np.logical_and(cpc > 100, cpc < 500)\nmedium = cars[between]\n\n# Print medium\nprint(medium)"
+    },
+    "locs.py": {
+      "filename": "locs.py",
+      "type": "application/x-python",
+      "language": "Python",
+      "raw_url": "https://gist.githubusercontent.com/jpcasa/8795d3dc4102b73a9c262df6df47bf6e/raw/4ecda2c078c04436bbbc903be27b023b321d1cb0/locs.py",
+      "size": 703,
+      "truncated": false,
+      "content": "# Import cars data\nimport pandas as pd\ncars = pd.read_csv('cars.csv', index_col = 0)\n\n# Print out observation for Japan\nprint(cars.loc['JAP'])\nprint(cars.iloc[2])\n\n# Print out observations for Australia and Egypt\nprint(cars.loc[['AUS', 'EG']])\nprint(cars.iloc[[0, -1]])\n\n# Print out drives_right value of Morocco\nprint(cars.loc['MOR', 'drives_right'])\n\n# Print sub-DataFrame\nprint(cars.loc[['RU', 'MOR'], ['country', 'drives_right']])\n\n# Print out drives_right column as Series\nprint(cars.loc[:, 'drives_right'])\n\n# Print out drives_right column as DataFrame\nprint(cars.loc[:, ['drives_right']])\n\n# Print out cars_per_cap and drives_right as DataFrame\nprint(cars.loc[:, ['cars_per_cap','drives_right']])"
+    }
+  },
+  "public": true,
+  "created_at": "2018-12-24T16:47:24Z",
+  "updated_at": "2018-12-24T17:24:59Z",
+  "description": "Pandas is an open source library, providing high-performance, easy-to-use data structures and data analysis tools for Python. Sounds promising!\n\nThe DataFrame is one of Pandas' most important data structures. It's basically a way to store tabular dat",
+  "comments": 0,
+  "user": null,
+  "comments_url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/comments",
+  "owner": {
+    "login": "jpcasa",
+    "id": 35706301,
+    "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/jpcasa",
+    "html_url": "https://github.com/jpcasa",
+    "followers_url": "https://api.github.com/users/jpcasa/followers",
+    "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+    "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+    "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+    "repos_url": "https://api.github.com/users/jpcasa/repos",
+    "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "forks": [
+
+  ],
+  "history": [
+    {
+      "user": {
+        "login": "jpcasa",
+        "id": 35706301,
+        "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jpcasa",
+        "html_url": "https://github.com/jpcasa",
+        "followers_url": "https://api.github.com/users/jpcasa/followers",
+        "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+        "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+        "repos_url": "https://api.github.com/users/jpcasa/repos",
+        "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "e17a9a30445391cee0676f74493f1bd0687f4095",
+      "committed_at": "2018-12-24T17:24:58Z",
+      "change_status": {
+        "total": 13,
+        "additions": 13,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/e17a9a30445391cee0676f74493f1bd0687f4095"
+    },
+    {
+      "user": {
+        "login": "jpcasa",
+        "id": 35706301,
+        "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jpcasa",
+        "html_url": "https://github.com/jpcasa",
+        "followers_url": "https://api.github.com/users/jpcasa/followers",
+        "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+        "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+        "repos_url": "https://api.github.com/users/jpcasa/repos",
+        "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "c6c79e22db9fb7d44f3e3b37af557a8f9c2f2f99",
+      "committed_at": "2018-12-24T17:11:54Z",
+      "change_status": {
+        "total": 14,
+        "additions": 14,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/c6c79e22db9fb7d44f3e3b37af557a8f9c2f2f99"
+    },
+    {
+      "user": {
+        "login": "jpcasa",
+        "id": 35706301,
+        "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jpcasa",
+        "html_url": "https://github.com/jpcasa",
+        "followers_url": "https://api.github.com/users/jpcasa/followers",
+        "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+        "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+        "repos_url": "https://api.github.com/users/jpcasa/repos",
+        "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "3b78cc28d192d4403958900b44d1212465a37b9a",
+      "committed_at": "2018-12-24T16:47:24Z",
+      "change_status": {
+        "total": 68,
+        "additions": 68,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/3b78cc28d192d4403958900b44d1212465a37b9a"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "user": {
+      "login": "jpcasa",
+      "id": 35706301,
+      "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jpcasa",
+      "html_url": "https://github.com/jpcasa",
+      "followers_url": "https://api.github.com/users/jpcasa/followers",
+      "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+      "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+      "repos_url": "https://api.github.com/users/jpcasa/repos",
+      "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "version": "e17a9a30445391cee0676f74493f1bd0687f4095",
+    "committed_at": "2018-12-24T17:24:58Z",
+    "change_status": {
+      "total": 13,
+      "additions": 13,
+      "deletions": 0
+    },
+    "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/e17a9a30445391cee0676f74493f1bd0687f4095"
+  },
+  {
+    "user": {
+      "login": "jpcasa",
+      "id": 35706301,
+      "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jpcasa",
+      "html_url": "https://github.com/jpcasa",
+      "followers_url": "https://api.github.com/users/jpcasa/followers",
+      "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+      "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+      "repos_url": "https://api.github.com/users/jpcasa/repos",
+      "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "version": "c6c79e22db9fb7d44f3e3b37af557a8f9c2f2f99",
+    "committed_at": "2018-12-24T17:11:54Z",
+    "change_status": {
+      "total": 14,
+      "additions": 14,
+      "deletions": 0
+    },
+    "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/c6c79e22db9fb7d44f3e3b37af557a8f9c2f2f99"
+  },
+  {
+    "user": {
+      "login": "jpcasa",
+      "id": 35706301,
+      "node_id": "MDQ6VXNlcjM1NzA2MzAx",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35706301?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jpcasa",
+      "html_url": "https://github.com/jpcasa",
+      "followers_url": "https://api.github.com/users/jpcasa/followers",
+      "following_url": "https://api.github.com/users/jpcasa/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jpcasa/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jpcasa/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jpcasa/subscriptions",
+      "organizations_url": "https://api.github.com/users/jpcasa/orgs",
+      "repos_url": "https://api.github.com/users/jpcasa/repos",
+      "events_url": "https://api.github.com/users/jpcasa/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jpcasa/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "version": "3b78cc28d192d4403958900b44d1212465a37b9a",
+    "committed_at": "2018-12-24T16:47:24Z",
+    "change_status": {
+      "total": 68,
+      "additions": 68,
+      "deletions": 0
+    },
+    "url": "https://api.github.com/gists/8795d3dc4102b73a9c262df6df47bf6e/3b78cc28d192d4403958900b44d1212465a37b9a"
+  }
+]

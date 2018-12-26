@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Github Gists</string>
+    <string name="empty_gists">Your gists list is empty</string>
+    <string name="loading">Loading…</string>
+</resources>
