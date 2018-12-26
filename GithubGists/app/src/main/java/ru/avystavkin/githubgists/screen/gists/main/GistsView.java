@@ -12,6 +12,4 @@ public interface GistsView extends LoadingView {
     void showGists(@NonNull List<Gist> gists);
 
     void showError();
-
-    void showGistDetail(Gist gist);
 }

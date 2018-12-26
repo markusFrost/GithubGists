@@ -98,7 +98,7 @@ public class GistDetailActivity extends AppCompatActivity implements GistDetailV
 
     @Override
     public void showError(Throwable throwable) {
-        System.out.println();
+        System.out.println(throwable.toString());
     }
 
     @Override

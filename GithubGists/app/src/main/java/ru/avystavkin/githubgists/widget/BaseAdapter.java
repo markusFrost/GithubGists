@@ -9,6 +9,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
+
 public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends RecyclerView.Adapter<VH> {
 
     private final List<T> mItems = new ArrayList<>();
@@ -80,11 +82,4 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
     public int getItemCount() {
         return mItems.size();
     }
-
-    public interface OnItemClickListener<T> {
-
-        void onItemClick(@NonNull T item);
-
-    }
-
 }

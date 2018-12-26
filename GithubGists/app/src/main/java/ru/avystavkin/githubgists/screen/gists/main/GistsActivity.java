@@ -7,9 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Pair;
 import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,12 +26,12 @@ import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.general.LoadingDialog;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 import ru.avystavkin.githubgists.screen.gists.detail.GistDetailActivity;
-import ru.avystavkin.githubgists.widget.BaseAdapter;
+import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
+import rx.Observable;
 
-public class GistsActivity extends AppCompatActivity implements GistsView,
-        BaseAdapter.OnItemClickListener<Gist> {
+public class GistsActivity extends AppCompatActivity implements GistsView {
 
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -46,10 +46,12 @@ public class GistsActivity extends AppCompatActivity implements GistsView,
 
     private GistsPresenter mPresenter;
 
+    private static final int POPULAR_COUNT = 10;
+
     @Inject
     GithubRepository mRepository;
 
-    private GistsAdapter mAdapter;
+    private MainAdapter mAdapter;
 
     public static void start(@NonNull Activity activity) {
         Intent intent = new Intent(activity, GistsActivity.class);
@@ -70,9 +72,8 @@ public class GistsActivity extends AppCompatActivity implements GistsView,
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this));
         mRecyclerView.setEmptyView(mEmptyView);
 
-        mAdapter = new GistsAdapter(new ArrayList<>());
+        mAdapter = new MainAdapter(this);
         mAdapter.attachToRecyclerView(mRecyclerView);
-        mAdapter.setOnItemClickListener(this);
 
         AppDelegate.getAppComponent().injectGistActivity(this);
         LifecycleHandler lifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
@@ -81,27 +82,32 @@ public class GistsActivity extends AppCompatActivity implements GistsView,
     }
 
     @Override
-    public void onItemClick(@NonNull Gist item) {
-        mPresenter.onItemClick(item);
-    }
-
-    @Override
     public void showGists(@NonNull List<Gist> gists) {
-       mAdapter.changeDataSet(gists);
+       mAdapter.setListGists(gists);
+
+        Observable.from(gists)
+                .map(g -> g.getUser().getLogin())
+                .groupBy(name -> name)
+                .flatMap( gr -> gr.count().map(count -> new Pair<>(gr.getKey(), count)))
+                .toSortedList((a, b) -> (-1) * a.second.compareTo(b.second))
+                .flatMap(Observable::from)
+                .take(POPULAR_COUNT)
+                .map(pair -> {
+                    User user = getUserByLogin(gists, pair.first);
+                    user.setGistsCount(pair.second);
+                    return user;
+                })
+                .toList()
+                .subscribe( users -> mAdapter.setListUsers(users));
     }
 
     private User getUserByLogin(List<Gist> list, String login) {
         for (Gist gist : list) {
             User user = gist.getUser();
-            if (user != null && user.getAvatarUrl().equals(login))
+            if (user != null && user.getLogin().equals(login))
                 return user;
         }
         return new User();
-    }
-
-    @Override
-    public void showGistDetail(Gist gist) {
-        GistDetailActivity.start(this, gist);
     }
 
     @Override

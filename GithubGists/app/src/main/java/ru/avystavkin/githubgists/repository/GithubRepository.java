@@ -11,12 +11,12 @@ import rx.Observable;
 public interface GithubRepository {
 
     @NonNull
-    Observable<List<Gist>> gists();
+    Observable<List<Gist>> getGists();
 
     @NonNull
-    Observable<Gist> gist_detail(String id);
+    Observable<Gist> getGistById(String id);
 
     @NonNull
-    Observable<List<GistHistory>> get_gist_commits(String id);
+    Observable<List<GistHistory>> getCommitsByGistId(String id);
 
 }

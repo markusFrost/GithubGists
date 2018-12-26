@@ -48,9 +48,9 @@ public class DataModule {
     @Singleton
     OkHttpClient provideOkHttpClient() {
         return new OkHttpClient.Builder()
-                .addInterceptor(LoggingInterceptor.create())
-                .addInterceptor(ApiKeyInterceptor.create())
-                //.addInterceptor(MockingInterceptor.create())
+                    .addInterceptor(LoggingInterceptor.create())
+                    .addInterceptor(ApiKeyInterceptor.create())
+//                .addInterceptor(MockingInterceptor.create())
                 .build();
     }
 }

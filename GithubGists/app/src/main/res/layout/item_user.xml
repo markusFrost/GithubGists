@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rootView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/cat1"
+            android:id="@+id/user_img"/>
+
+        <TextView
+            android:layout_below="@id/user_img"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="rust-play-rust-play-rust-play"
+            android:id="@+id/user_name"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -4,6 +4,8 @@
     <item name="content_frame" type="id"/>
     <item name="toolbar" type="id"/>
     <item name="recyclerView" type="id"/>
+    <item name="recyclerViewHorizontal" type="id"/>
+    <item name="recyclerViewVertical" type="id"/>
     <item name="empty" type="id"/>
 
 </resources>

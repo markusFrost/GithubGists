@@ -57,8 +57,8 @@ public class GistDetailPresenter {
             return;
         }
 
-        Observable<Gist> observableDetail = mRepository.gist_detail(id);
-        Observable<List<GistHistory>> observableCommits = mRepository.get_gist_commits(id);
+        Observable<Gist> observableDetail = mRepository.getGistById(id);
+        Observable<List<GistHistory>> observableCommits = mRepository.getCommitsByGistId(id);
 
         Observable.merge(observableDetail, observableCommits)
                 .doOnSubscribe(mView::showLoading)

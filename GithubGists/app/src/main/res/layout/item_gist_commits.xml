@@ -8,6 +8,7 @@
     android:clickable="true">
 
     <ImageView
+        android:background="@drawable/img"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_centerVertical="true"
