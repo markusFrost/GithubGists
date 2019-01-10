@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.gists.detail;
+package ru.avystavkin.githubgists.screen.detail;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,10 +13,10 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.content.GistHistory;
-import ru.avystavkin.githubgists.screen.gists.holders.GistDetailCommitsHolder;
-import ru.avystavkin.githubgists.screen.gists.holders.GistDetailContentHolder;
-import ru.avystavkin.githubgists.screen.gists.holders.GistDetailHeaderHolder;
-import ru.avystavkin.githubgists.screen.gists.holders.GistSectionHolder;
+import ru.avystavkin.githubgists.screen.holders.GistDetailCommitsHolder;
+import ru.avystavkin.githubgists.screen.holders.GistDetailContentHolder;
+import ru.avystavkin.githubgists.screen.holders.GistDetailHeaderHolder;
+import ru.avystavkin.githubgists.screen.holders.GistSectionHolder;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
 public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

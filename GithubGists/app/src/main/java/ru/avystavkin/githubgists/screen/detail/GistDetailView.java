@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.gists.detail;
+package ru.avystavkin.githubgists.screen.detail;
 
 import android.support.annotation.NonNull;
 

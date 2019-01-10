@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="ru.avystavkin.githubgists.screen.gists.main.GistsActivity"
+            android:name=".screen.main.MainPageActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ru.avystavkin.githubgists.screen.gists.detail.GistDetailActivity"
+            android:name=".screen.detail.GistDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

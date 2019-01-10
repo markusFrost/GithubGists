@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.gists.popular;
+package ru.avystavkin.githubgists.screen.main.popular;
 
 
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
-import ru.avystavkin.githubgists.screen.gists.holders.UserPopularHolder;
+import ru.avystavkin.githubgists.screen.holders.UserPopularHolder;
 import ru.avystavkin.githubgists.widget.BaseAdapter;
 
 

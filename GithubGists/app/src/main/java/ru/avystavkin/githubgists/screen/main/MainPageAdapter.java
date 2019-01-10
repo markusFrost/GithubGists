@@ -1,6 +1,5 @@
-package ru.avystavkin.githubgists.screen.gists.main;
+package ru.avystavkin.githubgists.screen.main;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -12,11 +11,14 @@ import java.util.List;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
-import ru.avystavkin.githubgists.screen.gists.holders.HorizontalRecyclerViewHolder;
-import ru.avystavkin.githubgists.screen.gists.holders.VerticalRecyclerViewHolder;
+import ru.avystavkin.githubgists.screen.holders.HorizontalRecyclerViewHolder;
+import ru.avystavkin.githubgists.screen.holders.VerticalRecyclerViewHolder;
+import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
+import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
+import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnGistClickListner, OnUserClickListener {
 
     private static final int HORIZONTAL_VIEW_TYPE = 0;
     private static final int VERTCAL_VIEW_TYPE = 1;
@@ -25,22 +27,23 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Gist> mLisGists;
 
     @Nullable
+    private OnMainPageClickListner mOnMainPageClickListner;
+
+    @Nullable
     private EmptyRecyclerView mRecyclerView;
 
-    private Activity mActivity;
-
-    public MainAdapter(Activity activity){
-        mActivity = activity;
+    public MainPageAdapter(@Nullable OnMainPageClickListner onMainPageClickListner) {
+        mOnMainPageClickListner = onMainPageClickListner;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HORIZONTAL_VIEW_TYPE) {
-            return new HorizontalRecyclerViewHolder(mActivity, LayoutInflater.from(parent.getContext())
+            return new HorizontalRecyclerViewHolder(this, LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recylerview_horizontal, parent, false));
         }
         else {
-            return new VerticalRecyclerViewHolder(mActivity, LayoutInflater.from(parent.getContext())
+            return new VerticalRecyclerViewHolder(this, LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recylerview_vertical, parent, false));
         }
     }
@@ -101,5 +104,17 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void setListGists(List<Gist> listGists) {
         this.mLisGists = listGists;
         refreshRecycler();
+    }
+
+    @Override
+    public void onGistClick(Gist git) {
+        if (mOnMainPageClickListner != null)
+            mOnMainPageClickListner.onGistClick(git);
+    }
+
+    @Override
+    public void onUserClick(User user) {
+        if (mOnMainPageClickListner != null)
+            mOnMainPageClickListner.onUserClick(user);
     }
 }

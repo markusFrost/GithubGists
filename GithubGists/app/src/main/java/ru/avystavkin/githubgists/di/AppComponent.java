@@ -3,14 +3,14 @@ package ru.avystavkin.githubgists.di;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import ru.avystavkin.githubgists.screen.gists.main.GistsActivity;
-import ru.avystavkin.githubgists.screen.gists.detail.GistDetailActivity;
+import ru.avystavkin.githubgists.screen.main.MainPageActivity;
+import ru.avystavkin.githubgists.screen.detail.GistDetailActivity;
 
 @Singleton
 @Component(modules = {DataModule.class})
 public interface AppComponent {
 
-    void injectGistActivity(GistsActivity gistsActivity);
+    void injectGistActivity(MainPageActivity gistsActivity);
 
     void injectGistDetailActivity(GistDetailActivity gistDetailActivity);
 }

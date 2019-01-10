@@ -1,19 +1,22 @@
-package ru.avystavkin.githubgists.screen.gists.main;
+package ru.avystavkin.githubgists.screen.main;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.avystavkin.githubgists.R;
+import ru.avystavkin.githubgists.content.Gist;
+import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 
-public class GistsPresenter {
+public class MainPagePresenter {
 
     private final GithubRepository mRepository;
     private final LifecycleHandler mLifecycleHandler;
-    private final GistsView mView;
+    private final MainPageView mView;
 
-    public GistsPresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
-                                 @NonNull GistsView view) {
+    public MainPagePresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
+                             @NonNull MainPageView view) {
         mRepository = repository;
         mLifecycleHandler = lifecycleHandler;
         mView = view;

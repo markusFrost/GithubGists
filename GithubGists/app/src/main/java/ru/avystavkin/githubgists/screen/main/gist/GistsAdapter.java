@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.gists.main;
+package ru.avystavkin.githubgists.screen.main.gist;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import java.util.List;
 
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.screen.gists.holders.GistHolder;
+import ru.avystavkin.githubgists.screen.holders.GistHolder;
 import ru.avystavkin.githubgists.widget.BaseAdapter;
 
 public class GistsAdapter extends BaseAdapter<GistHolder, Gist> {

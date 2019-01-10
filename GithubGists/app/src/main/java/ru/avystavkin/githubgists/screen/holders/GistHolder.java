@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.gists.holders;
+package ru.avystavkin.githubgists.screen.holders;
 
 import android.view.View;
 

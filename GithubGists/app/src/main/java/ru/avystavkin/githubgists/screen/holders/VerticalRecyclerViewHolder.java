@@ -1,7 +1,7 @@
-package ru.avystavkin.githubgists.screen.gists.holders;
+package ru.avystavkin.githubgists.screen.holders;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,8 +14,8 @@ import butterknife.ButterKnife;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.screen.gists.detail.GistDetailActivity;
-import ru.avystavkin.githubgists.screen.gists.main.GistsAdapter;
+import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
+import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
@@ -28,12 +28,13 @@ public class VerticalRecyclerViewHolder extends RecyclerView.ViewHolder implemen
     @BindView(R.id.empty)
     View mEmptyView;
 
-    private GistsAdapter mAdapter;
-    private Activity mActivity;
+    @Nullable
+    private OnGistClickListner mOnGistClickListener;
 
-    public VerticalRecyclerViewHolder(Activity activity, View itemView) {
+    private GistsAdapter mAdapter;
+
+    public VerticalRecyclerViewHolder(@Nullable OnGistClickListner onGistClickListener, View itemView) {
         super(itemView);
-        mActivity = activity;
         ButterKnife.bind(this, itemView);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(AppDelegate.getContext()));
@@ -43,6 +44,8 @@ public class VerticalRecyclerViewHolder extends RecyclerView.ViewHolder implemen
         mAdapter = new GistsAdapter(new ArrayList<>());
         mAdapter.attachToRecyclerView(mRecyclerView);
         mAdapter.setOnItemClickListener(this);
+
+        mOnGistClickListener = onGistClickListener;
     }
 
     public void bind(@NonNull List<Gist> gists) {
@@ -50,7 +53,8 @@ public class VerticalRecyclerViewHolder extends RecyclerView.ViewHolder implemen
     }
 
     @Override
-    public void onItemClick(@NonNull Gist item) {
-        GistDetailActivity.start(mActivity, item);
+    public void onItemClick(@NonNull Gist gist) {
+        if (mOnGistClickListener != null)
+            mOnGistClickListener.onGistClick(gist);
     }
 }
