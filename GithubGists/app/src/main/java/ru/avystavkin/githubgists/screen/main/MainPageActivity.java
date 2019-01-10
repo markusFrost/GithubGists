@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.util.Pair;
 import android.view.View;
 
 import java.util.List;
@@ -29,7 +28,6 @@ import ru.avystavkin.githubgists.screen.general.LoadingView;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
-import rx.Observable;
 
 public class MainPageActivity extends AppCompatActivity implements MainPageView, OnMainPageClickListner {
 
@@ -45,8 +43,6 @@ public class MainPageActivity extends AppCompatActivity implements MainPageView,
     private LoadingView mLoadingView;
 
     private MainPagePresenter mPresenter;
-
-    private static final int POPULAR_COUNT = 10;
 
     @Inject
     GithubRepository mRepository;
@@ -84,35 +80,12 @@ public class MainPageActivity extends AppCompatActivity implements MainPageView,
     @Override
     public void showGists(@NonNull List<Gist> gists) {
        mAdapter.setListGists(gists);
-
-        Observable.from(gists)
-                .map(g -> g.getUser().getLogin())
-                .groupBy(name -> name)
-                .flatMap( gr -> gr.count().map(count -> new Pair<>(gr.getKey(), count)))
-                .toSortedList((a, b) -> (-1) * a.second.compareTo(b.second))
-                .flatMap(Observable::from)
-                .take(POPULAR_COUNT)
-                .map(pair -> {
-                    User user = getUserByLogin(gists, pair.first);
-                    user.setGistsCount(pair.second);
-                    return user;
-                })
-                .toList()
-                .subscribe( users -> mAdapter.setListUsers(users));
+       mPresenter.loadUsers(gists);
     }
 
     @Override
     public void showUsers(@NonNull List<User> users) {
-
-    }
-
-    private User getUserByLogin(List<Gist> list, String login) {
-        for (Gist gist : list) {
-            User user = gist.getUser();
-            if (user != null && user.getLogin().equals(login))
-                return user;
-        }
-        return new User();
+        mAdapter.setListUsers(users);
     }
 
     @Override

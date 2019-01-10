@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ru.avystavkin.githubgists.R;
@@ -23,8 +24,8 @@ public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int HORIZONTAL_VIEW_TYPE = 0;
     private static final int VERTCAL_VIEW_TYPE = 1;
 
-    private List<User> mListUsers;
-    private List<Gist> mLisGists;
+    private List<User> mListUsers = new ArrayList<>();
+    private List<Gist> mLisGists = new ArrayList<>();
 
     @Nullable
     private OnMainPageClickListner mOnMainPageClickListner;
@@ -59,10 +60,10 @@ public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public int getItemCount() {
         int count = 0;
-        if (mLisGists != null && mLisGists.size() > 0)
+        if (mLisGists.size() > 0)
             count++;
 
-        if (mListUsers != null && mListUsers.size() > 0)
+        if (mListUsers.size() > 0)
             count++;
 
         return count;
@@ -74,11 +75,8 @@ public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public void clear() {
-        if (mListUsers != null)
-            mListUsers.clear();
-
-        if (mLisGists != null)
-            mLisGists.clear();
+        mListUsers.clear();
+        mLisGists.clear();
 
         refreshRecycler();
     }
@@ -97,12 +95,12 @@ public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public void setListUsers(List<User> listUsers) {
-        this.mListUsers = listUsers;
+        mListUsers.addAll(listUsers);
         refreshRecycler();
     }
 
     public void setListGists(List<Gist> listGists) {
-        this.mLisGists = listGists;
+        mLisGists.addAll(listGists);
         refreshRecycler();
     }
 

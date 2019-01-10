@@ -1,15 +1,23 @@
 package ru.avystavkin.githubgists.screen.main;
 
-import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.util.Pair;
+
+import java.util.List;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.utils.TextUtils;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainPagePresenter {
+
+    private static final int POPULAR_COUNT = 10;
 
     private final GithubRepository mRepository;
     private final LifecycleHandler mLifecycleHandler;
@@ -28,5 +36,34 @@ public class MainPagePresenter {
                 .doOnTerminate(mView::hideLoading)
                 .compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGists, throwable -> mView.showError());
+    }
+
+    public void loadUsers(@NonNull List<Gist> gists) {
+        Observable.from(gists)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .filter(gist -> gist.getUser() != null && !TextUtils.isEmpty(gist.getUser().getLogin()))
+                .map(g -> g.getUser().getLogin())
+                .groupBy(login -> login)
+                .flatMap( gr -> gr.count().map(count -> new Pair<>(gr.getKey(), count)))
+                .toSortedList((p1, p2) -> (-1) * p1.second.compareTo(p2.second))
+                .flatMap(Observable::from)
+                .take(POPULAR_COUNT)
+                .map(pair -> {
+                    User user = getUserByLogin(gists, pair.first);
+                    user.setGistsCount(pair.second);
+                    return user;
+                })
+                .toList()
+                .subscribe( users -> mView.showUsers(users));
+    }
+
+    private User getUserByLogin(List<Gist> list, String login) {
+        for (Gist gist : list) {
+            User user = gist.getUser();
+            if (user != null && user.getLogin().equals(login))
+                return user;
+        }
+        return new User();
     }
 }
