@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
+import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 
 public class UserDetailActivity extends BaseActivity implements UserView {
 
@@ -22,11 +24,15 @@ public class UserDetailActivity extends BaseActivity implements UserView {
     GithubRepository mRepository;
 
     private UserDetailPresenter mPresenter;
+    private GistsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_gists);
         super.onCreate(savedInstanceState);
+
+        mAdapter = new GistsAdapter(new ArrayList<>());
+        mAdapter.attachToRecyclerView(mRecyclerView);
 
         AppDelegate.getAppComponent().injectUserDetailActivity(this);
 
@@ -44,19 +50,13 @@ public class UserDetailActivity extends BaseActivity implements UserView {
 
     @Override
     public void showError(Throwable throwable) {
-
-    }
-
-    @Override
-    public void showUser(@NonNull User user) {
-
+        mAdapter.clear();
     }
 
     @Override
     public void showGists(@NonNull List<Gist> gists) {
-
+        mAdapter.changeDataSet(gists);
     }
-
 
     @Override
     public void showLoading() {

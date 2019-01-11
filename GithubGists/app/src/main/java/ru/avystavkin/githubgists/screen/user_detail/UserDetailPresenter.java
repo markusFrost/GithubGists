@@ -37,7 +37,6 @@ public class UserDetailPresenter {
         if (intent.hasExtra(GistDetailActivity.KEY_USER_URL))
             user.setAvatarUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
 
-        mView.showUser(user);
         loadUserGists(user.getLogin());
     }
 

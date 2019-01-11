@@ -15,7 +15,7 @@ import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailCommitViewHolder;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailContentViewHolder;
-import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailHeaderViewHolder;
+import ru.avystavkin.githubgists.screen.gist_detail.holders.UserHeaderViewHolder;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistSectionHolder;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 
@@ -85,7 +85,7 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == HEADER_TYPE) {
-            return new GistDetailHeaderViewHolder(LayoutInflater.from(parent.getContext())
+            return new UserHeaderViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_gist, parent, false));
         }
         else if (viewType == COMMITS_SECTION_TYPE || viewType == CONTENT_SECTION_TYPE ) {
@@ -108,7 +108,7 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
         holder.itemView.setTag(position);
         switch (getItemViewType(position)) {
             case HEADER_TYPE: {
-                ((GistDetailHeaderViewHolder)holder).bind(mGist);
+                ((UserHeaderViewHolder)holder).bind(mGist);
             }break;
             case CONTENT_SECTION_TYPE: {
                 ((GistSectionHolder)holder).bind(AppDelegate.getContext().getResources().getString(R.string.content_section));
