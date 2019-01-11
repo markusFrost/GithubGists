@@ -26,6 +26,9 @@
         <activity
             android:name=".screen.gist_detail.GistDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screen.user_detail.UserDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
