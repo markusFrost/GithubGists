@@ -21,6 +21,7 @@ public class RequestsHandler {
         mResponsesMap.put("/gists/public", "gists.json");
         mResponsesMap.put("/gists/id", "gists_detail.json");
         mResponsesMap.put("/gists/id/commits", "gist_commits.json");
+        mResponsesMap.put("/users/name/gists", "user_detail.json");
     }
 
     public boolean shouldIntercept(@NonNull String path) {

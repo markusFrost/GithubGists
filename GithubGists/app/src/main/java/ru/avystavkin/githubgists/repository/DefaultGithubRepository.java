@@ -32,6 +32,12 @@ public class DefaultGithubRepository implements GithubRepository {
 
     @NonNull
     @Override
+    public Observable<List<Gist>> getGistsByUserName(String name) {
+        return mGithubService.user_detail(name).compose(RxUtils.async());
+    }
+
+    @NonNull
+    @Override
     public Observable<List<GistHistory>> getCommitsByGistId(String id) {
         return mGithubService.gist_commits(id).compose(RxUtils.async());
     }

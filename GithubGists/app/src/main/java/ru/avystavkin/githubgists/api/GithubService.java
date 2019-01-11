@@ -19,4 +19,7 @@ public interface GithubService {
     @GET("/gists/{gist_id}/commits")
     Observable<List<GistHistory>> gist_commits(@Path("gist_id") String id);
 
+    @GET("/users/{name}/gists")
+    Observable<List<Gist>>  user_detail(@Path("name") String name);
+
 }

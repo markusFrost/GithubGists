@@ -6,14 +6,13 @@ import android.util.Pair;
 import java.util.List;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;
+import ru.arturvasilov.rxloader.RxUtils;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.utils.TextUtils;
 import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class MainPagePresenter {
 
@@ -40,8 +39,7 @@ public class MainPagePresenter {
 
     public void loadUsers(@NonNull List<Gist> gists) {
         Observable.from(gists)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                .compose(RxUtils.async())
                 .filter(gist -> gist.getUser() != null && !TextUtils.isEmpty(gist.getUser().getLogin()))
                 .map(g -> g.getUser().getLogin())
                 .groupBy(login -> login)

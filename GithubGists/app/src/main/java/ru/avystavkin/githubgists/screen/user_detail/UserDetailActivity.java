@@ -18,12 +18,17 @@ public class UserDetailActivity extends BaseActivity implements UserView {
     @Inject
     GithubRepository mRepository;
 
+    private UserDetailPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_gists);
         super.onCreate(savedInstanceState);
 
         AppDelegate.getAppComponent().injectUserDetailActivity(this);
+
+        mPresenter = new UserDetailPresenter(mRepository, mLifecycleHandler, this);
+        mPresenter.init(getIntent());
     }
 
     public static void start(@NonNull Activity activity, User user) {
@@ -41,21 +46,21 @@ public class UserDetailActivity extends BaseActivity implements UserView {
 
     @Override
     public void showGist(@NonNull Object item) {
-
+        System.out.println();
     }
 
     @Override
     public void showLoading() {
-
+        mLoadingView.showLoading();
     }
 
     @Override
     public void hideLoading() {
-
+        mLoadingView.hideLoading();
     }
 
     @Override
     public void showUser(User user) {
-        
+        System.out.println();
     }
 }

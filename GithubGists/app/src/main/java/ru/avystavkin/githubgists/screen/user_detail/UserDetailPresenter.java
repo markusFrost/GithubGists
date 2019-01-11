@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 
 import ru.arturvasilov.rxloader.LifecycleHandler;
+import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
@@ -37,12 +38,18 @@ public class UserDetailPresenter {
             user.setAvatarUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
 
         mView.showUser(user);
-        loadUserGists(user.getId());
+        loadUserGists(user.getLogin());
     }
 
-    private void loadUserGists(String id) {
+    private void loadUserGists(String name) {
         //---temp
-        id = "id";
+        name = "name";
         //---temp
+
+        mRepository.getGistsByUserName(name)
+                .doOnSubscribe(mView::showLoading)
+                .doOnTerminate(mView::hideLoading)
+                .compose(mLifecycleHandler.load(R.id.gists_request))
+                .subscribe(mView::showGist, mView::showError);
     }
 }

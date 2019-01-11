@@ -17,6 +17,9 @@ public interface GithubRepository {
     Observable<Gist> getGistById(String id);
 
     @NonNull
+    Observable<List<Gist>> getGistsByUserName(String name);
+
+    @NonNull
     Observable<List<GistHistory>> getCommitsByGistId(String id);
 
 }
