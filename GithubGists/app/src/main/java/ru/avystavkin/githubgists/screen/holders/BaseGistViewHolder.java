@@ -6,14 +6,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.utils.Images;
 import ru.avystavkin.githubgists.utils.TextUtils;
 
-public abstract class BaseGistUserHolder extends BaseViewHolder {
+public abstract class BaseGistViewHolder extends BaseViewHolder {
 
     @BindView(R.id.gist_name)
     protected TextView mName;
@@ -24,7 +23,7 @@ public abstract class BaseGistUserHolder extends BaseViewHolder {
     @BindView(R.id.gist_img)
     protected ImageView mImageView;
 
-    public BaseGistUserHolder(View itemView) {
+    public BaseGistViewHolder(View itemView) {
         super(itemView);
     }
 

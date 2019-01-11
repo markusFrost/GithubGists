@@ -12,8 +12,8 @@ import java.util.List;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
-import ru.avystavkin.githubgists.screen.holders.HorizontalRecyclerViewHolder;
-import ru.avystavkin.githubgists.screen.holders.VerticalRecyclerViewHolder;
+import ru.avystavkin.githubgists.screen.holders.UsersListViewHolder;
+import ru.avystavkin.githubgists.screen.holders.GistsListViewHolder;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;
@@ -40,11 +40,11 @@ public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HORIZONTAL_VIEW_TYPE) {
-            return new HorizontalRecyclerViewHolder(this, LayoutInflater.from(parent.getContext())
+            return new UsersListViewHolder(this, LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recylerview_horizontal, parent, false));
         }
         else {
-            return new VerticalRecyclerViewHolder(this, LayoutInflater.from(parent.getContext())
+            return new GistsListViewHolder(this, LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recylerview_vertical, parent, false));
         }
     }
@@ -52,9 +52,9 @@ public class MainPageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (position == HORIZONTAL_VIEW_TYPE)
-            ((HorizontalRecyclerViewHolder)holder).bind(mListUsers);
+            ((UsersListViewHolder)holder).bind(mListUsers);
         else
-            ((VerticalRecyclerViewHolder)holder).bind(mLisGists);
+            ((GistsListViewHolder)holder).bind(mLisGists);
     }
 
     @Override

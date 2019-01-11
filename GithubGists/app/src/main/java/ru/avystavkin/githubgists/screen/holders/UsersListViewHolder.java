@@ -18,7 +18,7 @@ import ru.avystavkin.githubgists.screen.main.popular.UserPopularAdapter;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class HorizontalRecyclerViewHolder extends BaseViewHolder implements OnItemClickListener<User> {
+public class UsersListViewHolder extends BaseViewHolder implements OnItemClickListener<User> {
 
     @BindView(R.id.recyclerViewHorizontal)
     EmptyRecyclerView mRecyclerView;
@@ -31,7 +31,7 @@ public class HorizontalRecyclerViewHolder extends BaseViewHolder implements OnIt
 
     private UserPopularAdapter mAdapter;
 
-    public HorizontalRecyclerViewHolder( @Nullable OnUserClickListener onUserClickListener, View itemView) {
+    public UsersListViewHolder(@Nullable OnUserClickListener onUserClickListener, View itemView) {
         super(itemView);
 
         LinearLayoutManager horizontalLayoutManager

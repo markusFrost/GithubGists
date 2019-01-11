@@ -7,20 +7,19 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.utils.TextUtils;
 
-public class GistDetailContentHolder extends BaseViewHolder {
+public class GistDetailContentViewHolder extends BaseViewHolder {
     @BindView(R.id.gist_file_name)
     TextView mFileName;
 
     @BindView(R.id.gist_code_content)
     TextView mCodeContent;
 
-    public GistDetailContentHolder(View itemView) {
+    public GistDetailContentViewHolder(View itemView) {
         super(itemView);
     }
 

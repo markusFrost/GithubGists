@@ -11,14 +11,14 @@ import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.utils.Images;
 import ru.avystavkin.githubgists.utils.TextUtils;
 
-public class UserHolder extends BaseViewHolder {
+public class UserViewHolder extends BaseViewHolder {
     @BindView(R.id.user_name)
     protected TextView mUserName;
 
     @BindView(R.id.user_img)
     protected ImageView mImageView;
 
-    public UserHolder(View itemView) {
+    public UserViewHolder(View itemView) {
         super(itemView);
     }
 

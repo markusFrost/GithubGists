@@ -13,9 +13,9 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.content.GistHistory;
-import ru.avystavkin.githubgists.screen.holders.GistDetailCommitsHolder;
-import ru.avystavkin.githubgists.screen.holders.GistDetailContentHolder;
-import ru.avystavkin.githubgists.screen.holders.GistDetailHeaderHolder;
+import ru.avystavkin.githubgists.screen.holders.GistDetailCommitViewHolder;
+import ru.avystavkin.githubgists.screen.holders.GistDetailContentViewHolder;
+import ru.avystavkin.githubgists.screen.holders.GistDetailHeaderViewHolder;
 import ru.avystavkin.githubgists.screen.holders.GistSectionHolder;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
@@ -95,7 +95,7 @@ public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == HEADER_TYPE) {
-            return new GistDetailHeaderHolder(LayoutInflater.from(parent.getContext())
+            return new GistDetailHeaderViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_gist, parent, false));
         }
         else if (viewType == COMMITS_SECTION_TYPE || viewType == CONTENT_SECTION_TYPE ) {
@@ -103,11 +103,11 @@ public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     .inflate(R.layout.item_gist_section, parent, false));
         }
         else if (viewType == CONTENT_TYPE ) {
-            return new GistDetailContentHolder(LayoutInflater.from(parent.getContext())
+            return new GistDetailContentViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_gist_content, parent, false));
         }
         else if (viewType == COMMIT_TYPE) {
-            return new GistDetailCommitsHolder(LayoutInflater.from(parent.getContext())
+            return new GistDetailCommitViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_gist_commits, parent, false));
         }
         return null;
@@ -118,19 +118,19 @@ public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         holder.itemView.setTag(position);
         switch (getItemViewType(position)) {
             case HEADER_TYPE: {
-                ((GistDetailHeaderHolder)holder).bind(mGist);
+                ((GistDetailHeaderViewHolder)holder).bind(mGist);
             }break;
             case CONTENT_SECTION_TYPE: {
                 ((GistSectionHolder)holder).bind("Content");
             }break;
             case CONTENT_TYPE: {
-                ((GistDetailContentHolder)holder).bind(mGist, position - mContentSectionIndex - 1);
+                ((GistDetailContentViewHolder)holder).bind(mGist, position - mContentSectionIndex - 1);
             }break;
             case COMMITS_SECTION_TYPE: {
                 ((GistSectionHolder)holder).bind("Commits");
             }break;
             case COMMIT_TYPE: {
-                ((GistDetailCommitsHolder)holder).bind(mListCommits, position - mCommitSectionIndex - 1);
+                ((GistDetailCommitViewHolder)holder).bind(mListCommits, position - mCommitSectionIndex - 1);
             }break;
         }
     }

@@ -12,7 +12,7 @@ import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.GistHistoryChangeStatus;
 import ru.avystavkin.githubgists.utils.TextUtils;
 
-public class GistDetailCommitsHolder extends BaseGistUserHolder {
+public class GistDetailCommitViewHolder extends BaseGistViewHolder {
 
     @BindView(R.id.gist_commit_total)
     TextView mTotal;
@@ -23,7 +23,7 @@ public class GistDetailCommitsHolder extends BaseGistUserHolder {
     @BindView(R.id.gist_commit_deletions)
     TextView mDeletions;
 
-    public GistDetailCommitsHolder(View itemView) {
+    public GistDetailCommitViewHolder(View itemView) {
         super(itemView);
     }
 

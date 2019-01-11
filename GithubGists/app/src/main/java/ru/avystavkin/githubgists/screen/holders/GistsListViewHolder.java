@@ -18,7 +18,7 @@ import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class VerticalRecyclerViewHolder extends BaseViewHolder implements OnItemClickListener<Gist> {
+public class GistsListViewHolder extends BaseViewHolder implements OnItemClickListener<Gist> {
 
     @BindView(R.id.recyclerViewVertical)
     EmptyRecyclerView mRecyclerView;
@@ -31,7 +31,7 @@ public class VerticalRecyclerViewHolder extends BaseViewHolder implements OnItem
 
     private GistsAdapter mAdapter;
 
-    public VerticalRecyclerViewHolder(@Nullable OnGistClickListner onGistClickListener, View itemView) {
+    public GistsListViewHolder(@Nullable OnGistClickListner onGistClickListener, View itemView) {
         super(itemView);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(AppDelegate.getContext()));
