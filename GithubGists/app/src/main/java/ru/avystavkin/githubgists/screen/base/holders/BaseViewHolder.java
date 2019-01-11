@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.holders;
+package ru.avystavkin.githubgists.screen.base.holders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.holders;
+package ru.avystavkin.githubgists.screen.main;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +12,7 @@ import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
+import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;

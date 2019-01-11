@@ -11,12 +11,10 @@ import java.util.List;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
-import ru.avystavkin.githubgists.screen.holders.GistsListViewHolder;
-import ru.avystavkin.githubgists.screen.holders.UsersListViewHolder;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;
-import ru.avystavkin.githubgists.widget.BaseRecyclerViewAdapter;
+import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 
 public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistClickListner, OnUserClickListener {
 

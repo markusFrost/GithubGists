@@ -8,8 +8,7 @@ import java.util.List;
 
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.screen.holders.GistViewHolder;
-import ru.avystavkin.githubgists.widget.BaseAdapter;
+import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter;
 
 public class GistsAdapter extends BaseAdapter<GistViewHolder, Gist> {
 

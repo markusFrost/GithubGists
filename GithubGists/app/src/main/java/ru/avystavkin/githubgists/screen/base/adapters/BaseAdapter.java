@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.widget;
+package ru.avystavkin.githubgists.screen.base.adapters;
 
 import android.support.annotation.CallSuper;
 import android.support.annotation.NonNull;

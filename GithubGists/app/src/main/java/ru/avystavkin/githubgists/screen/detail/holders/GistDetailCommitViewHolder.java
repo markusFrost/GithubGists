@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.holders;
+package ru.avystavkin.githubgists.screen.detail.holders;
 
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -11,6 +11,7 @@ import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.GistHistoryChangeStatus;
+import ru.avystavkin.githubgists.screen.base.holders.BaseGistViewHolder;
 import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class GistDetailCommitViewHolder extends BaseGistViewHolder {
