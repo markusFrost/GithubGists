@@ -50,6 +50,6 @@ public class UserDetailPresenter {
                 .doOnSubscribe(mView::showLoading)
                 .doOnTerminate(mView::hideLoading)
                 .compose(mLifecycleHandler.load(R.id.gists_request))
-                .subscribe(mView::showGist, mView::showError);
+                .subscribe(mView::showGists, mView::showError);
     }
 }

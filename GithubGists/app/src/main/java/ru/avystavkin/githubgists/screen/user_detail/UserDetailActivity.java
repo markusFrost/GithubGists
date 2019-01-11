@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
+import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
@@ -45,9 +48,15 @@ public class UserDetailActivity extends BaseActivity implements UserView {
     }
 
     @Override
-    public void showGist(@NonNull Object item) {
-        System.out.println();
+    public void showUser(@NonNull User user) {
+
     }
+
+    @Override
+    public void showGists(@NonNull List<Gist> gists) {
+
+    }
+
 
     @Override
     public void showLoading() {
@@ -59,8 +68,4 @@ public class UserDetailActivity extends BaseActivity implements UserView {
         mLoadingView.hideLoading();
     }
 
-    @Override
-    public void showUser(User user) {
-        System.out.println();
-    }
 }
