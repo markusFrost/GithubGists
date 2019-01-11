@@ -26,6 +26,7 @@ import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 import ru.avystavkin.githubgists.screen.general.LoadingDialog;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
+import ru.avystavkin.githubgists.screen.user_detail.UserDetailActivity;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
@@ -114,6 +115,6 @@ public class MainPageActivity extends AppCompatActivity implements MainPageView,
 
     @Override
     public void onUserClick(User user) {
-//todo create activity
+        UserDetailActivity.start(this, user);
     }
 }

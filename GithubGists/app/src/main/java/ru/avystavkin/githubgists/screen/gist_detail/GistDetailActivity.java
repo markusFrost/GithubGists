@@ -22,12 +22,13 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.screen.general.GistView;
 import ru.avystavkin.githubgists.screen.general.LoadingDialog;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class GistDetailActivity extends AppCompatActivity implements GistDetailView {
+public class GistDetailActivity extends AppCompatActivity implements GistView {
 
     public static final String KEY_NAME = "key_name";
     public static final String KEY_ID = "key_url";
@@ -51,9 +52,7 @@ public class GistDetailActivity extends AppCompatActivity implements GistDetailV
 
     private GistDetailAdapter mAdapter;
 
-    public static void start(@NonNull Activity activity, Gist gist) {
-        if (gist == null)
-            return;
+    public static void start(@NonNull Activity activity, @NonNull Gist gist) {
         Intent intent = new Intent(activity, GistDetailActivity.class);
         intent.putExtra(KEY_NAME, gist.getName());
         intent.putExtra(KEY_ID, gist.getId());

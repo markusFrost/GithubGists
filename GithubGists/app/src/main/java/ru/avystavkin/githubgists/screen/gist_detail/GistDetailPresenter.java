@@ -11,16 +11,17 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.screen.general.GistView;
 import ru.avystavkin.githubgists.utils.TextUtils;
 import rx.Observable;
 
 public class GistDetailPresenter {
     private final GithubRepository mRepository;
     private final LifecycleHandler mLifecycleHandler;
-    private final GistDetailView mView;
+    private final GistView mView;
 
     public GistDetailPresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
-                          @NonNull GistDetailView view) {
+                          @NonNull GistView view) {
         mRepository = repository;
         mLifecycleHandler = lifecycleHandler;
         mView = view;
