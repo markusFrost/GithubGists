@@ -7,6 +7,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.BindView;
+import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.GistHistoryChangeStatus;
@@ -34,14 +35,17 @@ public class GistDetailCommitViewHolder extends BaseGistViewHolder {
         super.bind(history.getUser());
         GistHistoryChangeStatus status = history.getChangeStatus();
         if (status != null) {
-            mTotal.setText("total: " +  status.getTotal());
-            mAdditions.setText("additions: " + status.getAdditions());
-            mDeletions.setText("deletions: " +   status.getDeletions());
+            mTotal.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_total), status.getTotal()));
+            mAdditions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_additions), status.getAdditions()));
+            mDeletions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_deletions), status.getDeletions()));
         }
 
         String dateStr = history.getCommittedAt();
         if (!TextUtils.isEmpty(dateStr)) {
-            mName.setText("commited at " + dateStr.replace("T", " ").replace("Z", ""));
+            mName.setText(String.format("%s %s",
+                    AppDelegate.getContext().getResources().getString(R.string.commits_date),
+                    dateStr.replace("T", " ").replace("Z", ""))
+            );
         }
     }
 }

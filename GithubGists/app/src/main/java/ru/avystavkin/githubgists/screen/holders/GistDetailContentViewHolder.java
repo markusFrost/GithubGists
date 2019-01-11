@@ -24,18 +24,16 @@ public class GistDetailContentViewHolder extends BaseViewHolder {
     }
 
     public void bind(@NonNull Gist gist, int position) {
-        if (gist != null) {
-            List<GistFile> list = gist.getGistFiles();
-            if (position >= list.size())
-                return;
+        List<GistFile> list = gist.getGistFiles();
+        if (position >= list.size())
+            return;
 
-            GistFile file = list.get(position);
-            if (!TextUtils.isEmpty(file.getFileName()))
-                mFileName.setText(file.getFileName());
+        GistFile file = list.get(position);
+        if (!TextUtils.isEmpty(file.getFileName()))
+            mFileName.setText(file.getFileName());
 
-            if (!TextUtils.isEmpty(file.getContent()))
-                mCodeContent.setText(file.getContent());
-        }
+        if (!TextUtils.isEmpty(file.getContent()))
+            mCodeContent.setText(file.getContent());
     }
 
     public TextView getFileName() {

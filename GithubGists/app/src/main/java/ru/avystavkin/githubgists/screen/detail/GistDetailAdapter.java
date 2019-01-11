@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
@@ -34,15 +35,10 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     private int mCommitBodyFirstIndex;
 
     private Gist mGist;
-    private List<GistHistory> mListCommits;
-
-    public GistDetailAdapter() {
-       mListCommits = new ArrayList<>();
-    }
+    private List<GistHistory> mListCommits = new ArrayList<>();
 
     public void setCommits(@NonNull List<GistHistory> commits) {
-        if (commits == null)
-            return;
+        mListCommits.clear();
         mListCommits.addAll(commits);
         notifyDataSetChanged();
     }
@@ -82,8 +78,6 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     }
 
     private int getCommitsCount() {
-        if (mListCommits == null)
-            return 0;
         return mListCommits.size();
     }
 
@@ -117,13 +111,13 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
                 ((GistDetailHeaderViewHolder)holder).bind(mGist);
             }break;
             case CONTENT_SECTION_TYPE: {
-                ((GistSectionHolder)holder).bind("Content");
+                ((GistSectionHolder)holder).bind(AppDelegate.getContext().getResources().getString(R.string.content_section));
             }break;
             case CONTENT_TYPE: {
                 ((GistDetailContentViewHolder)holder).bind(mGist, position - mContentSectionIndex - 1);
             }break;
             case COMMITS_SECTION_TYPE: {
-                ((GistSectionHolder)holder).bind("Commits");
+                ((GistSectionHolder)holder).bind(AppDelegate.getContext().getResources().getString(R.string.commits_section));
             }break;
             case COMMIT_TYPE: {
                 ((GistDetailCommitViewHolder)holder).bind(mListCommits, position - mCommitSectionIndex - 1);

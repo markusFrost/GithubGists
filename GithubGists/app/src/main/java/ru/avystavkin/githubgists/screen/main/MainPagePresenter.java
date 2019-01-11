@@ -55,7 +55,7 @@ public class MainPagePresenter {
                     return user;
                 })
                 .toList()
-                .subscribe( users -> mView.showUsers(users));
+                .subscribe(mView::showUsers);
     }
 
     private User getUserByLogin(List<Gist> list, String login) {

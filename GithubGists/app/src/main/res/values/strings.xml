@@ -2,4 +2,13 @@
     <string name="app_name">Github Gists</string>
     <string name="empty_gists">Your gists list is empty</string>
     <string name="loading">Loading…</string>
+
+    <string name="commits_total">total</string>
+    <string name="commits_additions">addition</string>
+    <string name="commits_deletions">deletions</string>
+    <string name="commits_date">commited at</string>
+
+    <string name="content_section">Content</string>
+    <string name="commits_section">Commits</string>
+
 </resources>

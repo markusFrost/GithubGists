@@ -78,11 +78,13 @@ public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistCl
     }
 
     public void setListUsers(List<User> listUsers) {
+        mListUsers.clear();
         mListUsers.addAll(listUsers);
         refreshRecycler();
     }
 
     public void setListGists(List<Gist> listGists) {
+        mLisGists.clear();
         mLisGists.addAll(listGists);
         refreshRecycler();
     }

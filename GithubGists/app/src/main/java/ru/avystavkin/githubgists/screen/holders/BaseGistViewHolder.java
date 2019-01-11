@@ -28,33 +28,29 @@ public abstract class BaseGistViewHolder extends BaseViewHolder {
     }
 
     public void bind(@NonNull Gist gist) {
-        if (gist != null) {
-            String gistName = gist.getName();
-            if (!TextUtils.isEmpty(gistName))
-                mName.setText(gistName);
+        String gistName = gist.getName();
+        if (!TextUtils.isEmpty(gistName))
+            mName.setText(gistName);
 
-            if (gist.getUser() != null){
-                String userName = gist.getUser().getLogin();
-                if (!TextUtils.isEmpty(userName))
-                    mUserName.setText(userName);
-            }
-
-            Images.loadGistAvatar(mImageView, gist);
+        if (gist.getUser() != null){
+            String userName = gist.getUser().getLogin();
+            if (!TextUtils.isEmpty(userName))
+                mUserName.setText(userName);
         }
+
+        Images.loadGistAvatar(mImageView, gist);
     }
 
     public void bind(@NonNull User user) {
-        if (user != null) {
-            String userName = user.getLogin();
-            if (!TextUtils.isEmpty(userName))
-                mUserName.setText(userName);
+        String userName = user.getLogin();
+        if (!TextUtils.isEmpty(userName))
+            mUserName.setText(userName);
 
-            String url = user.getAvatarUrl();
-            if (!TextUtils.isEmpty(url))
-                Images.loadImage(mImageView, url);
+        String url = user.getAvatarUrl();
+        if (!TextUtils.isEmpty(url))
+            Images.loadImage(mImageView, url);
 
-            mName.setText("");
-        }
+        mName.setText("");
     }
 
     public TextView getName() {
