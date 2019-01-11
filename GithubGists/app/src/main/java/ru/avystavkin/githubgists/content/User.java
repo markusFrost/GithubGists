@@ -4,13 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class User {
 
-    public User(String login, int gistsCount) {
-        mLogin = login;
-        mGistsCount = gistsCount;
-    }
-
-    public User(){}
-
     @SerializedName("id")
     private String mId;
 

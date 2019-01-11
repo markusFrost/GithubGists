@@ -3,24 +3,22 @@ package ru.avystavkin.githubgists.screen.holders;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
+import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class VerticalRecyclerViewHolder extends RecyclerView.ViewHolder implements OnItemClickListener<Gist> {
+public class VerticalRecyclerViewHolder extends BaseViewHolder implements OnItemClickListener<Gist> {
 
     @BindView(R.id.recyclerViewVertical)
     EmptyRecyclerView mRecyclerView;
@@ -35,7 +33,6 @@ public class VerticalRecyclerViewHolder extends RecyclerView.ViewHolder implemen
 
     public VerticalRecyclerViewHolder(@Nullable OnGistClickListner onGistClickListener, View itemView) {
         super(itemView);
-        ButterKnife.bind(this, itemView);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(AppDelegate.getContext()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(AppDelegate.getContext()));

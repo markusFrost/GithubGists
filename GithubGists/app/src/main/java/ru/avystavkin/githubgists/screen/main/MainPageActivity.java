@@ -31,6 +31,10 @@ import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
 public class MainPageActivity extends AppCompatActivity implements MainPageView, OnMainPageClickListner {
 
+    //todo
+    //refactor bases etc
+    //implement user activity like in assignment
+    //make rerofit part module
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
@@ -110,6 +114,6 @@ public class MainPageActivity extends AppCompatActivity implements MainPageView,
 
     @Override
     public void onUserClick(User user) {
-
+//todo create activity
     }
 }

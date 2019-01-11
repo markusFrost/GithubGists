@@ -1,7 +1,6 @@
 package ru.avystavkin.githubgists.screen.holders;
 
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,7 +13,7 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.utils.TextUtils;
 
-public class GistDetailContentHolder extends RecyclerView.ViewHolder {
+public class GistDetailContentHolder extends BaseViewHolder {
     @BindView(R.id.gist_file_name)
     TextView mFileName;
 
@@ -23,7 +22,6 @@ public class GistDetailContentHolder extends RecyclerView.ViewHolder {
 
     public GistDetailContentHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this, itemView);
     }
 
     public void bind(@NonNull Gist gist, int position) {
