@@ -50,9 +50,9 @@ public class GistDetailPresenter {
     }
 
     public void init(String id) {
-//        //---temp
-//        id = "id";
-//        //---temp
+        //---temp
+        id = "id";
+        //---temp
         if (TextUtils.isEmpty(id)) {
             return;
         }
@@ -64,6 +64,6 @@ public class GistDetailPresenter {
                 .doOnSubscribe(mView::showLoading)
                 .doOnTerminate(mView::hideLoading)
                 .compose(mLifecycleHandler.load(R.id.gists_request))
-                .subscribe(mView::showGist, throwable -> mView.showError(throwable));
+                .subscribe(mView::showGist, mView::showError);
     }
 }
