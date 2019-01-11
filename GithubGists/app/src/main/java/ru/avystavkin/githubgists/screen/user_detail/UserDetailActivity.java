@@ -16,9 +16,11 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
+import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
+import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 
-public class UserDetailActivity extends BaseActivity implements UserView {
+public class UserDetailActivity extends BaseActivity implements UserView, OnItemClickListener<Gist> {
 
     @Inject
     GithubRepository mRepository;
@@ -33,6 +35,7 @@ public class UserDetailActivity extends BaseActivity implements UserView {
 
         mAdapter = new GistsAdapter(new ArrayList<>());
         mAdapter.attachToRecyclerView(mRecyclerView);
+        mAdapter.setOnItemClickListener(this);
 
         AppDelegate.getAppComponent().injectUserDetailActivity(this);
 
@@ -68,4 +71,8 @@ public class UserDetailActivity extends BaseActivity implements UserView {
         mLoadingView.hideLoading();
     }
 
+    @Override
+    public void onItemClick(@NonNull Gist gist) {
+        GistDetailActivity.start(this, gist);
+    }
 }
