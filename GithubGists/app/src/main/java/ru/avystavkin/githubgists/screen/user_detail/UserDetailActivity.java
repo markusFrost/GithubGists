@@ -4,21 +4,27 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 
+import javax.inject.Inject;
+
+import ru.avystavkin.githubgists.AppDelegate;
+import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 import ru.avystavkin.githubgists.screen.general.GistView;
 
-public class UserDetailActivity extends AppCompatActivity implements GistView {
+public class UserDetailActivity extends BaseActivity implements GistView {
 
-    public static final String KEY_NAME = "key_name";
-    public static final String KEY_ID = "key_url";
-    public static final String KEY_USER_NAME = "key_user_name";
-    public static final String KEY_USER_URL = "key_user_url";
+    @Inject
+    GithubRepository mRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_gists);
         super.onCreate(savedInstanceState);
+
+        AppDelegate.getAppComponent().injectUserDetailActivity(this);
     }
 
     public static void start(@NonNull Activity activity, User user) {

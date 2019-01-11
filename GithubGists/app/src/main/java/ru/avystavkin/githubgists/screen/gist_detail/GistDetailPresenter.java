@@ -27,7 +27,7 @@ public class GistDetailPresenter {
         mView = view;
     }
 
-    public void parseIfSuccessAndInit(Intent intent) {
+    public void init(Intent intent) {
         if (intent == null)
             return;
 
