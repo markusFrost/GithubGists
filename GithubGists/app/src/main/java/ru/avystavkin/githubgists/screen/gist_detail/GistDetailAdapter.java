@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.detail;
+package ru.avystavkin.githubgists.screen.gist_detail;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -13,10 +13,10 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.content.GistHistory;
-import ru.avystavkin.githubgists.screen.detail.holders.GistDetailCommitViewHolder;
-import ru.avystavkin.githubgists.screen.detail.holders.GistDetailContentViewHolder;
-import ru.avystavkin.githubgists.screen.detail.holders.GistDetailHeaderViewHolder;
-import ru.avystavkin.githubgists.screen.detail.holders.GistSectionHolder;
+import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailCommitViewHolder;
+import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailContentViewHolder;
+import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailHeaderViewHolder;
+import ru.avystavkin.githubgists.screen.gist_detail.holders.GistSectionHolder;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 
 public class GistDetailAdapter extends BaseRecyclerViewAdapter {

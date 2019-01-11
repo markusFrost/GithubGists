@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screen.detail.GistDetailActivity"
+            android:name=".screen.gist_detail.GistDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

@@ -4,7 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import ru.avystavkin.githubgists.screen.main.MainPageActivity;
-import ru.avystavkin.githubgists.screen.detail.GistDetailActivity;
+import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 
 @Singleton
 @Component(modules = {DataModule.class})

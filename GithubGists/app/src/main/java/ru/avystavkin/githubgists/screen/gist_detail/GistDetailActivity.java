@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.screen.detail;
+package ru.avystavkin.githubgists.screen.gist_detail;
 
 import android.app.Activity;
 import android.content.Intent;

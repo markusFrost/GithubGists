@@ -22,7 +22,7 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
-import ru.avystavkin.githubgists.screen.detail.GistDetailActivity;
+import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 import ru.avystavkin.githubgists.screen.general.LoadingDialog;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
