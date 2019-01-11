@@ -1,7 +1,6 @@
 package ru.avystavkin.githubgists.screen.detail;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -17,9 +16,9 @@ import ru.avystavkin.githubgists.screen.holders.GistDetailCommitViewHolder;
 import ru.avystavkin.githubgists.screen.holders.GistDetailContentViewHolder;
 import ru.avystavkin.githubgists.screen.holders.GistDetailHeaderViewHolder;
 import ru.avystavkin.githubgists.screen.holders.GistSectionHolder;
-import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
+import ru.avystavkin.githubgists.widget.BaseRecyclerViewAdapter;
 
-public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GistDetailAdapter extends BaseRecyclerViewAdapter {
 
     private static final int HEADER_INDEX = 0;
     private static final int HEADER_TYPE = 0;
@@ -36,9 +35,6 @@ public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     private Gist mGist;
     private List<GistHistory> mListCommits;
-
-    @Nullable
-    private EmptyRecyclerView mRecyclerView;
 
     public GistDetailAdapter() {
        mListCommits = new ArrayList<>();
@@ -153,18 +149,5 @@ public class GistDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             return COMMIT_TYPE;
         }
         return position;
-    }
-
-    public void attachToRecyclerView(@NonNull EmptyRecyclerView recyclerView) {
-        mRecyclerView = recyclerView;
-        mRecyclerView.setAdapter(this);
-        refreshRecycler();
-    }
-
-    public void refreshRecycler() {
-        notifyDataSetChanged();
-        if (mRecyclerView != null) {
-            mRecyclerView.checkIfEmpty();
-        }
     }
 }

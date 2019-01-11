@@ -11,7 +11,7 @@ import java.util.List;
 
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 
-public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends RecyclerView.Adapter<VH> {
+public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends BaseRecyclerViewAdapter<VH, T> {
 
     private final List<T> mItems = new ArrayList<>();
 
@@ -26,17 +26,8 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
         }
     };
 
-    @Nullable
-    private EmptyRecyclerView mRecyclerView;
-
     public BaseAdapter(@NonNull List<T> items) {
         mItems.addAll(items);
-    }
-
-    public void attachToRecyclerView(@NonNull EmptyRecyclerView recyclerView) {
-        mRecyclerView = recyclerView;
-        mRecyclerView.setAdapter(this);
-        refreshRecycler();
     }
 
     public final void add(@NonNull T value) {
@@ -55,12 +46,6 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
         refreshRecycler();
     }
 
-    public void refreshRecycler() {
-        notifyDataSetChanged();
-        if (mRecyclerView != null) {
-            mRecyclerView.checkIfEmpty();
-        }
-    }
 
     @CallSuper
     @Override
