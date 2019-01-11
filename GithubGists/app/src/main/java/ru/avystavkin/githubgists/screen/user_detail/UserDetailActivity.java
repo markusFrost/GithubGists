@@ -12,9 +12,8 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
-import ru.avystavkin.githubgists.screen.general.GistView;
 
-public class UserDetailActivity extends BaseActivity implements GistView {
+public class UserDetailActivity extends BaseActivity implements UserView {
 
     @Inject
     GithubRepository mRepository;
@@ -53,5 +52,10 @@ public class UserDetailActivity extends BaseActivity implements GistView {
     @Override
     public void hideLoading() {
 
+    }
+
+    @Override
+    public void showUser(User user) {
+        
     }
 }

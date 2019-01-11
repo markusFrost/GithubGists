@@ -15,7 +15,6 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
-import ru.avystavkin.githubgists.screen.general.GistView;
 
 public class GistDetailActivity extends BaseActivity implements GistView {
 
@@ -49,7 +48,7 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         AppDelegate.getAppComponent().injectGistDetailActivity(this);
 
         mPresenter = new GistDetailPresenter(mRepository, mLifecycleHandler, this);
-        mPresenter.init(getIntent());
+        mPresenter.loadGistInfo(getIntent());
     }
 
     @Override

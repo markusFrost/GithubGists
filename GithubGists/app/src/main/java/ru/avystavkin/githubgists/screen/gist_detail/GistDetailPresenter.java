@@ -11,7 +11,6 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
-import ru.avystavkin.githubgists.screen.general.GistView;
 import ru.avystavkin.githubgists.utils.TextUtils;
 import rx.Observable;
 
@@ -27,7 +26,7 @@ public class GistDetailPresenter {
         mView = view;
     }
 
-    public void init(Intent intent) {
+    public void loadGistInfo(Intent intent) {
         if (intent == null)
             return;
 
@@ -47,10 +46,10 @@ public class GistDetailPresenter {
             gist.getUser().setAvatarUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
 
         mView.showGist(gist);
-        init(gist.getId());
+        loadGistInfo(gist.getId());
     }
 
-    public void init(String id) {
+    public void loadGistInfo(String id) {
         //---temp
         id = "id";
         //---temp
