@@ -3,9 +3,9 @@ package ru.avystavkin.githubgists.repository;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import io.reactivex.Observable;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
-import rx.Observable;
 
 public interface GithubRepository {
 

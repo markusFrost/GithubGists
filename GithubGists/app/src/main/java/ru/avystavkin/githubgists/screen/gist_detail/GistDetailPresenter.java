@@ -5,12 +5,12 @@ import android.content.Intent;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import io.reactivex.Observable;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.utils.TextUtils;
-import rx.Observable;
 
 public class GistDetailPresenter {
     private final GithubRepository mRepository;
@@ -57,7 +57,7 @@ public class GistDetailPresenter {
         Observable<List<GistHistory>> observableCommits = mRepository.getCommitsByGistId(id);
 
         Observable.merge(observableDetail, observableCommits)
-                .doOnSubscribe(mView::showLoading)
+                .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
                 //.compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGist, mView::showError);

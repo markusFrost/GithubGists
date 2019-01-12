@@ -49,10 +49,11 @@ dependencies {
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
-    implementation "io.reactivex:rxandroid:$rxandroidVersion"
-    implementation "io.reactivex:rxjava:$rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+
     implementation "ru.arturvasilov:rx-loader:$rxLoaderVersion"
 
     implementation "com.jakewharton:butterknife:$butterKnifeVersion"

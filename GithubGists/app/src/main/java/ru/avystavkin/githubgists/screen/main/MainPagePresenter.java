@@ -1,16 +1,12 @@
 package ru.avystavkin.githubgists.screen.main;
 
-import android.util.Pair;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import ru.arturvasilov.rxloader.RxUtils;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
-import ru.avystavkin.githubgists.utils.TextUtils;
-import rx.Observable;
 
 public class MainPagePresenter {
 
@@ -27,29 +23,23 @@ public class MainPagePresenter {
 
     public void init() {
         mRepository.getGists()
-                .doOnSubscribe(mView::showLoading)
+                .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
                // .compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGists, throwable -> mView.showError());
     }
 
     public void loadUsers(@NonNull List<Gist> gists) {
-        Observable.from(gists)
-                .compose(RxUtils.async())
-                .filter(gist -> gist.getUser() != null && !TextUtils.isEmpty(gist.getUser().getLogin()))
-                .map(g -> g.getUser().getLogin())
-                .groupBy(login -> login)
-                .flatMap( gr -> gr.count().map(count -> new Pair<>(gr.getKey(), count)))
-                .toSortedList((p1, p2) -> (-1) * p1.second.compareTo(p2.second))
-                .flatMap(Observable::from)
-                .take(POPULAR_COUNT)
-                .map(pair -> {
-                    User user = getUserByLogin(gists, pair.first);
-                    user.setGistsCount(pair.second);
-                    return user;
-                })
-                .toList()
-                .subscribe(mView::showUsers);
+       //will work after db implement
+        List<User> list = new ArrayList<>();
+        for (int i = 0 ; i <= POPULAR_COUNT; i++) {
+            User user = gists.get(i).getUser();
+            if (user != null) {
+                list.add(user);
+            }
+            mView.showUsers(list);
+        }
+
     }
 
     private User getUserByLogin(List<Gist> list, String login) {

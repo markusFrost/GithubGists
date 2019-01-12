@@ -3,11 +3,12 @@ package ru.avystavkin.githubgists.repository;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import ru.arturvasilov.rxloader.RxUtils;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import ru.avystavkin.githubgists.api.GithubService;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
-import rx.Observable;
 
 public class DefaultGithubRepository implements GithubRepository {
 
@@ -20,24 +21,32 @@ public class DefaultGithubRepository implements GithubRepository {
     @NonNull
     @Override
     public Observable<List<Gist>> getGists() {
-        return mGithubService.gists().compose(RxUtils.async());
+        return mGithubService.gists()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @NonNull
     @Override
     public Observable<Gist> getGistById(String id) {
-        return mGithubService.gist_detail(id).compose(RxUtils.async());
+        return mGithubService.gist_detail(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @NonNull
     @Override
     public Observable<List<Gist>> getGistsByUserName(String name) {
-        return mGithubService.user_detail(name).compose(RxUtils.async());
+        return mGithubService.user_detail(name)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     @NonNull
     @Override
     public Observable<List<GistHistory>> getCommitsByGistId(String id) {
-        return mGithubService.gist_commits(id).compose(RxUtils.async());
+        return mGithubService.gist_commits(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }
