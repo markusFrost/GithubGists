@@ -2,9 +2,9 @@ package ru.avystavkin.githubgists.content.server.local;
 
 import java.util.List;
 
-import ru.avystavkin.githubgists.content.server.GistFileServer;
+import ru.avystavkin.githubgists.content.server.GistFileInfo;
 
-public class Gist {
+public class Gist_1 {
 
     private String mId;
 
@@ -12,9 +12,9 @@ public class Gist {
 
     private String mName;
 
-    private User mUser;
+    private User_1 mUser;
 
-    private List<GistFileServer> mListFiles;
+    private List<GistFileInfo> mListFiles;
 
     public String getId() {
         return mId;
@@ -40,19 +40,19 @@ public class Gist {
         mName = name;
     }
 
-    public User getUser() {
+    public User_1 getUser() {
         return mUser;
     }
 
-    public void setUser(User user) {
+    public void setUser(User_1 user) {
         mUser = user;
     }
 
-    public List<GistFileServer> getListFiles() {
+    public List<GistFileInfo> getListFiles() {
         return mListFiles;
     }
 
-    public void setListFiles(List<GistFileServer> listFiles) {
+    public void setListFiles(List<GistFileInfo> listFiles) {
         mListFiles = listFiles;
     }
 }

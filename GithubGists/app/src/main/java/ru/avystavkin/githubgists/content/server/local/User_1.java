@@ -1,6 +1,6 @@
 package ru.avystavkin.githubgists.content.server.local;
 
-public class User {
+public class User_1 {
 
     private String mId;
 

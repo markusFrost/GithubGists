@@ -1,21 +1,21 @@
 package ru.avystavkin.githubgists.content.server.local;
 
-public class GistCommit {
-    private User mUser;
+public class GistCommit_1 {
+    private User_1 mUser;
 
     private String mVersion;
 
     private String mCommitDateTime;
 
-    GistCommitsHistory mCommitsHistory;
+    GistCommitsHistory_1 mCommitsHistory;
 
     private String mUrl;
 
-    public User getUser() {
+    public User_1 getUser() {
         return mUser;
     }
 
-    public void setUser(User user) {
+    public void setUser(User_1 user) {
         this.mUser = user;
     }
 
@@ -27,7 +27,7 @@ public class GistCommit {
         return mCommitDateTime;
     }
 
-    public GistCommitsHistory getCommitsHistory() {
+    public GistCommitsHistory_1 getCommitsHistory() {
         return mCommitsHistory;
     }
 
@@ -43,7 +43,7 @@ public class GistCommit {
         this.mCommitDateTime = commitDateTime;
     }
 
-    public void setCommitsHistory(GistCommitsHistory commitsHistory) {
+    public void setCommitsHistory(GistCommitsHistory_1 commitsHistory) {
         this.mCommitsHistory = commitsHistory;
     }
 

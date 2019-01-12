@@ -4,21 +4,21 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
-import ru.avystavkin.githubgists.content.server.GistServer;
-import ru.avystavkin.githubgists.content.server.GistHistoryServer;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.GistCommit;
 
 public interface GithubRepository {
 
     @NonNull
-    Observable<List<GistServer>> getGists();
+    Observable<List<Gist>> getGists();
 
     @NonNull
-    Observable<GistServer> getGistById(String id);
+    Observable<Gist> getGistById(String id);
 
     @NonNull
-    Observable<List<GistServer>> getGistsByUserName(String name);
+    Observable<List<Gist>> getGistsByUserName(String name);
 
     @NonNull
-    Observable<List<GistHistoryServer>> getCommitsByGistId(String id);
+    Observable<List<GistCommit>> getCommitsByGistId(String id);
 
 }

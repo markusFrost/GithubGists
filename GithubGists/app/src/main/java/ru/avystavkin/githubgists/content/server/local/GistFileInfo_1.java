@@ -1,7 +1,7 @@
 package ru.avystavkin.githubgists.content.server.local;
 
 
-public class GistFileInfo {
+public class GistFileInfo_1 {
 
     private String mFileName;
 

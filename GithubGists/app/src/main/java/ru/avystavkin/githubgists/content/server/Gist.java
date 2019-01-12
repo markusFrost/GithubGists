@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class GistServer {
+public class Gist {
 
     @SerializedName("id")
     private String mId;
@@ -20,10 +20,10 @@ public class GistServer {
     private String mDescription;
 
     @SerializedName("owner")
-    private UserServer mUser;
+    private User mUser;
 
     @SerializedName("files")
-    private Map<String, GistFileServer> mFiles;
+    private Map<String, GistFileInfo> mFiles;
 
     public String getId() {
         return mId;
@@ -41,11 +41,11 @@ public class GistServer {
         this.mDescription = description;
     }
 
-    public UserServer getUser() {
+    public User getUser() {
         return mUser;
     }
 
-    public void setUser(UserServer user) {
+    public void setUser(User user) {
         this.mUser = user;
     }
 
@@ -57,12 +57,12 @@ public class GistServer {
         this.mUrl = url;
     }
 
-    public Map<String, GistFileServer> getRawFiles() {
+    public Map<String, GistFileInfo> getRawFiles() {
         return mFiles;
     }
 
-    public List<GistFileServer> getGistFiles() {
-        List<GistFileServer> list = new ArrayList<GistFileServer>();
+    public List<GistFileInfo> getGistFiles() {
+        List<GistFileInfo> list = new ArrayList<GistFileInfo>();
         for(String key : mFiles.keySet()) {
             list.add(mFiles.get(key));
         }

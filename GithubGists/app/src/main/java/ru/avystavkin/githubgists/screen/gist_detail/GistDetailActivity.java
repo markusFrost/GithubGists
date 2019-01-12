@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.GistServer;
-import ru.avystavkin.githubgists.content.server.GistHistoryServer;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.GistCommit;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 
@@ -25,7 +25,7 @@ public class GistDetailActivity extends BaseActivity implements GistView {
 
     private GistDetailAdapter mAdapter;
 
-    public static void start(@NonNull Activity activity, @NonNull GistServer gist) {
+    public static void start(@NonNull Activity activity, @NonNull Gist gist) {
         Intent intent = new Intent(activity, GistDetailActivity.class);
         intent.putExtra(KEY_NAME, gist.getName());
         intent.putExtra(KEY_ID, gist.getId());
@@ -53,10 +53,10 @@ public class GistDetailActivity extends BaseActivity implements GistView {
 
     @Override
     public void showGist(@NonNull Object item) {
-        if (item instanceof GistServer)
-            mAdapter.setGist((GistServer) item);
+        if (item instanceof Gist)
+            mAdapter.setGist((Gist) item);
         else if (item instanceof List<?>)
-            mAdapter.setCommits((List<GistHistoryServer>) item);
+            mAdapter.setCommits((List<GistCommit>) item);
     }
 
     @Override
