@@ -35,8 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public LoadingView mLoadingView;
 
-    //public LifecycleHandler mLifecycleHandler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +48,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this));
         mRecyclerView.setEmptyView(mEmptyView);
-
-        //mLifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
     }
 }

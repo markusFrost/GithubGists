@@ -4,7 +4,6 @@ ext {
     retrofitVersion = '2.5.0'
     rxandroidVersion = '2.1.0'
     rxjavaVersion = '2.2.2'
-    rxLoaderVersion = '0.1.4'
     butterKnifeVersion = '10.0.0'
     daggerVersion = '2.20'
     javaxAnnotationsVersion = '1.0'

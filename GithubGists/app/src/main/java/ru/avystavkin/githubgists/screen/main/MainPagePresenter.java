@@ -25,7 +25,6 @@ public class MainPagePresenter {
         mRepository.getGists()
                 .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
-               // .compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGists, throwable -> mView.showError());
     }
 
