@@ -3,6 +3,7 @@ package ru.avystavkin.githubgists.models.local;
 import java.util.List;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -17,8 +18,10 @@ public class Gist {
 
     private String mName;
 
+    @Ignore
     private User mUser;
 
+    @Ignore
     private List<GistFileInfo> mListFiles;
 
     public User getUser() {

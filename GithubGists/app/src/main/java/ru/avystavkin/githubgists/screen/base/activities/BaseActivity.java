@@ -18,9 +18,6 @@ import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    //todo
-    //add composite dissposable
-    //add room
     public static final String KEY_NAME = "key_name";
     public static final String KEY_ID = "key_url";
     public static final String KEY_USER_NAME = "key_user_name";

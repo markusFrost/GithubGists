@@ -11,7 +11,10 @@ import ru.avystavkin.githubgists.models.local.Gist;
 public interface GistDao {
 
     @Insert
-    void insert(Gist gist);
+    long insert(Gist gist);
+
+//    @Insert
+//    long insert(User user);
 
     @Query("SELECT * FROM gist")
     List<Gist> getGists();

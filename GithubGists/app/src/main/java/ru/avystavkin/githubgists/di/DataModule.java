@@ -14,6 +14,7 @@ import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.BuildConfig;
 import ru.avystavkin.githubgists.api.GithubService;
 import ru.avystavkin.githubgists.database.AppDatabase;
+import ru.avystavkin.githubgists.database.DbHelper;
 import ru.avystavkin.githubgists.mock.MockingInterceptor;
 import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
@@ -33,6 +34,13 @@ public class DataModule {
     AppDatabase provideAppDatabase() {
         return  Room.databaseBuilder(AppDelegate.getContext(),
                 AppDatabase.class, "database").build();
+    }
+
+    @Provides
+    @Singleton
+    DbHelper provideDbHelper(
+            @NonNull AppDatabase appDatabase) {
+       return new DbHelper(appDatabase);
     }
 
     @Provides
