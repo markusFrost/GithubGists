@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 28
@@ -54,12 +53,14 @@ dependencies {
     compile "io.reactivex:rxjava:$rxjavaVersion"
     compile "ru.arturvasilov:rx-loader:$rxLoaderVersion"
 
-    compile "com.jakewharton:butterknife:$butterKnifeVersion"
-    apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
 
-    compile "com.google.dagger:dagger:$daggerVersion"
-    apt "com.google.dagger:dagger-compiler:$daggerVersion"
-    provided "javax.annotation:jsr250-api:$javaxAnnotationsVersion"
+    compile 'com.google.dagger:dagger:2.20'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.20'
+    compile 'com.google.dagger:dagger-android:2.20'
+    compile 'com.google.dagger:dagger-android-support:2.20' // if you use the support libraries
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.20'
 
     compile "com.squareup.picasso:picasso:$picassoVersion"
     compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
