@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 
-public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends BaseRecyclerViewAdapter<VH, T> {
+public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends BaseRecyclerViewAdapter<VH> {
 
     private final List<T> mItems = new ArrayList<>();
 
