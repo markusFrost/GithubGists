@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.UserServer;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
@@ -49,13 +49,13 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
     }
 
     @Override
-    public void showGists(@NonNull List<Gist> gists) {
+    public void showGists(@NonNull List<GistServer> gists) {
        mAdapter.setListGists(gists);
        mPresenter.loadUsers(gists);
     }
 
     @Override
-    public void showUsers(@NonNull List<User> users) {
+    public void showUsers(@NonNull List<UserServer> users) {
         mAdapter.setListUsers(users);
     }
 
@@ -75,12 +75,12 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
     }
 
     @Override
-    public void onGistClick(Gist gist) {
+    public void onGistClick(GistServer gist) {
         GistDetailActivity.start(this, gist);
     }
 
     @Override
-    public void onUserClick(User user) {
+    public void onUserClick(UserServer user) {
         UserDetailActivity.start(this, user);
     }
 }

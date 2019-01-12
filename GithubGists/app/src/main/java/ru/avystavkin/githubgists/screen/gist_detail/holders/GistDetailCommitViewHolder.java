@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.GistHistory;
-import ru.avystavkin.githubgists.content.server.GistHistoryChangeStatus;
+import ru.avystavkin.githubgists.content.server.GistHistoryServer;
+import ru.avystavkin.githubgists.content.server.GistHistoryChangeStatusServer;
 import ru.avystavkin.githubgists.screen.base.holders.BaseGistUserViewHolder;
 
 public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
@@ -29,12 +29,12 @@ public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
         super(itemView);
     }
 
-    public void bind(@NonNull List<GistHistory> list, int position) {
+    public void bind(@NonNull List<GistHistoryServer> list, int position) {
         if (position >= list.size())
             return;
-        GistHistory history = list.get(position);
+        GistHistoryServer history = list.get(position);
         super.bind(history.getUser());
-        GistHistoryChangeStatus status = history.getChangeStatus();
+        GistHistoryChangeStatusServer status = history.getChangeStatus();
         if (status != null) {
             mTotal.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_total), status.getTotal()));
             mAdditions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_additions), status.getAdditions()));

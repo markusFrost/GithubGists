@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.GistServer;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
@@ -19,7 +19,7 @@ import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class GistsListViewHolder extends BaseViewHolder implements OnItemClickListener<Gist> {
+public class GistsListViewHolder extends BaseViewHolder implements OnItemClickListener<GistServer> {
 
     @BindView(R.id.recyclerViewVertical)
     EmptyRecyclerView mRecyclerView;
@@ -46,12 +46,12 @@ public class GistsListViewHolder extends BaseViewHolder implements OnItemClickLi
         mOnGistClickListener = onGistClickListener;
     }
 
-    public void bind(@NonNull List<Gist> gists) {
+    public void bind(@NonNull List<GistServer> gists) {
         mAdapter.changeDataSet(gists);
     }
 
     @Override
-    public void onItemClick(@NonNull Gist gist) {
+    public void onItemClick(@NonNull GistServer gist) {
         if (mOnGistClickListener != null)
             mOnGistClickListener.onGistClick(gist);
     }

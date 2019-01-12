@@ -7,12 +7,12 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.GistServer;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter;
 
-public class GistsAdapter extends BaseAdapter<GistViewHolder, Gist> {
+public class GistsAdapter extends BaseAdapter<GistViewHolder, GistServer> {
 
-    public GistsAdapter(@NonNull List<Gist> items) {
+    public GistsAdapter(@NonNull List<GistServer> items) {
         super(items);
     }
 
@@ -25,7 +25,7 @@ public class GistsAdapter extends BaseAdapter<GistViewHolder, Gist> {
     @Override
     public void onBindViewHolder(GistViewHolder holder, int position) {
         super.onBindViewHolder(holder, position);
-        Gist gist = getItem(position);
+        GistServer gist = getItem(position);
         holder.bind(gist);
     }
 }

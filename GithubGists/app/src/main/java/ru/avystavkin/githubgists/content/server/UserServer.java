@@ -2,7 +2,7 @@ package ru.avystavkin.githubgists.content.server;
 
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+public class UserServer {
 
     @SerializedName("id")
     private String mId;

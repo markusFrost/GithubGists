@@ -1,7 +1,7 @@
 package ru.avystavkin.githubgists.screen.interfaces;
 
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.content.server.UserServer;
 
 public interface OnUserClickListener {
-    void onUserClick(User user);
+    void onUserClick(UserServer user);
 }

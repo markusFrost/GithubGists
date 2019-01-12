@@ -8,13 +8,13 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.content.server.UserServer;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter;
 
 
-public class UserPopularAdapter extends BaseAdapter<UserViewHolder, User> {
+public class UserPopularAdapter extends BaseAdapter<UserViewHolder, UserServer> {
 
-    public UserPopularAdapter(@NonNull List<User> items) {
+    public UserPopularAdapter(@NonNull List<UserServer> items) {
         super(items);
     }
 

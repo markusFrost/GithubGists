@@ -9,8 +9,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistFile;
+import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.GistFileServer;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 
 public class GistDetailContentViewHolder extends BaseViewHolder {
@@ -24,12 +24,12 @@ public class GistDetailContentViewHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void bind(@NonNull Gist gist, int position) {
-        List<GistFile> list = gist.getGistFiles();
+    public void bind(@NonNull GistServer gist, int position) {
+        List<GistFileServer> list = gist.getGistFiles();
         if (position >= list.size())
             return;
 
-        GistFile file = list.get(position);
+        GistFileServer file = list.get(position);
         if (!TextUtils.isEmpty(file.getFileName()))
             mFileName.setText(file.getFileName());
 

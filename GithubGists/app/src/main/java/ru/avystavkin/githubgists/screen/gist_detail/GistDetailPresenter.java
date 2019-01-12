@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistHistory;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.GistHistoryServer;
+import ru.avystavkin.githubgists.content.server.UserServer;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 
 public class GistDetailPresenter {
@@ -31,8 +31,8 @@ public class GistDetailPresenter {
         if (intent == null)
             return;
 
-        Gist gist = new Gist();
-        gist.setUser(new User());
+        GistServer gist = new GistServer();
+        gist.setUser(new UserServer());
 
         if (intent.hasExtra(GistDetailActivity.KEY_NAME))
             gist.setDescription(intent.getStringExtra(GistDetailActivity.KEY_NAME));
@@ -58,8 +58,8 @@ public class GistDetailPresenter {
             return;
         }
 
-        Observable<Gist> observableDetail = mRepository.getGistById(id);
-        Observable<List<GistHistory>> observableCommits = mRepository.getCommitsByGistId(id);
+        Observable<GistServer> observableDetail = mRepository.getGistById(id);
+        Observable<List<GistHistoryServer>> observableCommits = mRepository.getCommitsByGistId(id);
 
        Disposable disposable = Observable.merge(observableDetail, observableCommits)
                 .doOnSubscribe(d -> mView.showLoading())

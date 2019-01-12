@@ -2,7 +2,7 @@ package ru.avystavkin.githubgists.content.server;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GistFile {
+public class GistFileServer {
 
     @SerializedName("filename")
     private String mFileName;

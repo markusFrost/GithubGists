@@ -3,16 +3,11 @@ package ru.avystavkin.githubgists.content.server;
 import com.google.gson.annotations.SerializedName;
 
 import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
-@Entity
-public class GistHistory {
-
-    @PrimaryKey
-    public long id;
+public class GistHistoryServer {
 
     @SerializedName("user")
-    private User mUser;
+    private UserServer mUser;
 
     @SerializedName("version")
     private String mVersion;
@@ -21,16 +16,16 @@ public class GistHistory {
     private String mCommittedAt;
 
     @SerializedName("change_status")
-    GistHistoryChangeStatus mStatus;
+    GistHistoryChangeStatusServer mStatus;
 
     @SerializedName("url")
     private String url;
 
-    public User getUser() {
+    public UserServer getUser() {
         return mUser;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserServer user) {
         this.mUser = user;
     }
 
@@ -42,7 +37,7 @@ public class GistHistory {
         return mCommittedAt;
     }
 
-    public GistHistoryChangeStatus getChangeStatus() {
+    public GistHistoryChangeStatusServer getChangeStatus() {
         return mStatus;
     }
 
@@ -58,7 +53,7 @@ public class GistHistory {
         this.mCommittedAt = committedAt;
     }
 
-    public void setChangeStatus(GistHistoryChangeStatus changeStatusObject) {
+    public void setChangeStatus(GistHistoryChangeStatusServer changeStatusObject) {
         this.mStatus = changeStatusObject;
     }
 

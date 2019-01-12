@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistFile;
-import ru.avystavkin.githubgists.content.server.GistHistory;
+import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.GistFileServer;
+import ru.avystavkin.githubgists.content.server.GistHistoryServer;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailCommitViewHolder;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailContentViewHolder;
@@ -34,16 +34,16 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     private int mContentBodyLastIndex;
     private int mCommitBodyFirstIndex;
 
-    private Gist mGist;
-    private List<GistHistory> mListCommits = new ArrayList<>();
+    private GistServer mGist;
+    private List<GistHistoryServer> mListCommits = new ArrayList<>();
 
-    public void setCommits(@NonNull List<GistHistory> commits) {
+    public void setCommits(@NonNull List<GistHistoryServer> commits) {
         mListCommits.clear();
         mListCommits.addAll(commits);
         notifyDataSetChanged();
     }
 
-    public void setGist(@NonNull Gist gist) {
+    public void setGist(@NonNull GistServer gist) {
         mGist = gist;
         notifyDataSetChanged();
     }
@@ -73,7 +73,7 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     private int getContentCount() {
         if (mGist == null || mGist.getRawFiles() == null)
             return 0;
-        List<GistFile> list = mGist.getGistFiles();
+        List<GistFileServer> list = mGist.getGistFiles();
         return list.size();
     }
 

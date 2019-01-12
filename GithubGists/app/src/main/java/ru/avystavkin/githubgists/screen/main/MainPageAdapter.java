@@ -9,8 +9,8 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.UserServer;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
@@ -21,8 +21,8 @@ public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistCl
     private static final int HORIZONTAL_VIEW_TYPE = 0;
     private static final int VERTICAL_VIEW_TYPE = 1;
 
-    private List<User> mListUsers = new ArrayList<>();
-    private List<Gist> mLisGists = new ArrayList<>();
+    private List<UserServer> mListUsers = new ArrayList<>();
+    private List<GistServer> mLisGists = new ArrayList<>();
 
     @Nullable
     private OnMainPageClickListner mOnMainPageClickListner;
@@ -75,26 +75,26 @@ public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistCl
         refreshRecycler();
     }
 
-    public void setListUsers(List<User> listUsers) {
+    public void setListUsers(List<UserServer> listUsers) {
         mListUsers.clear();
         mListUsers.addAll(listUsers);
         refreshRecycler();
     }
 
-    public void setListGists(List<Gist> listGists) {
+    public void setListGists(List<GistServer> listGists) {
         mLisGists.clear();
         mLisGists.addAll(listGists);
         refreshRecycler();
     }
 
     @Override
-    public void onGistClick(Gist git) {
+    public void onGistClick(GistServer git) {
         if (mOnMainPageClickListner != null)
             mOnMainPageClickListner.onGistClick(git);
     }
 
     @Override
-    public void onUserClick(User user) {
+    public void onUserClick(UserServer user) {
         if (mOnMainPageClickListner != null)
             mOnMainPageClickListner.onUserClick(user);
     }

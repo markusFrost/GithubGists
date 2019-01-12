@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.content.server.UserServer;
 import ru.avystavkin.githubgists.utils.Images;
 
 public abstract class BaseUserHolder extends BaseViewHolder {
@@ -23,7 +23,7 @@ public abstract class BaseUserHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void bind(@NonNull User user) {
+    public void bind(@NonNull UserServer user) {
         String userName = user.getLogin();
         if (!TextUtils.isEmpty(userName))
             mUserName.setText(userName);
