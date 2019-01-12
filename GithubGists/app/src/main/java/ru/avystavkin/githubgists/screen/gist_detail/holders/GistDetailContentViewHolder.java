@@ -36,20 +36,4 @@ public class GistDetailContentViewHolder extends BaseViewHolder {
         if (!TextUtils.isEmpty(file.getContent()))
             mCodeContent.setText(file.getContent());
     }
-
-    public TextView getFileName() {
-        return mFileName;
-    }
-
-    public void setFileName(TextView fileName) {
-        this.mFileName = fileName;
-    }
-
-    public TextView getCodeContent() {
-        return mCodeContent;
-    }
-
-    public void setCodeContent(TextView codeContent) {
-        this.mCodeContent = codeContent;
-    }
 }
