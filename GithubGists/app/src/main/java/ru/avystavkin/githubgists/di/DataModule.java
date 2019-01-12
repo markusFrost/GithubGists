@@ -3,14 +3,17 @@ package ru.avystavkin.githubgists.di;
 import javax.inject.Singleton;
 
 import androidx.annotation.NonNull;
+import androidx.room.Room;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.BuildConfig;
 import ru.avystavkin.githubgists.api.GithubService;
+import ru.avystavkin.githubgists.database.AppDatabase;
 import ru.avystavkin.githubgists.mock.MockingInterceptor;
 import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
@@ -23,6 +26,13 @@ public class DataModule {
     GithubRepository provideGithubRepository(
             @NonNull GithubService githubService) {
         return new DefaultGithubRepository(githubService);
+    }
+
+    @Provides
+    @Singleton
+    AppDatabase provideAppDatabase() {
+        return  Room.databaseBuilder(AppDelegate.getContext(),
+                AppDatabase.class, "database").build();
     }
 
     @Provides

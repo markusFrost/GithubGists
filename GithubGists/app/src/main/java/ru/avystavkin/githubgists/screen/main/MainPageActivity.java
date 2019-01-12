@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
+import ru.avystavkin.githubgists.database.AppDatabase;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
@@ -26,6 +27,9 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
     @Inject
     GithubRepository mRepository;
 
+    @Inject
+    AppDatabase mAppDatabase;
+
     private MainPageAdapter mAdapter;
 
     public static void start(@NonNull Activity activity) {
@@ -38,13 +42,13 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
         setContentView(R.layout.activity_gists);
         super.onCreate(savedInstanceState);
 
+        AppDelegate.getAppComponent().injectGistActivity(this);
+
 
         mAdapter = new MainPageAdapter(this);
         mAdapter.attachToRecyclerView(mRecyclerView);
 
-        AppDelegate.getAppComponent().injectGistActivity(this);
-
-        mPresenter = new MainPagePresenter(mRepository, compositeDisposable, this);
+        mPresenter = new MainPagePresenter(mRepository, mAppDatabase, compositeDisposable, this);
         mPresenter.init();
     }
 
