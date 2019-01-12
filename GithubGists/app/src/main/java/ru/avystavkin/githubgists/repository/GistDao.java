@@ -11,6 +11,9 @@ import ru.avystavkin.githubgists.models.local.Gist;
 public interface GistDao {
 
     @Insert
+    long[] insert(List<Gist> gists);
+
+    @Insert
     long insert(Gist gist);
 
 //    @Insert

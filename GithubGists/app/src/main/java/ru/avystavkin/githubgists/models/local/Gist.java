@@ -2,6 +2,7 @@ package ru.avystavkin.githubgists.models.local;
 
 import java.util.List;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -9,7 +10,8 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Gist {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "gist_int_id")
     public long id;
 
     private String mId;

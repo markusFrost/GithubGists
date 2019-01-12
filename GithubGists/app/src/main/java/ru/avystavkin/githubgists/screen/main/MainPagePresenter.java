@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.database.DbHelper;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
+import ru.avystavkin.githubgists.utils.RxUtils;
 
 public class MainPagePresenter {
 
@@ -34,11 +36,12 @@ public class MainPagePresenter {
        Disposable disposable = mRepository.getGists()
                 .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
-                //.subscribe(mView::showGists, throwable -> mView.showError());
-        .subscribe(gists -> {
-            mView.showGists(gists);
-            mDbHelper.insert(gists);
-        }, throwable -> mView.showError());//todo - if error show in db but notify
+               .flatMap(list -> {
+                   mDbHelper.insert(list);
+                   return Observable.fromArray(list);
+               })
+               .compose(RxUtils.async())
+        .subscribe(mView::showGists, throwable -> mView.showError());//todo - if error show in db but notify
 
        mCompositeDisposable.add(disposable);
     }

@@ -24,8 +24,7 @@ public class DefaultGithubRepository implements GithubRepository {
     @Override
     public Observable<List<Gist>> getGists() {
          return mGithubService.gists()
-                .compose(new RxGistsListTransformer())
-                .compose(RxUtils.async());
+                .compose(new RxGistsListTransformer());
     }
 
     @NonNull
