@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 import ru.avystavkin.githubgists.utils.Images;
 
@@ -24,11 +24,11 @@ public class UserViewHolder extends BaseViewHolder {
     }
 
     public void bind(@NonNull User user) {
-        String name = user.getLogin();
+        String name = user.getName();
         if (!TextUtils.isEmpty(name))
             mUserName.setText(String.format("%s ( %d )", name, user.getGistsCount()));
 
-        String url = user.getAvatarUrl();
+        String url = user.getUrl();
         if (!TextUtils.isEmpty(url))
             Images.loadImage(mImageView, url);
     }

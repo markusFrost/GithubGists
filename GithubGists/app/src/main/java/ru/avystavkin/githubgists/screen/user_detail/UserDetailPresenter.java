@@ -5,7 +5,7 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 
@@ -33,12 +33,12 @@ public class UserDetailPresenter {
             user.setId(intent.getStringExtra(GistDetailActivity.KEY_ID));
 
         if (intent.hasExtra(GistDetailActivity.KEY_USER_NAME))
-            user.setLogin(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
+            user.setName(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
 
         if (intent.hasExtra(GistDetailActivity.KEY_USER_URL))
-            user.setAvatarUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
+            user.setUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
 
-        loadUserGists(user.getLogin());
+        loadUserGists(user.getName());
     }
 
     private void loadUserGists(String name) {

@@ -4,13 +4,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.content.GistFile;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.GistFileInfo;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 
 public class GistDetailContentViewHolder extends BaseViewHolder {
@@ -25,11 +23,10 @@ public class GistDetailContentViewHolder extends BaseViewHolder {
     }
 
     public void bind(@NonNull Gist gist, int position) {
-        List<GistFile> list = gist.getGistFiles();
-        if (position >= list.size())
+        if (position >= gist.getListFiles().size())
             return;
 
-        GistFile file = list.get(position);
+        GistFileInfo file = gist.getListFiles().get(position);
         if (!TextUtils.isEmpty(file.getFileName()))
             mFileName.setText(file.getFileName());
 

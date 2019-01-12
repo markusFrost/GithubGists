@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.content;
+package ru.avystavkin.githubgists.models.local;
 
 import com.google.gson.Gson;
 

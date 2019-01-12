@@ -1,15 +1,10 @@
-package ru.avystavkin.githubgists.content;
+package ru.avystavkin.githubgists.models.local;
 
-import com.google.gson.annotations.SerializedName;
-
-public class GistHistoryChangeStatus {
-    @SerializedName("total")
+public class GistCommitsHistory {
     private int mTotal;
 
-    @SerializedName("additions")
     private int mAdditions;
 
-    @SerializedName("deletions")
     private int mDeletions;
 
     public int getTotal() {

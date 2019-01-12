@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.content.GistHistory;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.GistCommit;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 
@@ -29,10 +29,8 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         Intent intent = new Intent(activity, GistDetailActivity.class);
         intent.putExtra(KEY_NAME, gist.getName());
         intent.putExtra(KEY_ID, gist.getId());
-        if (gist.getUser() != null) {
-            intent.putExtra(KEY_USER_NAME, gist.getUser().getLogin());
-            intent.putExtra(KEY_USER_URL, gist.getUser().getAvatarUrl());
-        }
+        intent.putExtra(KEY_USER_NAME, gist.getUser().getName());
+        intent.putExtra(KEY_USER_URL, gist.getUser().getUrl());
         activity.startActivity(intent);
     }
 
@@ -48,7 +46,7 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         AppDelegate.getAppComponent().injectGistDetailActivity(this);
 
         mPresenter = new GistDetailPresenter(mRepository, compositeDisposable,this);
-        mPresenter.loadGistInfo(getIntent());
+        mPresenter.init(getIntent());
     }
 
     @Override
@@ -56,7 +54,7 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         if (item instanceof Gist)
             mAdapter.setGist((Gist) item);
         else if (item instanceof List<?>)
-            mAdapter.setCommits((List<GistHistory>) item);
+            mAdapter.setCommits((List<GistCommit>) item);
     }
 
     @Override
