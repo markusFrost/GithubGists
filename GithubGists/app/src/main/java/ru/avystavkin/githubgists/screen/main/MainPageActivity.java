@@ -44,7 +44,7 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
 
         AppDelegate.getAppComponent().injectGistActivity(this);
 
-        mPresenter = new MainPagePresenter(mRepository, mLifecycleHandler, this);
+        mPresenter = new MainPagePresenter(mRepository, this);
         mPresenter.init();
     }
 

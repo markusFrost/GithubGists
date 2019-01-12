@@ -5,8 +5,6 @@ import android.content.Intent;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import ru.arturvasilov.rxloader.LifecycleHandler;
-import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
@@ -16,13 +14,11 @@ import rx.Observable;
 
 public class GistDetailPresenter {
     private final GithubRepository mRepository;
-    private final LifecycleHandler mLifecycleHandler;
     private final GistView mView;
 
-    public GistDetailPresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
+    public GistDetailPresenter(@NonNull GithubRepository repository,
                                @NonNull GistView view) {
         mRepository = repository;
-        mLifecycleHandler = lifecycleHandler;
         mView = view;
     }
 
@@ -63,7 +59,7 @@ public class GistDetailPresenter {
         Observable.merge(observableDetail, observableCommits)
                 .doOnSubscribe(mView::showLoading)
                 .doOnTerminate(mView::hideLoading)
-                .compose(mLifecycleHandler.load(R.id.gists_request))
+                //.compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGist, mView::showError);
     }
 }

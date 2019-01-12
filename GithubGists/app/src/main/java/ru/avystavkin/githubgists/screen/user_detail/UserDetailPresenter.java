@@ -3,8 +3,6 @@ package ru.avystavkin.githubgists.screen.user_detail;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
-import ru.arturvasilov.rxloader.LifecycleHandler;
-import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
@@ -12,13 +10,11 @@ import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 public class UserDetailPresenter {
 
     private final GithubRepository mRepository;
-    private final LifecycleHandler mLifecycleHandler;
     private final UserView mView;
 
-    public UserDetailPresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
+    public UserDetailPresenter(@NonNull GithubRepository repository,
                                @NonNull UserView view) {
         mRepository = repository;
-        mLifecycleHandler = lifecycleHandler;
         mView = view;
     }
 
@@ -48,7 +44,7 @@ public class UserDetailPresenter {
         mRepository.getGistsByUserName(name)
                 .doOnSubscribe(mView::showLoading)
                 .doOnTerminate(mView::hideLoading)
-                .compose(mLifecycleHandler.load(R.id.gists_request))
+                //.compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGists, mView::showError);
     }
 }

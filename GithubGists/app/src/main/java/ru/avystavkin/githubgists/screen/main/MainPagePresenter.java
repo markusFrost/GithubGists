@@ -5,9 +5,7 @@ import android.util.Pair;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.arturvasilov.rxloader.RxUtils;
-import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
@@ -19,13 +17,11 @@ public class MainPagePresenter {
     private static final int POPULAR_COUNT = 10;
 
     private final GithubRepository mRepository;
-    private final LifecycleHandler mLifecycleHandler;
     private final MainPageView mView;
 
-    public MainPagePresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
+    public MainPagePresenter(@NonNull GithubRepository repository,
                              @NonNull MainPageView view) {
         mRepository = repository;
-        mLifecycleHandler = lifecycleHandler;
         mView = view;
     }
 
@@ -33,7 +29,7 @@ public class MainPagePresenter {
         mRepository.getGists()
                 .doOnSubscribe(mView::showLoading)
                 .doOnTerminate(mView::hideLoading)
-                .compose(mLifecycleHandler.load(R.id.gists_request))
+               // .compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGists, throwable -> mView.showError());
     }
 
