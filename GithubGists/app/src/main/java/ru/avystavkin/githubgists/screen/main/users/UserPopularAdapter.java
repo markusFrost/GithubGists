@@ -8,7 +8,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter;
 
 

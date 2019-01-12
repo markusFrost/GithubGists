@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;

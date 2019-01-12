@@ -11,8 +11,8 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.content.GistHistory;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.GistHistory;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 

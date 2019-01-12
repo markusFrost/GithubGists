@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.content;
+package ru.avystavkin.githubgists.content.server;
 
 import com.google.gson.annotations.SerializedName;
 

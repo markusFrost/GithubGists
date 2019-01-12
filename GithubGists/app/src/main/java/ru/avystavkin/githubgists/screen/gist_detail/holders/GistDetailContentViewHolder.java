@@ -9,8 +9,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.content.GistFile;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.GistFile;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 
 public class GistDetailContentViewHolder extends BaseViewHolder {

@@ -7,7 +7,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.Gist;
+import ru.avystavkin.githubgists.content.server.Gist;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter;
 
 public class GistsAdapter extends BaseAdapter<GistViewHolder, Gist> {

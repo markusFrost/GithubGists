@@ -6,8 +6,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 
 public class MainPagePresenter {

@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.GistHistory;
-import ru.avystavkin.githubgists.content.GistHistoryChangeStatus;
+import ru.avystavkin.githubgists.content.server.GistHistory;
+import ru.avystavkin.githubgists.content.server.GistHistoryChangeStatus;
 import ru.avystavkin.githubgists.screen.base.holders.BaseGistUserViewHolder;
 
 public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {

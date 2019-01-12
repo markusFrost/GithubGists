@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.utils.Images;
 
 public abstract class BaseUserHolder extends BaseViewHolder {
