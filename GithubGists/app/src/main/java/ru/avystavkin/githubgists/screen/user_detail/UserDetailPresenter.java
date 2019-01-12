@@ -5,7 +5,7 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.server.UserServer;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 
@@ -27,7 +27,7 @@ public class UserDetailPresenter {
         if (intent == null)
             return;
 
-        UserServer user = new UserServer();
+        User user = new User();
 
         if (intent.hasExtra(GistDetailActivity.KEY_ID))
             user.setId(intent.getStringExtra(GistDetailActivity.KEY_ID));

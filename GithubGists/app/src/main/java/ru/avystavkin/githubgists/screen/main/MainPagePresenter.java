@@ -6,8 +6,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.server.GistServer;
-import ru.avystavkin.githubgists.content.server.UserServer;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 
 public class MainPagePresenter {
@@ -35,11 +35,11 @@ public class MainPagePresenter {
        mCompositeDisposable.add(disposable);
     }
 
-    public void loadUsers(@NonNull List<GistServer> gists) {
+    public void loadUsers(@NonNull List<Gist> gists) {
        //will work after db implement
-        List<UserServer> list = new ArrayList<>();
+        List<User> list = new ArrayList<>();
         for (int i = 0 ; i <= POPULAR_COUNT; i++) {
-            UserServer user = gists.get(i).getUser();
+            User user = gists.get(i).getUser();
             if (user != null) {
                 list.add(user);
             }
@@ -48,12 +48,12 @@ public class MainPagePresenter {
 
     }
 
-    private UserServer getUserByLogin(List<GistServer> list, String login) {
-        for (GistServer gist : list) {
-            UserServer user = gist.getUser();
+    private User getUserByLogin(List<Gist> list, String login) {
+        for (Gist gist : list) {
+            User user = gist.getUser();
             if (user != null && user.getLogin().equals(login))
                 return user;
         }
-        return new UserServer();
+        return new User();
     }
 }

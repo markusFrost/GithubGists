@@ -1,12 +1,17 @@
 package ru.avystavkin.githubgists.content.server.local;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User_1 {
 
+    @SerializedName("id")
     private String mId;
 
-    private String mName;
+    @SerializedName("login")
+    private String mLogin;
 
-    private String mUrl;
+    @SerializedName("avatar_url")
+    private String mAvatarUrl;
 
     private int mGistsCount;
 
@@ -18,20 +23,20 @@ public class User_1 {
         this.mId = id;
     }
 
-    public String getName() {
-        return mName;
+    public String getLogin() {
+        return mLogin;
     }
 
-    public void setName(String name) {
-        mName = name;
+    public void setLogin(String login) {
+        this.mLogin = login;
     }
 
-    public String getUrl() {
-        return mUrl;
+    public String getAvatarUrl() {
+        return mAvatarUrl;
     }
 
-    public void setUrl(String url) {
-        mUrl = url;
+    public void setAvatarUrl(String avatarUrl) {
+        this.mAvatarUrl = avatarUrl;
     }
 
     public int getGistsCount() {
@@ -39,6 +44,6 @@ public class User_1 {
     }
 
     public void setGistsCount(int gistsCount) {
-        mGistsCount = gistsCount;
+        this.mGistsCount = gistsCount;
     }
 }

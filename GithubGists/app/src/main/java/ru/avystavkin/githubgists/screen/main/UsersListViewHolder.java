@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.UserServer;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;
@@ -19,7 +19,7 @@ import ru.avystavkin.githubgists.screen.main.users.UserPopularAdapter;
 import ru.avystavkin.githubgists.widget.DividerItemDecoration;
 import ru.avystavkin.githubgists.widget.EmptyRecyclerView;
 
-public class UsersListViewHolder extends BaseViewHolder implements OnItemClickListener<UserServer> {
+public class UsersListViewHolder extends BaseViewHolder implements OnItemClickListener<User> {
 
     @BindView(R.id.recyclerViewHorizontal)
     EmptyRecyclerView mRecyclerView;
@@ -49,12 +49,12 @@ public class UsersListViewHolder extends BaseViewHolder implements OnItemClickLi
         mOnUserClickListener = onUserClickListener;
     }
 
-    public void bind(@NonNull List<UserServer> users) {
+    public void bind(@NonNull List<User> users) {
         mAdapter.changeDataSet(users);
     }
 
     @Override
-    public void onItemClick(@NonNull UserServer user) {
+    public void onItemClick(@NonNull User user) {
         if (mOnUserClickListener != null)
             mOnUserClickListener.onUserClick(user);
     }

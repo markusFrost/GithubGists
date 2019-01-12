@@ -1,52 +1,26 @@
 package ru.avystavkin.githubgists.content.server;
 
-import android.text.TextUtils;
-
-import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
+import ru.avystavkin.githubgists.content.server.local.User_1;
 
 public class Gist {
-
-    @SerializedName("id")
     private String mId;
 
-    @SerializedName("url")
     private String mUrl;
 
-    @SerializedName("description")
-    private String mDescription;
+    private String mName;
 
-    @SerializedName("owner")
-    private User mUser;
+    private User_1 mUser;
 
-    @SerializedName("files")
-    private Map<String, GistFileInfo> mFiles;
+    private List<GistFileInfo> mListFiles;
 
     public String getId() {
         return mId;
     }
 
     public void setId(String id) {
-        this.mId = id;
-    }
-
-    public String getDescription() {
-        return mDescription;
-    }
-
-    public void setDescription(String description) {
-        this.mDescription = description;
-    }
-
-    public User getUser() {
-        return mUser;
-    }
-
-    public void setUser(User user) {
-        this.mUser = user;
+        mId = id;
     }
 
     public String getUrl() {
@@ -54,27 +28,30 @@ public class Gist {
     }
 
     public void setUrl(String url) {
-        this.mUrl = url;
-    }
-
-    public Map<String, GistFileInfo> getRawFiles() {
-        return mFiles;
-    }
-
-    public List<GistFileInfo> getGistFiles() {
-        List<GistFileInfo> list = new ArrayList<GistFileInfo>();
-        for(String key : mFiles.keySet()) {
-            list.add(mFiles.get(key));
-        }
-        return list;
+        mUrl = url;
     }
 
     public String getName() {
-        if (TextUtils.isEmpty(mDescription)) {
-            return "gist:" + mId;
-        }
-        else {
-            return mDescription;
-        }
+        return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public User_1 getUser() {
+        return mUser;
+    }
+
+    public void setUser(User_1 user) {
+        mUser = user;
+    }
+
+    public List<GistFileInfo> getListFiles() {
+        return mListFiles;
+    }
+
+    public void setListFiles(List<GistFileInfo> listFiles) {
+        mListFiles = listFiles;
     }
 }

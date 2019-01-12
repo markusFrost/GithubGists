@@ -1,29 +1,24 @@
 package ru.avystavkin.githubgists.content.server;
 
-import com.google.gson.annotations.SerializedName;
+import ru.avystavkin.githubgists.content.server.local.GistCommitsHistory_1;
+import ru.avystavkin.githubgists.content.server.local.User_1;
 
 public class GistCommit {
+    private User_1 mUser;
 
-    @SerializedName("user")
-    private User mUser;
-
-    @SerializedName("version")
     private String mVersion;
 
-    @SerializedName("committed_at")
-    private String mCommittedAt;
+    private String mCommitDateTime;
 
-    @SerializedName("change_status")
-    GistCommitsHistory mStatus;
+    GistCommitsHistory_1 mCommitsHistory;
 
-    @SerializedName("url")
-    private String url;
+    private String mUrl;
 
-    public User getUser() {
+    public User_1 getUser() {
         return mUser;
     }
 
-    public void setUser(User user) {
+    public void setUser(User_1 user) {
         this.mUser = user;
     }
 
@@ -31,32 +26,32 @@ public class GistCommit {
         return mVersion;
     }
 
-    public String getCommittedAt() {
-        return mCommittedAt;
+    public String getCommitDateTime() {
+        return mCommitDateTime;
     }
 
-    public GistCommitsHistory getChangeStatus() {
-        return mStatus;
+    public GistCommitsHistory_1 getCommitsHistory() {
+        return mCommitsHistory;
     }
 
     public String getUrl() {
-        return url;
+        return mUrl;
     }
 
     public void setVersion(String version) {
         this.mVersion = version;
     }
 
-    public void setCommittedAt(String committedAt) {
-        this.mCommittedAt = committedAt;
+    public void setCommitDateTime(String commitDateTime) {
+        this.mCommitDateTime = commitDateTime;
     }
 
-    public void setChangeStatus(GistCommitsHistory changeStatusObject) {
-        this.mStatus = changeStatusObject;
+    public void setCommitsHistory(GistCommitsHistory_1 commitsHistory) {
+        this.mCommitsHistory = commitsHistory;
     }
 
     public void setUrl(String url) {
-        this.url = url;
+        this.mUrl = url;
     }
 }
 

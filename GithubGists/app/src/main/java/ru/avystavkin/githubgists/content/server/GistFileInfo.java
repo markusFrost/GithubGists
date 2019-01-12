@@ -1,13 +1,8 @@
 package ru.avystavkin.githubgists.content.server;
 
-import com.google.gson.annotations.SerializedName;
-
 public class GistFileInfo {
-
-    @SerializedName("filename")
     private String mFileName;
 
-    @SerializedName("content")
     private String mContent;
 
     public String getFileName() {

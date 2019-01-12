@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.Gist;
 
 public abstract class BaseGistUserViewHolder extends BaseUserHolder {
 
@@ -18,7 +18,7 @@ public abstract class BaseGistUserViewHolder extends BaseUserHolder {
         super(itemView);
     }
 
-    public void bind(@NonNull GistServer gist) {
+    public void bind(@NonNull Gist gist) {
         String gistName = gist.getName();
         if (!TextUtils.isEmpty(gistName))
             mName.setText(gistName);

@@ -12,15 +12,15 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.GistServer;
-import ru.avystavkin.githubgists.content.server.UserServer;
+import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.content.server.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
 import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter;
 
-public class UserDetailActivity extends BaseActivity implements UserView, OnItemClickListener<GistServer> {
+public class UserDetailActivity extends BaseActivity implements UserView, OnItemClickListener<Gist> {
 
     @Inject
     GithubRepository mRepository;
@@ -43,7 +43,7 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
         mPresenter.init(getIntent());
     }
 
-    public static void start(@NonNull Activity activity, UserServer user) {
+    public static void start(@NonNull Activity activity, User user) {
         Intent intent = new Intent(activity, UserDetailActivity.class);
         intent.putExtra(KEY_ID, user.getId());
             intent.putExtra(KEY_USER_NAME, user.getLogin());
@@ -57,7 +57,7 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
     }
 
     @Override
-    public void showGists(@NonNull List<GistServer> gists) {
+    public void showGists(@NonNull List<Gist> gists) {
         mAdapter.changeDataSet(gists);
     }
 
@@ -72,7 +72,7 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
     }
 
     @Override
-    public void onItemClick(@NonNull GistServer gist) {
+    public void onItemClick(@NonNull Gist gist) {
         GistDetailActivity.start(this, gist);
     }
 }

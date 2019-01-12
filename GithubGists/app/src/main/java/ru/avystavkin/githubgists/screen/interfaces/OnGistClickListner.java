@@ -1,7 +1,7 @@
 package ru.avystavkin.githubgists.screen.interfaces;
 
-import ru.avystavkin.githubgists.content.server.GistServer;
+import ru.avystavkin.githubgists.content.server.Gist;
 
 public interface OnGistClickListner {
-    void onGistClick(GistServer git);
+    void onGistClick(Gist git);
 }
