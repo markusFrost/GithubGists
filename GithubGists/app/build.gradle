@@ -3,13 +3,13 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "ru.avystavkin.githubgists"
         minSdkVersion 17
-        targetSdkVersion 24
+        targetSdkVersion 28
         versionCode 1
 
         buildConfigField "String", "API_ENDPOINT", '"https://api.github.com/"'
@@ -64,4 +64,7 @@ dependencies {
 
     compile "com.squareup.picasso:picasso:$picassoVersion"
     compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
+
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
 }
