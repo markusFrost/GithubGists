@@ -1,9 +1,8 @@
 package ru.avystavkin.githubgists.di;
 
-import android.support.annotation.NonNull;
-
 import javax.inject.Singleton;
 
+import androidx.annotation.NonNull;
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;

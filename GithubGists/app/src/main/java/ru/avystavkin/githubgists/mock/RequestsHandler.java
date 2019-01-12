@@ -1,7 +1,6 @@
 package ru.avystavkin.githubgists.mock;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import androidx.annotation.NonNull;
 import okhttp3.Request;
 import okhttp3.Response;
 import ru.avystavkin.githubgists.AppDelegate;

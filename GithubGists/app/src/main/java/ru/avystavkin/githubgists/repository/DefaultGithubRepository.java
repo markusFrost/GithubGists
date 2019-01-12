@@ -1,9 +1,8 @@
 package ru.avystavkin.githubgists.repository;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import ru.arturvasilov.rxloader.RxUtils;
 import ru.avystavkin.githubgists.api.GithubService;
 import ru.avystavkin.githubgists.content.Gist;

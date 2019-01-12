@@ -1,12 +1,12 @@
 package ru.avystavkin.githubgists.mock;
 
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
 
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Random;
 
+import androidx.annotation.NonNull;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

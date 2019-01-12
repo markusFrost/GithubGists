@@ -1,13 +1,13 @@
 package ru.avystavkin.githubgists.screen.user_detail;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
@@ -17,7 +17,8 @@ public class UserDetailAdapter extends BaseRecyclerViewAdapter {
 
     private static final int GISTS_LIST_TYPE = 1;
 
-    private @NonNull List<Gist> mGists = new ArrayList<>();
+    private @NonNull
+    List<Gist> mGists = new ArrayList<>();
 
     public void setGists(@NonNull List<Gist> gists) {
         mGists.clear();

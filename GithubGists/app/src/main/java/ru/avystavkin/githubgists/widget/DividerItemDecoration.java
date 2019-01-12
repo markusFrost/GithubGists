@@ -5,14 +5,17 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private final Drawable mDivider;
-    private int mOrientation = -1;
+
+    @RecyclerView.Orientation
+    private int mOrientation = RecyclerView.HORIZONTAL;
 
     public DividerItemDecoration(Context context) {
         final TypedArray a = context
@@ -86,7 +89,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     private int getOrientation(RecyclerView parent) {
-        if (mOrientation == -1) {
+        if (mOrientation == RecyclerView.HORIZONTAL) {
             if (parent.getLayoutManager() instanceof LinearLayoutManager) {
                 LinearLayoutManager layoutManager = (LinearLayoutManager) parent.getLayoutManager();
                 mOrientation = layoutManager.getOrientation();

@@ -4,17 +4,16 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AlertDialog;
 import android.view.View;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 import ru.avystavkin.githubgists.R;
 
 public class LoadingDialog extends DialogFragment {
@@ -24,11 +23,6 @@ public class LoadingDialog extends DialogFragment {
     @NonNull
     public static LoadingView view(@NonNull FragmentManager fm) {
         return new LoadingDialogView(fm);
-    }
-
-    @NonNull
-    public static LoadingView view(@NonNull Fragment fragment) {
-        return view(fragment.getFragmentManager());
     }
 
     @Override

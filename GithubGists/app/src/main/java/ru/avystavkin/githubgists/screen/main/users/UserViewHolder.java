@@ -1,10 +1,10 @@
 package ru.avystavkin.githubgists.screen.main.users;
 
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
@@ -26,7 +26,7 @@ public class UserViewHolder extends BaseViewHolder {
     public void bind(@NonNull User user) {
         String name = user.getLogin();
         if (!TextUtils.isEmpty(name))
-            mUserName.setText(name + "( " + user.getGistsCount() + " )");
+            mUserName.setText(String.format("%s ( %d )", name, user.getGistsCount()));
 
         String url = user.getAvatarUrl();
         if (!TextUtils.isEmpty(url))

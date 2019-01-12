@@ -1,10 +1,10 @@
 package ru.avystavkin.githubgists.utils;
 
-import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.content.Gist;
 
 public final class Images {
@@ -21,9 +21,11 @@ public final class Images {
     }
 
     public static void loadImage(@NonNull ImageView imageView, @NonNull String url) {
-        Picasso.with(imageView.getContext())
+        Picasso.get()
                 .load(url)
                 .noFade()
+                .centerCrop()
                 .into(imageView);
     }
+
 }

@@ -1,9 +1,8 @@
 package ru.avystavkin.githubgists.screen.user_detail;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 

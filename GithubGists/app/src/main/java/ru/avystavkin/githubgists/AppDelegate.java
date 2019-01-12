@@ -2,11 +2,11 @@ package ru.avystavkin.githubgists;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.di.AppComponent;
 import ru.avystavkin.githubgists.di.DaggerAppComponent;
 import ru.avystavkin.githubgists.di.DataModule;

@@ -1,8 +1,8 @@
 package ru.avystavkin.githubgists.content;
 
-import android.support.annotation.NonNull;
-
 import com.google.gson.Gson;
+
+import androidx.annotation.NonNull;
 
 public final class GsonHolder {
 

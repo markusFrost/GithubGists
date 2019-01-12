@@ -1,7 +1,6 @@
 package ru.avystavkin.githubgists.screen.gist_detail;
 
-import android.support.annotation.NonNull;
-
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 
 public interface GistView extends LoadingView {

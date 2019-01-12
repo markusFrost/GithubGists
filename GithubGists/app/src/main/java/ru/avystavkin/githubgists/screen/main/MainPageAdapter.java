@@ -1,20 +1,20 @@
 package ru.avystavkin.githubgists.screen.main;
 
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
+import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnMainPageClickListner;
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;
-import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 
 public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistClickListner, OnUserClickListener {
 

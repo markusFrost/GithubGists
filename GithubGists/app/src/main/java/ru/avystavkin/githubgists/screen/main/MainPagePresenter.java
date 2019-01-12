@@ -1,10 +1,10 @@
 package ru.avystavkin.githubgists.screen.main;
 
-import android.support.annotation.NonNull;
 import android.util.Pair;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.arturvasilov.rxloader.RxUtils;
 import ru.avystavkin.githubgists.R;

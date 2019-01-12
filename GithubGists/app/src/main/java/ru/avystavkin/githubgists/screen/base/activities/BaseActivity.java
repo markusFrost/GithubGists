@@ -1,15 +1,13 @@
 package ru.avystavkin.githubgists.screen.base.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.arturvasilov.rxloader.LifecycleHandler;
-import ru.arturvasilov.rxloader.LoaderLifecycleHandler;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.screen.general.LoadingDialog;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
@@ -34,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public LoadingView mLoadingView;
 
-    public LifecycleHandler mLifecycleHandler;
+    //public LifecycleHandler mLifecycleHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +48,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this));
         mRecyclerView.setEmptyView(mEmptyView);
 
-        mLifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
+        //mLifecycleHandler = LoaderLifecycleHandler.create(this, getSupportLoaderManager());
     }
 }

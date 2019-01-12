@@ -1,12 +1,12 @@
 package ru.avystavkin.githubgists.screen.main.users;
 
 
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter;

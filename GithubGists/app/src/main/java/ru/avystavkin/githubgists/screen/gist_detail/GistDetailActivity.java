@@ -3,12 +3,12 @@ package ru.avystavkin.githubgists.screen.gist_detail;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;

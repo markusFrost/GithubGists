@@ -1,9 +1,8 @@
 package ru.avystavkin.githubgists.repository;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import rx.Observable;

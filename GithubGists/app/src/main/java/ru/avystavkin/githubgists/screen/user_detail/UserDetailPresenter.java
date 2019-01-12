@@ -1,8 +1,8 @@
 package ru.avystavkin.githubgists.screen.user_detail;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 
+import androidx.annotation.NonNull;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;

@@ -1,10 +1,10 @@
 package ru.avystavkin.githubgists.screen.gist_detail;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import ru.arturvasilov.rxloader.LifecycleHandler;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
@@ -20,7 +20,7 @@ public class GistDetailPresenter {
     private final GistView mView;
 
     public GistDetailPresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
-                          @NonNull GistView view) {
+                               @NonNull GistView view) {
         mRepository = repository;
         mLifecycleHandler = lifecycleHandler;
         mView = view;
