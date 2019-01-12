@@ -41,6 +41,7 @@ dependencies {
     implementation "com.android.support:appcompat-v7:$supportVersion"
     implementation "com.android.support:support-annotations:$supportVersion"
     implementation "com.android.support:recyclerview-v7:${supportVersion}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01"
     implementation "com.android.support:design:$supportVersion"
 
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"

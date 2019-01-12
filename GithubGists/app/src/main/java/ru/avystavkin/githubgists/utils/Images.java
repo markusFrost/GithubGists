@@ -21,8 +21,10 @@ public final class Images {
     }
 
     public static void loadImage(@NonNull ImageView imageView, @NonNull String url) {
+
         Picasso.get()
                 .load(url)
+                .resize(45, 45)
                 .noFade()
                 .centerCrop()
                 .into(imageView);
