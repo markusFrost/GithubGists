@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 27
+    buildToolsVersion "27.1.0"
 
     defaultConfig {
         applicationId "ru.avystavkin.githubgists"
         minSdkVersion 17
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
 
         buildConfigField "String", "API_ENDPOINT", '"https://api.github.com/"'
@@ -53,18 +53,18 @@ dependencies {
     compile "io.reactivex:rxjava:$rxjavaVersion"
     compile "ru.arturvasilov:rx-loader:$rxLoaderVersion"
 
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation "com.jakewharton:butterknife:$butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
-    compile 'com.google.dagger:dagger:2.20'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.20'
-    compile 'com.google.dagger:dagger-android:2.20'
-    compile 'com.google.dagger:dagger-android-support:2.20' // if you use the support libraries
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.20'
+    compile "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    compile "com.google.dagger:dagger-android:$daggerVersion"
+    compile "com.google.dagger:dagger-android-support:$daggerVersion" // if you use the support libraries
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
 
-    compile "com.squareup.picasso:picasso:$picassoVersion"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
     compile "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion"
 
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
 }
