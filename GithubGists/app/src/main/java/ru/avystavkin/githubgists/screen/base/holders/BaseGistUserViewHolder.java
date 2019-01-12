@@ -1,5 +1,6 @@
 package ru.avystavkin.githubgists.screen.base.holders;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -7,7 +8,6 @@ import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public abstract class BaseGistUserViewHolder extends BaseUserHolder {
 

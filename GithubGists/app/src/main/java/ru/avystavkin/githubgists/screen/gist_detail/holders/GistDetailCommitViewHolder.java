@@ -1,5 +1,6 @@
 package ru.avystavkin.githubgists.screen.gist_detail.holders;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,7 +13,6 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.GistHistoryChangeStatus;
 import ru.avystavkin.githubgists.screen.base.holders.BaseGistUserViewHolder;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
 

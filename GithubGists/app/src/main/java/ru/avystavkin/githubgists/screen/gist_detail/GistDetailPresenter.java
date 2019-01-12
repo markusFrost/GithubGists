@@ -1,6 +1,7 @@
 package ru.avystavkin.githubgists.screen.gist_detail;
 
 import android.content.Intent;
+import android.text.TextUtils;
 
 import java.util.List;
 
@@ -10,7 +11,6 @@ import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class GistDetailPresenter {
     private final GithubRepository mRepository;

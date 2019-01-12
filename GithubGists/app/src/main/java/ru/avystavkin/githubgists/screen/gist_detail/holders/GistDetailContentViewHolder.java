@@ -1,5 +1,6 @@
 package ru.avystavkin.githubgists.screen.gist_detail.holders;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,7 +12,6 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class GistDetailContentViewHolder extends BaseViewHolder {
     @BindView(R.id.gist_file_name)

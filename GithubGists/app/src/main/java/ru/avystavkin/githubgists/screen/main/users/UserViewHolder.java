@@ -1,5 +1,6 @@
 package ru.avystavkin.githubgists.screen.main.users;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,7 +11,6 @@ import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
 import ru.avystavkin.githubgists.utils.Images;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class UserViewHolder extends BaseViewHolder {
     @BindView(R.id.user_name)
