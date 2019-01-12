@@ -39,7 +39,7 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
 
         AppDelegate.getAppComponent().injectUserDetailActivity(this);
 
-        mPresenter = new UserDetailPresenter(mRepository, this);
+        mPresenter = new UserDetailPresenter(mRepository, compositeDisposable,this);
         mPresenter.init(getIntent());
     }
 

@@ -7,6 +7,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
@@ -15,11 +17,14 @@ import ru.avystavkin.githubgists.repository.GithubRepository;
 public class GistDetailPresenter {
     private final GithubRepository mRepository;
     private final GistView mView;
+    private final CompositeDisposable mCompositeDisposable;
 
     public GistDetailPresenter(@NonNull GithubRepository repository,
+                               @NonNull CompositeDisposable compositeDisposable,
                                @NonNull GistView view) {
         mRepository = repository;
         mView = view;
+        mCompositeDisposable = compositeDisposable;
     }
 
     public void loadGistInfo(Intent intent) {
@@ -56,9 +61,11 @@ public class GistDetailPresenter {
         Observable<Gist> observableDetail = mRepository.getGistById(id);
         Observable<List<GistHistory>> observableCommits = mRepository.getCommitsByGistId(id);
 
-        Observable.merge(observableDetail, observableCommits)
+       Disposable disposable = Observable.merge(observableDetail, observableCommits)
                 .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
                 .subscribe(mView::showGist, mView::showError);
+
+       mCompositeDisposable.add(disposable);
     }
 }

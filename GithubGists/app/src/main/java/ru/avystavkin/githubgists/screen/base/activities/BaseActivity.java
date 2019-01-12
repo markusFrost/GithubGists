@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.screen.general.LoadingDialog;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
@@ -23,6 +25,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static final String KEY_ID = "key_url";
     public static final String KEY_USER_NAME = "key_user_name";
     public static final String KEY_USER_URL = "key_user_url";
+
+    protected CompositeDisposable compositeDisposable = new CompositeDisposable();
+    protected Unbinder unbinder;
 
     @BindView(R.id.toolbar)
     public Toolbar mToolbar;
@@ -40,7 +45,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gists);
 
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
         mLoadingView = LoadingDialog.view(getSupportFragmentManager());
@@ -48,5 +53,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this));
         mRecyclerView.setEmptyView(mEmptyView);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
+        compositeDisposable.dispose();
     }
 }

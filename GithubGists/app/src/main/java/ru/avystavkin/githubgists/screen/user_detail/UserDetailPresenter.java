@@ -3,6 +3,8 @@ package ru.avystavkin.githubgists.screen.user_detail;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
@@ -11,11 +13,14 @@ public class UserDetailPresenter {
 
     private final GithubRepository mRepository;
     private final UserView mView;
+    private final CompositeDisposable mCompositeDisposable;
 
     public UserDetailPresenter(@NonNull GithubRepository repository,
+                               @NonNull CompositeDisposable compositeDisposable,
                                @NonNull UserView view) {
         mRepository = repository;
         mView = view;
+        mCompositeDisposable = compositeDisposable;
     }
 
     public void init(Intent intent) {
@@ -41,9 +46,11 @@ public class UserDetailPresenter {
         name = "name";
         //---temp
 
-        mRepository.getGistsByUserName(name)
+      Disposable disposable = mRepository.getGistsByUserName(name)
                 .doOnSubscribe(d-> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
                 .subscribe(mView::showGists, mView::showError);
+
+      mCompositeDisposable.add(disposable);
     }
 }

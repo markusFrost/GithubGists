@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
@@ -14,18 +16,23 @@ public class MainPagePresenter {
 
     private final GithubRepository mRepository;
     private final MainPageView mView;
+    private final CompositeDisposable mCompositeDisposable;
 
     public MainPagePresenter(@NonNull GithubRepository repository,
+                             @NonNull CompositeDisposable compositeDisposable,
                              @NonNull MainPageView view) {
         mRepository = repository;
         mView = view;
+        mCompositeDisposable = compositeDisposable;
     }
 
     public void init() {
-        mRepository.getGists()
+       Disposable disposable = mRepository.getGists()
                 .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
                 .subscribe(mView::showGists, throwable -> mView.showError());
+
+       mCompositeDisposable.add(disposable);
     }
 
     public void loadUsers(@NonNull List<Gist> gists) {
