@@ -14,7 +14,7 @@ import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
-import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.repository.github.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;

@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.repository;
+package ru.avystavkin.githubgists.repository.github;
 
 import java.util.List;
 

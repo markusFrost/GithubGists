@@ -2,7 +2,15 @@ package ru.avystavkin.githubgists.models.local;
 
 import java.util.List;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Gist {
+
+    @PrimaryKey
+    public long id;
+
     private String mId;
 
     private String mUrl;

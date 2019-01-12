@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.repository.transformer;
+package ru.avystavkin.githubgists.repository.github.transformer;
 
 import android.text.TextUtils;
 

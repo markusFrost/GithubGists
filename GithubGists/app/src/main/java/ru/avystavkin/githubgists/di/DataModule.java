@@ -12,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import ru.avystavkin.githubgists.BuildConfig;
 import ru.avystavkin.githubgists.api.GithubService;
 import ru.avystavkin.githubgists.mock.MockingInterceptor;
-import ru.avystavkin.githubgists.repository.DefaultGithubRepository;
-import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository;
+import ru.avystavkin.githubgists.repository.github.GithubRepository;
 
 @Module
 public class DataModule {

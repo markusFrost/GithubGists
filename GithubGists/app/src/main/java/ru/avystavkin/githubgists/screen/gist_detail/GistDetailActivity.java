@@ -13,7 +13,7 @@ import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.GistCommit;
-import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.repository.github.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 
 public class GistDetailActivity extends BaseActivity implements GistView {

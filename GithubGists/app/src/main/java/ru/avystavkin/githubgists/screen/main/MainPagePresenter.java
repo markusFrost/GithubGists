@@ -8,7 +8,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
-import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.repository.github.GithubRepository;
 
 public class MainPagePresenter {
 
