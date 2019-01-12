@@ -27,7 +27,7 @@ public class GistDetailPresenter {
         mCompositeDisposable = compositeDisposable;
     }
 
-    public void loadGistInfo(Intent intent) {
+    public void init(Intent intent) {
         if (intent == null)
             return;
 
@@ -47,10 +47,10 @@ public class GistDetailPresenter {
             gist.getUser().setAvatarUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
 
         mView.showGist(gist);
-        loadGistInfo(gist.getId());
+        init(gist.getId());
     }
 
-    public void loadGistInfo(String id) {
+    public void init(String id) {
         //---temp
         id = "id";
         //---temp

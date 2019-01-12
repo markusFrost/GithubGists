@@ -2,7 +2,15 @@ package ru.avystavkin.githubgists.content;
 
 import com.google.gson.annotations.SerializedName;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class GistHistoryChangeStatus {
+
+    @PrimaryKey
+    public long id;
+
     @SerializedName("total")
     private int mTotal;
 

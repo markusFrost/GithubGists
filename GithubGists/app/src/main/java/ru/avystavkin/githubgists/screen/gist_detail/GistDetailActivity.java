@@ -48,7 +48,7 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         AppDelegate.getAppComponent().injectGistDetailActivity(this);
 
         mPresenter = new GistDetailPresenter(mRepository, compositeDisposable,this);
-        mPresenter.loadGistInfo(getIntent());
+        mPresenter.init(getIntent());
     }
 
     @Override
