@@ -12,6 +12,7 @@ import ru.avystavkin.githubgists.models.local.GistFileInfo;
 import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.models.server.GistCommitServer;
 import ru.avystavkin.githubgists.models.server.GistCommitsHistoryServer;
+import ru.avystavkin.githubgists.models.server.GistFileInfoServer;
 import ru.avystavkin.githubgists.models.server.GistServer;
 import ru.avystavkin.githubgists.models.server.UserServer;
 
@@ -59,7 +60,13 @@ public class TransformerHelper {
 
         List<GistFileInfo> list = new ArrayList<GistFileInfo>();
         for(String key : gistServer.getFiles().keySet()) {
-            list.add(gistServer.getFiles().get(key));
+            GistFileInfoServer fileInfoServer = gistServer.getFiles().get(key);
+            GistFileInfo fileInfo = new GistFileInfo();
+
+            fileInfo.setContent(fileInfoServer.getContent());
+            fileInfo.setFileName(fileInfoServer.getFileName());
+
+            list.add(fileInfo);
         }
         gist.setListFiles(list);
         gist.setUrl(gistServer.getUrl());

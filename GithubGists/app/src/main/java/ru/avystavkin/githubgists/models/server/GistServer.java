@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Map;
 
-import ru.avystavkin.githubgists.models.local.GistFileInfo;
-
 public class GistServer {
 
     @SerializedName("id")
@@ -21,7 +19,7 @@ public class GistServer {
     private UserServer mUser;
 
     @SerializedName("files")
-    private Map<String, GistFileInfo> mFiles;
+    private Map<String, GistFileInfoServer> mFiles;
 
     public String getId() {
         return mId;
@@ -55,11 +53,11 @@ public class GistServer {
         mUser = user;
     }
 
-    public Map<String, GistFileInfo> getFiles() {
+    public Map<String, GistFileInfoServer> getFiles() {
         return mFiles;
     }
 
-    public void setFiles(Map<String, GistFileInfo> files) {
+    public void setFiles(Map<String, GistFileInfoServer> files) {
         mFiles = files;
     }
 }
