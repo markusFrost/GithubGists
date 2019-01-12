@@ -5,21 +5,21 @@ import java.util.List;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistCommit;
+import ru.avystavkin.githubgists.models.server.GistCommitServer;
+import ru.avystavkin.githubgists.models.server.GistServer;
 
 public interface GithubService {
 
     @GET("/gists/public")
-    Observable<List<Gist>> gists();
+    Observable<List<GistServer>> gists();
 
     @GET("/gists/{gist_id}")
-    Observable<Gist> gist_detail(@Path("gist_id") String id);
+    Observable<GistServer> gist_detail(@Path("gist_id") String id);
 
     @GET("/gists/{gist_id}/commits")
-    Observable<List<GistCommit>> gist_commits(@Path("gist_id") String id);
+    Observable<List<GistCommitServer>> gist_commits(@Path("gist_id") String id);
 
     @GET("/users/{name}/gists")
-    Observable<List<Gist>>  user_detail(@Path("name") String name);
+    Observable<List<GistServer>>  user_detail(@Path("name") String name);
 
 }
