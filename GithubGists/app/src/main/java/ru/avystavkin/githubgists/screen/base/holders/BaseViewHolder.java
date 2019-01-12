@@ -1,8 +1,8 @@
 package ru.avystavkin.githubgists.screen.base.holders;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.ButterKnife;
 
 public abstract class BaseViewHolder extends RecyclerView.ViewHolder {

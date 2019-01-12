@@ -1,10 +1,9 @@
 package ru.avystavkin.githubgists.mock;
 
-import android.support.annotation.NonNull;
-
 import java.io.IOException;
 import java.io.InputStream;
 
+import androidx.annotation.NonNull;
 import okhttp3.MediaType;
 import okhttp3.Protocol;
 import okhttp3.Request;

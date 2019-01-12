@@ -1,13 +1,13 @@
 package ru.avystavkin.githubgists.screen.gist_detail.holders;
 
-import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class GistSectionHolder  extends BaseViewHolder {
 

@@ -1,13 +1,13 @@
 package ru.avystavkin.githubgists.screen.main;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;

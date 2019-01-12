@@ -1,20 +1,20 @@
 package ru.avystavkin.githubgists.screen.gist_detail.holders;
 
-import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.GistHistoryChangeStatus;
-import ru.avystavkin.githubgists.screen.base.holders.BaseGistViewHolder;
-import ru.avystavkin.githubgists.utils.TextUtils;
+import ru.avystavkin.githubgists.screen.base.holders.BaseGistUserViewHolder;
 
-public class GistDetailCommitViewHolder extends BaseGistViewHolder {
+public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
 
     @BindView(R.id.gist_commit_total)
     TextView mTotal;
@@ -43,7 +43,7 @@ public class GistDetailCommitViewHolder extends BaseGistViewHolder {
 
         String dateStr = history.getCommittedAt();
         if (!TextUtils.isEmpty(dateStr)) {
-            mName.setText(String.format("%s %s",
+            setName(String.format("%s %s",
                     AppDelegate.getContext().getResources().getString(R.string.commits_date),
                     dateStr.replace("T", " ").replace("Z", ""))
             );

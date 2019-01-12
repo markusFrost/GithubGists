@@ -1,6 +1,6 @@
 package ru.avystavkin.githubgists.screen.interfaces;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface OnItemClickListener<T> {
 

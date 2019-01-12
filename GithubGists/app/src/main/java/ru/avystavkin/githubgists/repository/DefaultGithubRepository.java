@@ -1,14 +1,13 @@
 package ru.avystavkin.githubgists.repository;
 
-import android.support.annotation.NonNull;
-
 import java.util.List;
 
-import ru.arturvasilov.rxloader.RxUtils;
+import androidx.annotation.NonNull;
+import io.reactivex.Observable;
 import ru.avystavkin.githubgists.api.GithubService;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
-import rx.Observable;
+import ru.avystavkin.githubgists.utils.RxUtils;
 
 public class DefaultGithubRepository implements GithubRepository {
 

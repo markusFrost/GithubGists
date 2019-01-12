@@ -1,23 +1,23 @@
 package ru.avystavkin.githubgists.screen.gist_detail;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistFile;
 import ru.avystavkin.githubgists.content.GistHistory;
+import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailCommitViewHolder;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailContentViewHolder;
-import ru.avystavkin.githubgists.screen.gist_detail.holders.UserHeaderViewHolder;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistSectionHolder;
-import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
+import ru.avystavkin.githubgists.screen.gist_detail.holders.UserHeaderViewHolder;
 
 public class GistDetailAdapter extends BaseRecyclerViewAdapter {
 

@@ -1,29 +1,30 @@
 package ru.avystavkin.githubgists.screen.gist_detail;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import java.util.List;
 
-import ru.arturvasilov.rxloader.LifecycleHandler;
-import ru.avystavkin.githubgists.R;
+import androidx.annotation.NonNull;
+import io.reactivex.Observable;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.content.Gist;
 import ru.avystavkin.githubgists.content.GistHistory;
 import ru.avystavkin.githubgists.content.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
-import ru.avystavkin.githubgists.utils.TextUtils;
-import rx.Observable;
 
 public class GistDetailPresenter {
     private final GithubRepository mRepository;
-    private final LifecycleHandler mLifecycleHandler;
     private final GistView mView;
+    private final CompositeDisposable mCompositeDisposable;
 
-    public GistDetailPresenter(@NonNull GithubRepository repository, @NonNull LifecycleHandler lifecycleHandler,
-                          @NonNull GistView view) {
+    public GistDetailPresenter(@NonNull GithubRepository repository,
+                               @NonNull CompositeDisposable compositeDisposable,
+                               @NonNull GistView view) {
         mRepository = repository;
-        mLifecycleHandler = lifecycleHandler;
         mView = view;
+        mCompositeDisposable = compositeDisposable;
     }
 
     public void loadGistInfo(Intent intent) {
@@ -60,10 +61,11 @@ public class GistDetailPresenter {
         Observable<Gist> observableDetail = mRepository.getGistById(id);
         Observable<List<GistHistory>> observableCommits = mRepository.getCommitsByGistId(id);
 
-        Observable.merge(observableDetail, observableCommits)
-                .doOnSubscribe(mView::showLoading)
+       Disposable disposable = Observable.merge(observableDetail, observableCommits)
+                .doOnSubscribe(d -> mView.showLoading())
                 .doOnTerminate(mView::hideLoading)
-                .compose(mLifecycleHandler.load(R.id.gists_request))
                 .subscribe(mView::showGist, mView::showError);
+
+       mCompositeDisposable.add(disposable);
     }
 }

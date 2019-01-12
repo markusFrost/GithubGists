@@ -1,11 +1,12 @@
 package ru.avystavkin.githubgists.content;
 
+import android.text.TextUtils;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import ru.avystavkin.githubgists.utils.TextUtils;
 
 public class Gist {
 

@@ -5,14 +5,17 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private final Drawable mDivider;
-    private int mOrientation = -1;
+
+    @RecyclerView.Orientation
+    private int mOrientation = RecyclerView.HORIZONTAL;
 
     public DividerItemDecoration(Context context) {
         final TypedArray a = context
@@ -34,11 +37,11 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             return;
         }
 
-        if (mOrientation == -1) {
+        if (mOrientation == RecyclerView.HORIZONTAL) {
             getOrientation(parent);
         }
 
-        if (mOrientation == LinearLayoutManager.VERTICAL) {
+        if (mOrientation == RecyclerView.VERTICAL) {
             outRect.top = mDivider.getIntrinsicHeight();
         } else {
             outRect.left = mDivider.getIntrinsicWidth();
@@ -54,7 +57,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
         // Initialization needed to avoid compiler warning
         int left = 0, right = 0, top = 0, bottom = 0, size;
-        int orientation = mOrientation != -1 ? mOrientation : getOrientation(parent);
+        int orientation = mOrientation != RecyclerView.HORIZONTAL ? mOrientation : getOrientation(parent);
         int childCount = parent.getChildCount();
 
         if (orientation == LinearLayoutManager.VERTICAL) {
@@ -86,7 +89,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     private int getOrientation(RecyclerView parent) {
-        if (mOrientation == -1) {
+        if (mOrientation == RecyclerView.HORIZONTAL) {
             if (parent.getLayoutManager() instanceof LinearLayoutManager) {
                 LinearLayoutManager layoutManager = (LinearLayoutManager) parent.getLayoutManager();
                 mOrientation = layoutManager.getOrientation();
