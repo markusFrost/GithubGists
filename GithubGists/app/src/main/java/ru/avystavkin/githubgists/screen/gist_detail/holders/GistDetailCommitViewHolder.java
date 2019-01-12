@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import butterknife.BindView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.GistCommit;
-import ru.avystavkin.githubgists.content.server.GistCommitsHistory;
+import ru.avystavkin.githubgists.models.local.GistCommit;
+import ru.avystavkin.githubgists.models.local.GistCommitsHistory;
 import ru.avystavkin.githubgists.screen.base.holders.BaseGistUserViewHolder;
 
 public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
@@ -34,14 +34,14 @@ public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
             return;
         GistCommit history = list.get(position);
         super.bind(history.getUser());
-        GistCommitsHistory status = history.getChangeStatus();
+        GistCommitsHistory status = history.getCommitsHistory();
         if (status != null) {
             mTotal.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_total), status.getTotal()));
             mAdditions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_additions), status.getAdditions()));
             mDeletions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_deletions), status.getDeletions()));
         }
 
-        String dateStr = history.getCommittedAt();
+        String dateStr = history.getCommitDateTime();
         if (!TextUtils.isEmpty(dateStr)) {
             setName(String.format("%s %s",
                     AppDelegate.getContext().getResources().getString(R.string.commits_date),

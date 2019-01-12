@@ -8,34 +8,33 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
-import ru.avystavkin.githubgists.content.server.GistFileInfo;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.User;
-import ru.avystavkin.githubgists.content.server.local.Gist_1;
-import ru.avystavkin.githubgists.content.server.local.User_1;
+import ru.avystavkin.githubgists.models.local.GistFileInfo;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.User;
+import ru.avystavkin.githubgists.models.server.GistServer;
+import ru.avystavkin.githubgists.models.server.UserServer;
 
-public class RxGistTransformer implements ObservableTransformer<List<Gist>, List<Gist_1>> {
+public class RxGistTransformer implements ObservableTransformer<List<GistServer>, List<Gist>> {
 
     @Override
-    public ObservableSource<List<Gist_1>> apply(Observable<List<Gist>> observable) {
+    public ObservableSource<List<Gist>> apply(Observable<List<GistServer>> observable) {
         return observable
                 .flatMap( Observable::fromIterable)
-                .map(g ->{
-                    Gist_1 gist = new Gist_1();
-                    User_1 user = new User_1();
+                .map(g -> {
+                    Gist gist = new Gist();
+                    User user = new User();
 
-                    User userServer = g.getUser();
+                    UserServer userServer = g.getUser();
                     if (userServer != null) {
                         user.setUrl(userServer.getAvatarUrl());
                         user.setId(userServer.getId());
                         user.setName(userServer.getLogin());
                     }
                     gist.setId(g.getId());
-                    gist.setListFiles(g.getGistFiles());
 
                     List<GistFileInfo> list = new ArrayList<GistFileInfo>();
-                    for(String key : g.getRawFiles().keySet()) {
-                        list.add(g.getRawFiles().get(key));
+                    for(String key : g.getFiles().keySet()) {
+                        list.add(g.getFiles().get(key));
                     }
                     gist.setListFiles(list);
                     gist.setUrl(g.getUrl());

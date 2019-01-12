@@ -5,8 +5,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import ru.avystavkin.githubgists.api.GithubService;
-import ru.avystavkin.githubgists.content.server.GistCommit;
-import ru.avystavkin.githubgists.content.server.Gist;
+import ru.avystavkin.githubgists.models.local.GistCommit;
+import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.utils.RxUtils;
 
 public class DefaultGithubRepository implements GithubRepository {
@@ -20,11 +20,9 @@ public class DefaultGithubRepository implements GithubRepository {
     @NonNull
     @Override
     public Observable<List<Gist>> getGists() {
-//         return mGithubService.gists()
-//                .compose(new RxGistTransformer())
-//                .compose(RxUtils.async());
-
-        return null;
+         return mGithubService.gists()
+                //.compose(new RxGistTransformer())
+                .compose(RxUtils.async());
     }
 
     @NonNull

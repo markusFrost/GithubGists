@@ -1,8 +1,8 @@
-package ru.avystavkin.githubgists.content.server.local;
+package ru.avystavkin.githubgists.models.server;
 
 import com.google.gson.annotations.SerializedName;
 
-public class User_1 {
+public class UserServer {
 
     @SerializedName("id")
     private String mId;

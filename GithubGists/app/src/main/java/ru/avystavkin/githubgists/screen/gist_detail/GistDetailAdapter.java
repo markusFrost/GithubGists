@@ -10,9 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistFileInfo;
-import ru.avystavkin.githubgists.content.server.GistCommit;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.GistCommit;
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailCommitViewHolder;
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailContentViewHolder;
@@ -71,10 +70,10 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     }
 
     private int getContentCount() {
-        if (mGist == null || mGist.getRawFiles() == null)
+        if (mGist == null)
             return 0;
-        List<GistFileInfo> list = mGist.getGistFiles();
-        return list.size();
+
+        return mGist.getListFiles().size();
     }
 
     private int getCommitsCount() {

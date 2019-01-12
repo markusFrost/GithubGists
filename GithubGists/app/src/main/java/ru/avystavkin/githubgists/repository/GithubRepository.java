@@ -4,8 +4,8 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistCommit;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.GistCommit;
 
 public interface GithubRepository {
 

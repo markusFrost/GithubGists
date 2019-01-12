@@ -1,8 +1,6 @@
-package ru.avystavkin.githubgists.content.server;
+package ru.avystavkin.githubgists.models.local;
 
 import java.util.List;
-
-import ru.avystavkin.githubgists.content.server.local.User_1;
 
 public class Gist {
     private String mId;
@@ -11,9 +9,17 @@ public class Gist {
 
     private String mName;
 
-    private User_1 mUser;
+    private User mUser;
 
     private List<GistFileInfo> mListFiles;
+
+    public User getUser() {
+        return mUser;
+    }
+
+    public void setUser(User user) {
+        mUser = user;
+    }
 
     public String getId() {
         return mId;
@@ -37,14 +43,6 @@ public class Gist {
 
     public void setName(String name) {
         mName = name;
-    }
-
-    public User_1 getUser() {
-        return mUser;
-    }
-
-    public void setUser(User_1 user) {
-        mUser = user;
     }
 
     public List<GistFileInfo> getListFiles() {

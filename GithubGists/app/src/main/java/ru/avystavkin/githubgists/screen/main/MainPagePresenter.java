@@ -6,8 +6,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 
 public class MainPagePresenter {
@@ -45,15 +45,5 @@ public class MainPagePresenter {
             }
             mView.showUsers(list);
         }
-
-    }
-
-    private User getUserByLogin(List<Gist> list, String login) {
-        for (Gist gist : list) {
-            User user = gist.getUser();
-            if (user != null && user.getLogin().equals(login))
-                return user;
-        }
-        return new User();
     }
 }

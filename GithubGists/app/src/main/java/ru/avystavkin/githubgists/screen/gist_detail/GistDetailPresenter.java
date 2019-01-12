@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.GistCommit;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.GistCommit;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 
 public class GistDetailPresenter {
@@ -35,16 +35,16 @@ public class GistDetailPresenter {
         gist.setUser(new User());
 
         if (intent.hasExtra(GistDetailActivity.KEY_NAME))
-            gist.setDescription(intent.getStringExtra(GistDetailActivity.KEY_NAME));
+            gist.setName(intent.getStringExtra(GistDetailActivity.KEY_NAME));
 
         if (intent.hasExtra(GistDetailActivity.KEY_ID))
             gist.setId(intent.getStringExtra(GistDetailActivity.KEY_ID));
 
         if (intent.hasExtra(GistDetailActivity.KEY_USER_NAME))
-            gist.getUser().setLogin(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
+            gist.getUser().setName(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
 
         if (intent.hasExtra(GistDetailActivity.KEY_USER_URL))
-            gist.getUser().setAvatarUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
+            gist.getUser().setUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
 
         mView.showGist(gist);
         init(gist.getId());

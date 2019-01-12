@@ -12,8 +12,8 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
@@ -46,8 +46,8 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
     public static void start(@NonNull Activity activity, User user) {
         Intent intent = new Intent(activity, UserDetailActivity.class);
         intent.putExtra(KEY_ID, user.getId());
-            intent.putExtra(KEY_USER_NAME, user.getLogin());
-            intent.putExtra(KEY_USER_URL, user.getAvatarUrl());
+            intent.putExtra(KEY_USER_NAME, user.getName());
+            intent.putExtra(KEY_USER_URL, user.getUrl());
         activity.startActivity(intent);
     }
 

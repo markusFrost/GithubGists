@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.content.server;
+package ru.avystavkin.githubgists.models.local;
 
 public class User {
 

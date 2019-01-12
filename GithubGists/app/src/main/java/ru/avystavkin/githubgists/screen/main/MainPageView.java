@@ -3,8 +3,8 @@ package ru.avystavkin.githubgists.screen.main;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import ru.avystavkin.githubgists.content.server.Gist;
-import ru.avystavkin.githubgists.content.server.User;
+import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.screen.general.LoadingView;
 
 public interface MainPageView extends LoadingView {
