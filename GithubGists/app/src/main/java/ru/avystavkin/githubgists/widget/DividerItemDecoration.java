@@ -37,11 +37,11 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             return;
         }
 
-        if (mOrientation == -1) {
+        if (mOrientation == RecyclerView.HORIZONTAL) {
             getOrientation(parent);
         }
 
-        if (mOrientation == LinearLayoutManager.VERTICAL) {
+        if (mOrientation == RecyclerView.VERTICAL) {
             outRect.top = mDivider.getIntrinsicHeight();
         } else {
             outRect.left = mDivider.getIntrinsicWidth();
@@ -57,7 +57,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
         // Initialization needed to avoid compiler warning
         int left = 0, right = 0, top = 0, bottom = 0, size;
-        int orientation = mOrientation != -1 ? mOrientation : getOrientation(parent);
+        int orientation = mOrientation != RecyclerView.HORIZONTAL ? mOrientation : getOrientation(parent);
         int childCount = parent.getChildCount();
 
         if (orientation == LinearLayoutManager.VERTICAL) {
