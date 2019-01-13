@@ -45,7 +45,6 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
 
         AppDelegate.getAppComponent().injectGistActivity(this);
 
-
         mAdapter = new MainPageAdapter(this);
         mAdapter.attachToRecyclerView(mRecyclerView);
 
@@ -53,10 +52,10 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
         mPresenter.init();
     }
 
+
     @Override
     public void showGists(@NonNull List<Gist> gists) {
        mAdapter.setListGists(gists);
-       mPresenter.loadUsers(gists);
     }
 
     @Override
@@ -76,7 +75,7 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
 
     @Override
     public void showError(Throwable throwable) {
-        mAdapter.clear();
+
     }
 
     @Override

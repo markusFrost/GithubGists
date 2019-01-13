@@ -24,6 +24,7 @@ public class Gist {
 
     private String mName;
 
+    @Ignore
     @Embedded
     private User mUser;
 

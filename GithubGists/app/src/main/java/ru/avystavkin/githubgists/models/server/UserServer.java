@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class UserServer {
 
     @SerializedName("id")
-    private String mId;
+    private long mId;
 
     @SerializedName("login")
     private String mLogin;
@@ -15,11 +15,11 @@ public class UserServer {
 
     private int mGistsCount;
 
-    public String getId() {
+    public long getId() {
         return mId;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.mId = id;
     }
 

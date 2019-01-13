@@ -30,7 +30,7 @@ public class UserDetailPresenter {
         User user = new User();
 
         if (intent.hasExtra(GistDetailActivity.KEY_ID))
-            user.setId(intent.getStringExtra(GistDetailActivity.KEY_ID));
+            user.setId(intent.getLongExtra(GistDetailActivity.KEY_ID, -1));
 
         if (intent.hasExtra(GistDetailActivity.KEY_USER_NAME))
             user.setName(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));

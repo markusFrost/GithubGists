@@ -1,8 +1,5 @@
 package ru.avystavkin.githubgists.screen.main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -10,8 +7,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import ru.avystavkin.githubgists.database.DbHelper;
-import ru.avystavkin.githubgists.models.local.Gist;
-import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
 import ru.avystavkin.githubgists.utils.RxUtils;
 
@@ -37,9 +32,11 @@ public class MainPagePresenter {
     public void init() {
         Disposable disposable = mRepository.getGists()
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnError(mView::showNoAccessNetworkMessage)
                 .doOnSubscribe(d -> mView.showLoading())
-                .doAfterTerminate(mView::hideLoading)
+                .doOnError(throwable ->  {
+                    mView.showNoAccessNetworkMessage(throwable);
+                    mView.hideLoading();
+                })
                 .observeOn(Schedulers.io())
                 .flatMap(list -> {
                     mDbHelper.insert(list);
@@ -47,20 +44,19 @@ public class MainPagePresenter {
                 })
                 .onErrorReturn(throwable -> mDbHelper.getGists())
                 .compose(RxUtils.async())
-                .subscribe(mView::showGists, mView::showError);
+                .subscribe(gists -> {
+                    mView.showGists(gists);
+                    Disposable disposablePopularUsers = Observable.just(true)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doAfterTerminate(mView::hideLoading)
+                            .doOnError(throwable ->  mView.hideLoading())
+                            .observeOn(Schedulers.io())
+                            .flatMap(x -> Observable.fromArray(mDbHelper.getPopularUsers(POPULAR_COUNT)))
+                            .compose(RxUtils.async())
+                            .subscribe(mView::showUsers,  mView::showError);
+                    mCompositeDisposable.add(disposablePopularUsers);
+                }, mView::showError);
 
         mCompositeDisposable.add(disposable);
-    }
-
-    public void loadUsers(@NonNull List<Gist> gists) {
-       //will work after db implement
-        List<User> list = new ArrayList<>();
-        for (int i = 0 ; i <= POPULAR_COUNT; i++) {
-            User user = gists.get(i).getUser();
-            if (user != null) {
-                list.add(user);
-            }
-            mView.showUsers(list);
-        }
     }
 }

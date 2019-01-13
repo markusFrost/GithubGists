@@ -7,12 +7,9 @@ import androidx.room.PrimaryKey;
 @Entity
 public class User {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "user_int_id")
-    private long mIntId;
-
-    @ColumnInfo(name = "user_string_id")
-    private String mId;
+    @PrimaryKey
+    @ColumnInfo(name = "user_id")
+    private long mId;
 
     @ColumnInfo(name = "user_name")
     private String mName;
@@ -20,13 +17,14 @@ public class User {
     @ColumnInfo(name = "user_url")
     private String mUrl;
 
+    @ColumnInfo(name = "user_gists_count")
     private int mGistsCount;
 
-    public String getId() {
+    public long getId() {
         return mId;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.mId = id;
     }
 
@@ -52,13 +50,5 @@ public class User {
 
     public void setGistsCount(int gistsCount) {
         mGistsCount = gistsCount;
-    }
-
-    public long getIntId() {
-        return mIntId;
-    }
-
-    public void setIntId(long intId) {
-        mIntId = intId;
     }
 }

@@ -72,6 +72,7 @@ public class TransformerHelper {
         gist.setUrl(gistServer.getUrl());
         gist.setName(TextUtils.isEmpty(gistServer.getDescription()) ? "gist:" + gistServer.getId() : gistServer.getDescription());
         gist.setUser(user);
+        gist.setUserId(user.getId());
 
         return gist;
     }

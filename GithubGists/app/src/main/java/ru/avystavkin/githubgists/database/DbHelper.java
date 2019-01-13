@@ -3,6 +3,7 @@ package ru.avystavkin.githubgists.database;
 import java.util.List;
 
 import ru.avystavkin.githubgists.models.local.Gist;
+import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.GistDao;
 
 public class DbHelper {
@@ -16,13 +17,16 @@ public class DbHelper {
         mGistDao.clearGistTable();
 
         for (Gist gist : gists) {
-            long userId = mGistDao.insert(gist.getUser());
-            gist.setUserId(userId);
+            mGistDao.insert(gist.getUser());
             mGistDao.insert(gist);
         }
     }
 
     public List<Gist> getGists() {
        return mGistDao.getGists();
+    }
+
+    public List<User> getPopularUsers(int count) {
+        return mGistDao.getPopularUsers(count);
     }
 }
