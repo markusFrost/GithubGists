@@ -12,16 +12,17 @@ public class DbHelper {
     }
 
     public void insert(List<Gist> gists) {
+        mGistDao.clearUserTable();
+        mGistDao.clearGistTable();
 
-        try {
-            long[] ids = mGistDao.insert(gists);
-
-            List<Gist> list = mGistDao.getGists();
-
-            System.out.println();
+        for (Gist gist : gists) {
+            long userId = mGistDao.insert(gist.getUser());
+            gist.setUserId(userId);
+            mGistDao.insert(gist);
         }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    }
+
+    public List<Gist> getGists() {
+       return mGistDao.getGists();
     }
 }

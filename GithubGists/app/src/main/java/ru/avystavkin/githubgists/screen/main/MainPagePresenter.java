@@ -33,17 +33,18 @@ public class MainPagePresenter {
     }
 
     public void init() {
-       Disposable disposable = mRepository.getGists()
+        Disposable disposable = mRepository.getGists()
+                .flatMap(list -> {
+                    mDbHelper.insert(list);
+                    return Observable.fromArray(list);
+                })
+                .onErrorReturn(throwable -> mDbHelper.getGists())
                 .doOnSubscribe(d -> mView.showLoading())
-                .doOnTerminate(mView::hideLoading)
-               .flatMap(list -> {
-                   mDbHelper.insert(list);
-                   return Observable.fromArray(list);
-               })
-               .compose(RxUtils.async())
-        .subscribe(mView::showGists, throwable -> mView.showError());//todo - if error show in db but notify
+                .doAfterTerminate(mView::hideLoading)
+                .compose(RxUtils.async())
+                .subscribe(mView::showGists, throwable -> mView.showError());
 
-       mCompositeDisposable.add(disposable);
+        mCompositeDisposable.add(disposable);
     }
 
     public void loadUsers(@NonNull List<Gist> gists) {
