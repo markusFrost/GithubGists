@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.repository;
+package ru.avystavkin.githubgists.repository.github;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import io.reactivex.Observable;
 import ru.avystavkin.githubgists.api.GithubService;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.GistCommit;
-import ru.avystavkin.githubgists.repository.transformer.RxGistCommitTransformer;
-import ru.avystavkin.githubgists.repository.transformer.RxGistTransformer;
-import ru.avystavkin.githubgists.repository.transformer.RxGistsListTransformer;
+import ru.avystavkin.githubgists.repository.github.transformer.RxGistCommitTransformer;
+import ru.avystavkin.githubgists.repository.github.transformer.RxGistTransformer;
+import ru.avystavkin.githubgists.repository.github.transformer.RxGistsListTransformer;
 import ru.avystavkin.githubgists.utils.RxUtils;
 
 public class DefaultGithubRepository implements GithubRepository {
@@ -24,8 +24,7 @@ public class DefaultGithubRepository implements GithubRepository {
     @Override
     public Observable<List<Gist>> getGists() {
          return mGithubService.gists()
-                .compose(new RxGistsListTransformer())
-                .compose(RxUtils.async());
+                .compose(new RxGistsListTransformer());
     }
 
     @NonNull

@@ -18,8 +18,8 @@ import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener;
 
 public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistClickListner, OnUserClickListener {
 
-    private static final int HORIZONTAL_VIEW_TYPE = 0;
-    private static final int VERTICAL_VIEW_TYPE = 1;
+    private static final int USERS_LIST_VIEW_TYPE = 0;
+    private static final int GISTS_LIST_VIEW_TYPE = 1;
 
     private List<User> mListUsers = new ArrayList<>();
     private List<Gist> mLisGists = new ArrayList<>();
@@ -33,7 +33,7 @@ public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistCl
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == HORIZONTAL_VIEW_TYPE) {
+        if (viewType == USERS_LIST_VIEW_TYPE) {
             return new UsersListViewHolder(this, LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recylerview_horizontal, parent, false));
         }
@@ -45,7 +45,7 @@ public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistCl
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (position == HORIZONTAL_VIEW_TYPE)
+        if (getItemViewType(position) == USERS_LIST_VIEW_TYPE)
             ((UsersListViewHolder)holder).bind(mListUsers);
         else
             ((GistsListViewHolder)holder).bind(mLisGists);
@@ -65,6 +65,14 @@ public class MainPageAdapter extends BaseRecyclerViewAdapter implements OnGistCl
 
     @Override
     public int getItemViewType(int position) {
+        if (position == 0) {
+            if (mListUsers.size() > 0)
+                return USERS_LIST_VIEW_TYPE;
+            else
+                return GISTS_LIST_VIEW_TYPE;
+        }
+        else if (position == 1)
+            return GISTS_LIST_VIEW_TYPE;
         return  position;
     }
 

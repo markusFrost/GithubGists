@@ -3,6 +3,7 @@ package ru.avystavkin.githubgists.screen.user_detail;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
-import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.repository.github.GithubRepository;
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener;
@@ -54,6 +55,11 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
     @Override
     public void showError(Throwable throwable) {
         mAdapter.clear();
+    }
+
+    @Override
+    public void showNoAccessNetworkMessage(Throwable throwable) {
+        Toast.makeText(this, getResources().getString(R.string.no_network_access_message), Toast.LENGTH_SHORT).show();
     }
 
     @Override

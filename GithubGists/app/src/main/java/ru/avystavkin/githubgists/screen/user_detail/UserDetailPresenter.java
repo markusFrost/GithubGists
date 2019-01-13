@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import ru.avystavkin.githubgists.models.local.User;
-import ru.avystavkin.githubgists.repository.GithubRepository;
+import ru.avystavkin.githubgists.repository.github.GithubRepository;
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity;
 
 public class UserDetailPresenter {
@@ -30,7 +30,7 @@ public class UserDetailPresenter {
         User user = new User();
 
         if (intent.hasExtra(GistDetailActivity.KEY_ID))
-            user.setId(intent.getStringExtra(GistDetailActivity.KEY_ID));
+            user.setId(intent.getLongExtra(GistDetailActivity.KEY_ID, -1));
 
         if (intent.hasExtra(GistDetailActivity.KEY_USER_NAME))
             user.setName(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
