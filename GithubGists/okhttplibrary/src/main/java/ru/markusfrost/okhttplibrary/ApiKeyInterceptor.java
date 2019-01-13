@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.api;
+package ru.markusfrost.okhttplibrary;
 
 import java.io.IOException;
 

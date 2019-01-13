@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.api;
+package ru.markusfrost.okhttplibrary;
 
 import java.io.IOException;
 
@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
-import ru.avystavkin.githubgists.BuildConfig;
 
 import static okhttp3.logging.HttpLoggingInterceptor.Level;
 

@@ -44,9 +44,6 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0-alpha01"
     implementation "com.android.support:design:$supportVersion"
 
-    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
-
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
@@ -60,12 +57,12 @@ dependencies {
     implementation "com.google.dagger:dagger:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
-    implementation "com.google.dagger:dagger-android-support:$daggerVersion" // if you use the support libraries
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
 
     implementation "com.squareup.picasso:picasso:$picassoVersion"
-    implementation "com.jakewharton.picasso:picasso2-okhttp3-downloader:$picassoDownloaderVersion";
 
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
+    compile project(path: ':okhttplibrary')
 }
