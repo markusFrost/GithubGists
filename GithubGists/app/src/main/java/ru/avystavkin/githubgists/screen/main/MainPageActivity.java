@@ -3,6 +3,7 @@ package ru.avystavkin.githubgists.screen.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -74,8 +75,13 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
     }
 
     @Override
-    public void showError() {
+    public void showError(Throwable throwable) {
         mAdapter.clear();
+    }
+
+    @Override
+    public void showNoAccessNetworkMessage(Throwable throwable) {
+        Toast.makeText(this, getResources().getString(R.string.no_network_access_message), Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -5,8 +5,10 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import ru.avystavkin.githubgists.database.DbHelper;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
@@ -34,15 +36,18 @@ public class MainPagePresenter {
 
     public void init() {
         Disposable disposable = mRepository.getGists()
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnError(mView::showNoAccessNetworkMessage)
+                .doOnSubscribe(d -> mView.showLoading())
+                .doAfterTerminate(mView::hideLoading)
+                .observeOn(Schedulers.io())
                 .flatMap(list -> {
                     mDbHelper.insert(list);
                     return Observable.fromArray(list);
                 })
                 .onErrorReturn(throwable -> mDbHelper.getGists())
-                .doOnSubscribe(d -> mView.showLoading())
-                .doAfterTerminate(mView::hideLoading)
                 .compose(RxUtils.async())
-                .subscribe(mView::showGists, throwable -> mView.showError());
+                .subscribe(mView::showGists, mView::showError);
 
         mCompositeDisposable.add(disposable);
     }

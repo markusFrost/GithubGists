@@ -11,4 +11,6 @@
     <string name="content_section">Content</string>
     <string name="commits_section">Commits</string>
 
+    <string name="no_network_access_message">No network access</string>
+
 </resources>
