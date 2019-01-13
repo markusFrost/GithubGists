@@ -1,4 +1,4 @@
-package ru.white_monk_team.okhttplibrary;
+package ru.markusfrost.okhttplibrary;
 
 import android.content.Context;
 import android.os.SystemClock;

@@ -20,8 +20,8 @@ import ru.avystavkin.githubgists.database.AppDatabase;
 import ru.avystavkin.githubgists.database.DbHelper;
 import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
-import ru.white_monk_team.okhttplibrary.ApiKeyInterceptor;
-import ru.white_monk_team.okhttplibrary.LoggingInterceptor;
+import ru.markusfrost.okhttplibrary.ApiKeyInterceptor;
+import ru.markusfrost.okhttplibrary.LoggingInterceptor;
 
 @Module
 public class DataModule {
