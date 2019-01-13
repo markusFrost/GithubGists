@@ -12,7 +12,6 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.R;
-import ru.avystavkin.githubgists.database.DbHelper;
 import ru.avystavkin.githubgists.models.local.Gist;
 import ru.avystavkin.githubgists.models.local.User;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
@@ -27,9 +26,6 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
 
     @Inject
     GithubRepository mRepository;
-
-    @Inject
-    DbHelper mDbHelper;
 
     private MainPageAdapter mAdapter;
 
@@ -48,7 +44,7 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
         mAdapter = new MainPageAdapter(this);
         mAdapter.attachToRecyclerView(mRecyclerView);
 
-        mPresenter = new MainPagePresenter(mRepository, mDbHelper, compositeDisposable, this);
+        mPresenter = new MainPagePresenter(mRepository, compositeDisposable, this);
         mPresenter.init();
     }
 
