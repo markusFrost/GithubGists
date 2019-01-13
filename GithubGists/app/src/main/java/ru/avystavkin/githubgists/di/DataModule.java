@@ -1,5 +1,8 @@
 package ru.avystavkin.githubgists.di;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Singleton;
 
 import androidx.annotation.NonNull;
@@ -12,13 +15,13 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.BuildConfig;
-import ru.avystavkin.githubgists.api.ApiKeyInterceptor;
 import ru.avystavkin.githubgists.api.GithubService;
-import ru.avystavkin.githubgists.api.LoggingInterceptor;
 import ru.avystavkin.githubgists.database.AppDatabase;
 import ru.avystavkin.githubgists.database.DbHelper;
 import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
+import ru.white_monk_team.okhttplibrary.ApiKeyInterceptor;
+import ru.white_monk_team.okhttplibrary.LoggingInterceptor;
 
 @Module
 public class DataModule {
@@ -68,7 +71,25 @@ public class DataModule {
         return new OkHttpClient.Builder()
                     .addInterceptor(LoggingInterceptor.create())
                     .addInterceptor(ApiKeyInterceptor.create())
-               // .addInterceptor(MockingInterceptor.create())
                 .build();
     }
+
+    @Provides
+    @Singleton
+    Map<String, String> provideResponsesMap() {
+        Map<String, String> responsesMap = new HashMap<>();
+        responsesMap.put("/gists/public", "gists.json");
+        responsesMap.put("/gists/id", "gists_detail.json");
+        responsesMap.put("/gists/id/commits", "gist_commits.json");
+        responsesMap.put("/users/name/gists", "user_detail.json");
+        return responsesMap;
+    }
+
+//    @Provides
+//    @Singleton
+//    OkHttpClient provideOkHttpClient(Map<String, String> responsesMap) {
+//        return new OkHttpClient.Builder()
+//                .addInterceptor(MockingInterceptor.create(AppDelegate.getContext(), responsesMap))
+//                .build();
+//    }
 }

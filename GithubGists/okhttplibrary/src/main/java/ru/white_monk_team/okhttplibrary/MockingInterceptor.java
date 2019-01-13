@@ -1,9 +1,11 @@
-package ru.avystavkin.githubgists.mock;
+package ru.white_monk_team.okhttplibrary;
 
+import android.content.Context;
 import android.os.SystemClock;
 
 import java.io.IOException;
 import java.security.SecureRandom;
+import java.util.Map;
 import java.util.Random;
 
 import androidx.annotation.NonNull;
@@ -17,14 +19,14 @@ public class MockingInterceptor implements Interceptor {
 
     private final Random mRandom;
 
-    private MockingInterceptor() {
-        mHandlers = new RequestsHandler();
+    private MockingInterceptor(Context context, Map<String, String> responsesMap) {
+        mHandlers = new RequestsHandler(context, responsesMap);
         mRandom = new SecureRandom();
     }
 
     @NonNull
-    public static Interceptor create() {
-        return new MockingInterceptor();
+    public static Interceptor create(Context context, Map<String, String> responsesMap) {
+        return new MockingInterceptor(context, responsesMap);
     }
 
     @Override
@@ -33,7 +35,7 @@ public class MockingInterceptor implements Interceptor {
         String path = request.url().encodedPath();
         if (mHandlers.shouldIntercept(path)) {
             Response response = mHandlers.proceed(request, path);
-            int stubDelay = 10;//500 + mRandom.nextInt(2500);
+            int stubDelay = 500 + mRandom.nextInt(2500);
             SystemClock.sleep(stubDelay);
             return response;
         }

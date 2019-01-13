@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.mock;
+package ru.white_monk_team.okhttplibrary;
 
 import java.io.IOException;
 import java.io.InputStream;

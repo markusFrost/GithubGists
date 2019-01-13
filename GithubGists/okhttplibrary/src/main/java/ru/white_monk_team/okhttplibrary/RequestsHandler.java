@@ -1,27 +1,24 @@
-package ru.avystavkin.githubgists.mock;
+package ru.white_monk_team.okhttplibrary;
 
 import android.content.Context;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 import androidx.annotation.NonNull;
 import okhttp3.Request;
 import okhttp3.Response;
-import ru.avystavkin.githubgists.AppDelegate;
 
 public class RequestsHandler {
 
-    private final Map<String, String> mResponsesMap = new HashMap<>();
+    private Map<String, String> mResponsesMap;
+    private Context mContext;
 
-    public RequestsHandler() {
-        mResponsesMap.put("/gists/public", "gists.json");
-        mResponsesMap.put("/gists/id", "gists_detail.json");
-        mResponsesMap.put("/gists/id/commits", "gist_commits.json");
-        mResponsesMap.put("/users/name/gists", "user_detail.json");
+    public RequestsHandler(Context context, Map<String, String> responsesMap) {
+        mResponsesMap = responsesMap;
+        mContext = context;
     }
 
     public boolean shouldIntercept(@NonNull String path) {
@@ -49,9 +46,8 @@ public class RequestsHandler {
 
     @NonNull
     private Response createResponseFromAssets(@NonNull Request request, @NonNull String assetPath) {
-        Context context = AppDelegate.getContext();
         try {
-            final InputStream stream = context.getAssets().open(assetPath);
+            final InputStream stream = mContext.getAssets().open(assetPath);
             try {
                 return OkHttpResponse.success(request, stream);
             } finally {
