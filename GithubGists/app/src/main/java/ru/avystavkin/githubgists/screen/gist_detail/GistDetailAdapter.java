@@ -70,7 +70,7 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
     }
 
     private int getContentCount() {
-        if (mGist == null)
+        if (mGist == null || mGist.getListFiles() == null)
             return 0;
 
         return mGist.getListFiles().size();
