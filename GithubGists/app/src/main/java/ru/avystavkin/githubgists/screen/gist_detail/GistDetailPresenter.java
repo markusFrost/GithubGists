@@ -51,9 +51,9 @@ public class GistDetailPresenter {
     }
 
     public void init(String id) {
-        //---temp
-        id = "id";
-        //---temp
+//        //---temp
+//        id = "id";
+//        //---temp
         if (TextUtils.isEmpty(id)) {
             return;
         }

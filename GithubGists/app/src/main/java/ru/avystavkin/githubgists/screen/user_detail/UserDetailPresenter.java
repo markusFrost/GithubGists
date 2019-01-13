@@ -42,9 +42,9 @@ public class UserDetailPresenter {
     }
 
     private void loadUserGists(String name) {
-        //---temp
-        name = "name";
-        //---temp
+//        //---temp
+//        name = "name";
+//        //---temp
 
       Disposable disposable = mRepository.getGistsByUserName(name)
                 .doOnSubscribe(d-> mView.showLoading())

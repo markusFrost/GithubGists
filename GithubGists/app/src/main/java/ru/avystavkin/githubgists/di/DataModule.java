@@ -12,10 +12,11 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.avystavkin.githubgists.AppDelegate;
 import ru.avystavkin.githubgists.BuildConfig;
+import ru.avystavkin.githubgists.api.ApiKeyInterceptor;
 import ru.avystavkin.githubgists.api.GithubService;
+import ru.avystavkin.githubgists.api.LoggingInterceptor;
 import ru.avystavkin.githubgists.database.AppDatabase;
 import ru.avystavkin.githubgists.database.DbHelper;
-import ru.avystavkin.githubgists.mock.MockingInterceptor;
 import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository;
 import ru.avystavkin.githubgists.repository.github.GithubRepository;
 
@@ -64,9 +65,9 @@ public class DataModule {
     @Singleton
     OkHttpClient provideOkHttpClient() {
         return new OkHttpClient.Builder()
-//                    .addInterceptor(LoggingInterceptor.create())
-//                    .addInterceptor(ApiKeyInterceptor.create())
-                .addInterceptor(MockingInterceptor.create())
+                    .addInterceptor(LoggingInterceptor.create())
+                    .addInterceptor(ApiKeyInterceptor.create())
+               // .addInterceptor(MockingInterceptor.create())
                 .build();
     }
 }
