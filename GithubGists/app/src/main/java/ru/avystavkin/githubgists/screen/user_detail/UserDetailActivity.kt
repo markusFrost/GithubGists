@@ -19,7 +19,7 @@ import javax.inject.Inject
 class UserDetailActivity : BaseActivity(), UserView, OnItemClickListener<Gist> {
 
     @Inject
-    internal var mRepository: GithubRepository? = null
+    lateinit var mRepository: GithubRepository
 
     private lateinit var mPresenter: UserDetailPresenter
     private lateinit var mAdapter: GistsAdapter

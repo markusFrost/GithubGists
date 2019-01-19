@@ -14,7 +14,7 @@ class DbHelper(appDatabase: AppDatabase) {
         mGistDao.clearGistTable()
 
         for (gist in gists) {
-            mGistDao.insert(gist.user)
+            mGistDao.insert(gist.user!!)
             mGistDao.insert(gist)
         }
     }
