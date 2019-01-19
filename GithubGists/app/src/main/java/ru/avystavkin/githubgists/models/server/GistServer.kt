@@ -2,20 +2,9 @@ package ru.avystavkin.githubgists.models.server
 
 import com.google.gson.annotations.SerializedName
 
-class GistServer {
-
-    @SerializedName("id")
-    var id: String? = null
-
-    @SerializedName("url")
-    var url: String? = null
-
-    @SerializedName("description")
-    var description: String? = null
-
-    @SerializedName("owner")
-    var user: UserServer? = null
-
-    @SerializedName("files")
-    var files: Map<String, GistFileInfoServer>? = null
-}
+data class GistServer(
+        @SerializedName("id") val id: String?,
+        @SerializedName("url") val url: String?,
+        @SerializedName("description") val description: String?,
+        @SerializedName("owner") val user: UserServer?,
+        @SerializedName("files") val files: Map<String, GistFileInfoServer>?)
