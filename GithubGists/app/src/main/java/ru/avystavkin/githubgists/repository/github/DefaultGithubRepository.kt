@@ -22,7 +22,7 @@ class DefaultGithubRepository(
                     mDbHelper.insert(gists)
                     Observable.fromArray(gists)
                 }
-                .onErrorReturn { mDbHelper.gists }
+                .onErrorReturn { mDbHelper.getGists() }
                 .compose(RxUtils.async())
 
     override fun getPopularUsers(count: Int): Observable<List<User>> {

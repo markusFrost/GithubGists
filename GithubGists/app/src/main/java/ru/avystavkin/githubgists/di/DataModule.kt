@@ -16,6 +16,7 @@ import ru.avystavkin.githubgists.repository.github.DefaultGithubRepository
 import ru.avystavkin.githubgists.repository.github.GithubRepository
 import ru.markusfrost.okhttplibrary.ApiKeyInterceptor
 import ru.markusfrost.okhttplibrary.LoggingInterceptor
+import ru.markusfrost.okhttplibrary.MockingInterceptor
 import java.util.*
 import javax.inject.Singleton
 
@@ -81,11 +82,11 @@ class DataModule {
         return responsesMap
     }
 
-    //    @Provides
-    //    @Singleton
-    //    OkHttpClient provideOkHttpClient(Map<String, String> responsesMap) {
-    //        return new OkHttpClient.Builder()
-    //                .addInterceptor(MockingInterceptor.create(AppDelegate.getContext(), responsesMap))
-    //                .build();
-    //    }
+//    @Provides
+//    @Singleton
+//    internal fun provideOkHttpClient(responsesMap: Map<String, String>): OkHttpClient {
+//        return OkHttpClient.Builder()
+//                .addInterceptor(MockingInterceptor.create(AppDelegate.context, responsesMap))
+//                .build()
+//    }
 }

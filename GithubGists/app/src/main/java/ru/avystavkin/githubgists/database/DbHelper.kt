@@ -7,7 +7,9 @@ import ru.avystavkin.githubgists.repository.GistDao
 class DbHelper(appDatabase: AppDatabase) {
     private val mGistDao: GistDao = appDatabase.gistDao()
 
-    val gists: List<Gist> = mGistDao.gists
+    fun getGists():  List<Gist> {
+        return mGistDao.gists
+    }
 
     fun insert(gists: List<Gist>) {
         mGistDao.clearUserTable()
