@@ -36,7 +36,7 @@ public class DefaultGithubRepository implements GithubRepository {
                      return Observable.fromArray(gists);
                  })
                  .onErrorReturn(throwable -> mDbHelper.getGists())
-                 .compose(RxUtils.async());
+                 .compose(RxUtils.INSTANCE.async());
     }
 
     @NonNull
@@ -44,7 +44,7 @@ public class DefaultGithubRepository implements GithubRepository {
     public Observable<List<User>> getPopularUsers(int count) {
         return  Observable.just(true)
                 .flatMap(x -> Observable.fromArray(mDbHelper.getPopularUsers(count)))
-                .compose(RxUtils.async());
+                .compose(RxUtils.INSTANCE.async());
     }
 
     @NonNull
@@ -52,7 +52,7 @@ public class DefaultGithubRepository implements GithubRepository {
     public Observable<Gist> getGistById(String id) {
         return mGithubService.gist_detail(id)
                 .compose(new RxGistTransformer())
-                .compose(RxUtils.async());
+                .compose(RxUtils.INSTANCE.async());
     }
 
     @NonNull
@@ -60,7 +60,7 @@ public class DefaultGithubRepository implements GithubRepository {
     public Observable<List<Gist>> getGistsByUserName(String name) {
         return mGithubService.user_detail(name)
                 .compose(new RxGistsListTransformer())
-                .compose(RxUtils.async());
+                .compose(RxUtils.INSTANCE.async());
     }
 
     @NonNull
@@ -68,6 +68,6 @@ public class DefaultGithubRepository implements GithubRepository {
     public Observable<List<GistCommit>> getCommitsByGistId(String id) {
         return mGithubService.gist_commits(id)
                 .compose(new RxGistCommitTransformer())
-                .compose(RxUtils.async());
+                .compose(RxUtils.INSTANCE.async());
     }
 }
