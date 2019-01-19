@@ -1,12 +1,13 @@
 package ru.avystavkin.githubgists
 
-import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDex
+import androidx.multidex.MultiDexApplication
 import ru.avystavkin.githubgists.di.AppComponent
 import ru.avystavkin.githubgists.di.DaggerAppComponent
 import ru.avystavkin.githubgists.di.DataModule
 
-class AppDelegate : Application() {
+class AppDelegate : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
@@ -16,6 +17,11 @@ class AppDelegate : Application() {
         appComponent = DaggerAppComponent.builder()
                 .dataModule(DataModule())
                 .build()
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(this);
     }
 
     companion object {
