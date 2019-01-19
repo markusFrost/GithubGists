@@ -3,7 +3,7 @@ package ru.avystavkin.githubgists.repository.github.transformer
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
 import io.reactivex.ObservableTransformer
-import ru.avystavkin.githubgists.models.local.GistCommit
+import ru.avystavkin.githubgists.models.database.GistCommit
 import ru.avystavkin.githubgists.models.server.GistCommitServer
 
 class RxGistCommitTransformer : ObservableTransformer<List<GistCommitServer>, List<GistCommit>> {

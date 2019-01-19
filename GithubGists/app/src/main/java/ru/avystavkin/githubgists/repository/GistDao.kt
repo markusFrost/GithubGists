@@ -4,8 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.User
 
 @Dao
 interface GistDao {

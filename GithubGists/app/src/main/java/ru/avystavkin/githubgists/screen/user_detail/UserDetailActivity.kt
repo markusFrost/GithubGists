@@ -7,8 +7,8 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_gists.*
 import ru.avystavkin.githubgists.AppDelegate
 import ru.avystavkin.githubgists.R
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.repository.github.GithubRepository
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity
 import ru.avystavkin.githubgists.screen.gist_detail.GistDetailActivity

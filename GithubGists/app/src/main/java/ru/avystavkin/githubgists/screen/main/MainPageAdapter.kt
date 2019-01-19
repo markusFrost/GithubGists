@@ -3,8 +3,8 @@ package ru.avystavkin.githubgists.screen.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.avystavkin.githubgists.R
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner

@@ -1,9 +1,9 @@
 package ru.avystavkin.githubgists.repository.github
 
 import io.reactivex.Observable
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.GistCommit
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.GistCommit
+import ru.avystavkin.githubgists.models.database.User
 
 interface GithubRepository {
 

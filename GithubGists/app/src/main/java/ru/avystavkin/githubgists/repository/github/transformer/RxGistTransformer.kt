@@ -4,7 +4,7 @@ package ru.avystavkin.githubgists.repository.github.transformer
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
 import io.reactivex.ObservableTransformer
-import ru.avystavkin.githubgists.models.local.Gist
+import ru.avystavkin.githubgists.models.database.Gist
 import ru.avystavkin.githubgists.models.server.GistServer
 
 class RxGistTransformer : ObservableTransformer<GistServer, Gist> {

@@ -4,8 +4,8 @@ import android.content.Intent
 import android.text.TextUtils
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.repository.github.GithubRepository
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity
 

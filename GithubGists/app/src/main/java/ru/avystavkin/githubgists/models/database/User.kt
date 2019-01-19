@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.models.local
+package ru.avystavkin.githubgists.models.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

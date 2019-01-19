@@ -3,7 +3,7 @@ package ru.avystavkin.githubgists.screen.gist_detail.holders
 import android.text.TextUtils
 import android.view.View
 import kotlinx.android.synthetic.main.item_gist_content.view.*
-import ru.avystavkin.githubgists.models.local.Gist
+import ru.avystavkin.githubgists.models.database.Gist
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 
 class GistDetailContentViewHolder(itemView: View) : BaseViewHolder(itemView) {

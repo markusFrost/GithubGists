@@ -3,7 +3,7 @@ package ru.avystavkin.githubgists.screen.main.gist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.avystavkin.githubgists.R
-import ru.avystavkin.githubgists.models.local.Gist
+import ru.avystavkin.githubgists.models.database.Gist
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter
 
 class GistsAdapter(items: List<Gist>) : BaseAdapter<GistViewHolder, Gist>(items) {

@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.avystavkin.githubgists.AppDelegate
 import ru.avystavkin.githubgists.R
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.GistCommit
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.GistCommit
 import ru.avystavkin.githubgists.screen.base.adapters.BaseRecyclerViewAdapter
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 import ru.avystavkin.githubgists.screen.gist_detail.holders.GistDetailCommitViewHolder

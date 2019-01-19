@@ -2,7 +2,7 @@ package ru.avystavkin.githubgists.screen.base.holders
 
 import android.view.View
 import kotlinx.android.synthetic.main.item_gist.view.*
-import ru.avystavkin.githubgists.models.local.Gist
+import ru.avystavkin.githubgists.models.database.Gist
 
 abstract class BaseGistUserViewHolder(itemView: View) : BaseUserHolder(itemView) {
 

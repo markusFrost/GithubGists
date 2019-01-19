@@ -3,9 +3,9 @@ package ru.avystavkin.githubgists.repository.github
 import io.reactivex.Observable
 import ru.avystavkin.githubgists.api.GithubService
 import ru.avystavkin.githubgists.database.DbHelper
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.GistCommit
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.GistCommit
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.repository.github.transformer.RxGistCommitTransformer
 import ru.avystavkin.githubgists.repository.github.transformer.RxGistTransformer
 import ru.avystavkin.githubgists.repository.github.transformer.RxGistsListTransformer

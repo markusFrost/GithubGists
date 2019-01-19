@@ -4,7 +4,7 @@ package ru.avystavkin.githubgists.screen.main.users
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.avystavkin.githubgists.R
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.screen.base.adapters.BaseAdapter
 
 

@@ -2,7 +2,7 @@ package ru.avystavkin.githubgists.screen.main.users
 
 import android.view.View
 import kotlinx.android.synthetic.main.item_user.view.*
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 import ru.avystavkin.githubgists.utils.Images
 

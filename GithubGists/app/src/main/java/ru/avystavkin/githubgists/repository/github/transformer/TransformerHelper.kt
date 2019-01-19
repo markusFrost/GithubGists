@@ -1,6 +1,6 @@
 package ru.avystavkin.githubgists.repository.github.transformer
 
-import ru.avystavkin.githubgists.models.local.*
+import ru.avystavkin.githubgists.models.database.*
 import ru.avystavkin.githubgists.models.server.GistCommitServer
 import ru.avystavkin.githubgists.models.server.GistServer
 import ru.avystavkin.githubgists.models.server.UserServer

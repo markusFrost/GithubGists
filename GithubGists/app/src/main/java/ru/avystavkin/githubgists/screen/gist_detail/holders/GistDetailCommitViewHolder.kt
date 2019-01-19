@@ -5,7 +5,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.item_gist_commits.view.*
 import ru.avystavkin.githubgists.AppDelegate
 import ru.avystavkin.githubgists.R
-import ru.avystavkin.githubgists.models.local.GistCommit
+import ru.avystavkin.githubgists.models.database.GistCommit
 import ru.avystavkin.githubgists.screen.base.holders.BaseGistUserViewHolder
 
 class GistDetailCommitViewHolder(itemView: View) : BaseGistUserViewHolder(itemView) {

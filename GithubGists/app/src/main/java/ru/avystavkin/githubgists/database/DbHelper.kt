@@ -1,7 +1,7 @@
 package ru.avystavkin.githubgists.database
 
-import ru.avystavkin.githubgists.models.local.Gist
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.Gist
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.repository.GistDao
 
 class DbHelper(appDatabase: AppDatabase) {

@@ -2,7 +2,7 @@ package ru.avystavkin.githubgists.screen.user_detail
 
 import android.content.Intent
 import io.reactivex.disposables.CompositeDisposable
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.repository.github.GithubRepository
 import ru.avystavkin.githubgists.screen.base.activities.BaseActivity
 

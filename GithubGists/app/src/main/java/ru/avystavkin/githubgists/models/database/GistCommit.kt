@@ -1,4 +1,4 @@
-package ru.avystavkin.githubgists.models.local
+package ru.avystavkin.githubgists.models.database
 
 data class GistCommit (
     var user: User?,

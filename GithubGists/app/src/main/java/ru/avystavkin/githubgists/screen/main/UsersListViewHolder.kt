@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.empty_text_view.view.*
 import kotlinx.android.synthetic.main.recylerview_horizontal.view.*
 import ru.avystavkin.githubgists.AppDelegate
-import ru.avystavkin.githubgists.models.local.User
+import ru.avystavkin.githubgists.models.database.User
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener
