@@ -65,5 +65,5 @@ dependencies {
 
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
-    compile project(path: ':okhttplibrary')
+    implementation project(path: ':okhttplibrary')
 }
