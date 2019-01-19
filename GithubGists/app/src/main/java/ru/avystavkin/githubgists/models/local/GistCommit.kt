@@ -1,14 +1,11 @@
 package ru.avystavkin.githubgists.models.local
 
-class GistCommit {
-    var user: User? = null
-
-    var version: String? = null
-
-    var commitDateTime: String? = null
-
-    var commitsHistory: GistCommitsHistory? = null
-
-    var url: String? = null
+data class GistCommit (
+    var user: User?,
+    var version: String?,
+    var commitDateTime: String?,
+    var commitsHistory: GistCommitsHistory?,
+    var url: String?) {
+    constructor() : this(null,"","",null,"")
 }
 

@@ -46,8 +46,8 @@ object TransformerHelper {
         val list = ArrayList<GistFileInfo>()
         val size = gistServer.files?.size;
         if (size != null && size > 0) {
-            for (key in gistServer.files!!.keys) {
-                val fileInfoServer = gistServer.files!![key] ?: continue
+            for (key in gistServer.files.keys) {
+                val fileInfoServer = gistServer.files[key] ?: continue
                 val fileInfo = GistFileInfo()
 
                 fileInfo.content = fileInfoServer.content

@@ -75,8 +75,8 @@ class MainPageAdapter(private val mOnMainPageClickListner: OnMainPageClickListne
         refreshRecycler()
     }
 
-    override fun onGistClick(git: Gist) {
-        mOnMainPageClickListner?.onGistClick(git)
+    override fun onGistClick(gist: Gist) {
+        mOnMainPageClickListner?.onGistClick(gist)
     }
 
     override fun onUserClick(user: User) {
