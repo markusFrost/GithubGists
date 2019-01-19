@@ -42,9 +42,9 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
         AppDelegate.Companion.getAppComponent().injectGistActivity(this);
 
         mAdapter = new MainPageAdapter(this);
-        mAdapter.attachToRecyclerView(mRecyclerView);
+        mAdapter.attachToRecyclerView(getMRecyclerView());
 
-        mPresenter = new MainPagePresenter(mRepository, compositeDisposable, this);
+        mPresenter = new MainPagePresenter(mRepository, getCompositeDisposable(), this);
         mPresenter.init();
     }
 
@@ -61,12 +61,12 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
 
     @Override
     public void showLoading() {
-        mLoadingView.showLoading();
+        getMLoadingView().showLoading();
     }
 
     @Override
     public void hideLoading() {
-        mLoadingView.hideLoading();
+        getMLoadingView().hideLoading();
     }
 
     @Override

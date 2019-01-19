@@ -28,10 +28,10 @@ public class GistDetailActivity extends BaseActivity implements GistView {
 
     public static void start(@NonNull Activity activity, @NonNull Gist gist) {
         Intent intent = new Intent(activity, GistDetailActivity.class);
-        intent.putExtra(KEY_NAME, gist.getName());
-        intent.putExtra(KEY_ID, gist.getId());
-        intent.putExtra(KEY_USER_NAME, gist.getUser().getName());
-        intent.putExtra(KEY_USER_URL, gist.getUser().getUrl());
+        intent.putExtra(Companion.getKEY_NAME(), gist.getName());
+        intent.putExtra(Companion.getKEY_ID(), gist.getId());
+        intent.putExtra(Companion.getKEY_USER_NAME(), gist.getUser().getName());
+        intent.putExtra(Companion.getKEY_USER_URL(), gist.getUser().getUrl());
         activity.startActivity(intent);
     }
 
@@ -42,11 +42,11 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         super.onCreate(savedInstanceState);
 
         mAdapter = new GistDetailAdapter();
-        mAdapter.attachToRecyclerView(mRecyclerView);
+        mAdapter.attachToRecyclerView(getMRecyclerView());
 
         AppDelegate.Companion.getAppComponent().injectGistDetailActivity(this);
 
-        mPresenter = new GistDetailPresenter(mRepository, compositeDisposable,this);
+        mPresenter = new GistDetailPresenter(mRepository, getCompositeDisposable(),this);
         mPresenter.init(getIntent());
     }
 
@@ -65,12 +65,12 @@ public class GistDetailActivity extends BaseActivity implements GistView {
 
     @Override
     public void showLoading() {
-        mLoadingView.showLoading();
+        getMLoadingView().showLoading();
     }
 
     @Override
     public void hideLoading() {
-        mLoadingView.hideLoading();
+        getMLoadingView().hideLoading();
     }
 
     @Override

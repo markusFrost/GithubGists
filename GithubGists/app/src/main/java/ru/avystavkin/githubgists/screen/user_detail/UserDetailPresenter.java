@@ -29,14 +29,14 @@ public class UserDetailPresenter {
 
         User user = new User();
 
-        if (intent.hasExtra(GistDetailActivity.KEY_ID))
-            user.setId(intent.getLongExtra(GistDetailActivity.KEY_ID, -1));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_ID()))
+            user.setId(intent.getLongExtra(GistDetailActivity.Companion.getKEY_ID(), -1));
 
-        if (intent.hasExtra(GistDetailActivity.KEY_USER_NAME))
-            user.setName(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_USER_NAME()))
+            user.setName(intent.getStringExtra(GistDetailActivity.Companion.getKEY_USER_NAME()));
 
-        if (intent.hasExtra(GistDetailActivity.KEY_USER_URL))
-            user.setUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_USER_URL()))
+            user.setUrl(intent.getStringExtra(GistDetailActivity.Companion.getKEY_USER_URL()));
 
         loadUserGists(user.getName());
     }

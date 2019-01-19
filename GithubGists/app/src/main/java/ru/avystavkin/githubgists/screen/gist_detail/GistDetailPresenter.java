@@ -34,17 +34,17 @@ public class GistDetailPresenter {
         Gist gist = new Gist();
         gist.setUser(new User());
 
-        if (intent.hasExtra(GistDetailActivity.KEY_NAME))
-            gist.setName(intent.getStringExtra(GistDetailActivity.KEY_NAME));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_NAME()))
+            gist.setName(intent.getStringExtra(GistDetailActivity.Companion.getKEY_NAME()));
 
-        if (intent.hasExtra(GistDetailActivity.KEY_ID))
-            gist.setId(intent.getStringExtra(GistDetailActivity.KEY_ID));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_ID()))
+            gist.setId(intent.getStringExtra(GistDetailActivity.Companion.getKEY_ID()));
 
-        if (intent.hasExtra(GistDetailActivity.KEY_USER_NAME))
-            gist.getUser().setName(intent.getStringExtra(GistDetailActivity.KEY_USER_NAME));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_USER_NAME()))
+            gist.getUser().setName(intent.getStringExtra(GistDetailActivity.Companion.getKEY_USER_NAME()));
 
-        if (intent.hasExtra(GistDetailActivity.KEY_USER_URL))
-            gist.getUser().setUrl(intent.getStringExtra(GistDetailActivity.KEY_USER_URL));
+        if (intent.hasExtra(GistDetailActivity.Companion.getKEY_USER_URL()))
+            gist.getUser().setUrl(intent.getStringExtra(GistDetailActivity.Companion.getKEY_USER_URL()));
 
         mView.showGist(gist);
         init(gist.getId());

@@ -35,20 +35,20 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
         super.onCreate(savedInstanceState);
 
         mAdapter = new GistsAdapter(new ArrayList<>());
-        mAdapter.attachToRecyclerView(mRecyclerView);
+        mAdapter.attachToRecyclerView(getMRecyclerView());
         mAdapter.setOnItemClickListener(this);
 
         AppDelegate.Companion.getAppComponent().injectUserDetailActivity(this);
 
-        mPresenter = new UserDetailPresenter(mRepository, compositeDisposable,this);
+        mPresenter = new UserDetailPresenter(mRepository, getCompositeDisposable(),this);
         mPresenter.init(getIntent());
     }
 
     public static void start(@NonNull Activity activity, User user) {
         Intent intent = new Intent(activity, UserDetailActivity.class);
-        intent.putExtra(KEY_ID, user.getId());
-            intent.putExtra(KEY_USER_NAME, user.getName());
-            intent.putExtra(KEY_USER_URL, user.getUrl());
+        intent.putExtra(Companion.getKEY_ID(), user.getId());
+            intent.putExtra(Companion.getKEY_USER_NAME(), user.getName());
+            intent.putExtra(Companion.getKEY_USER_URL(), user.getUrl());
         activity.startActivity(intent);
     }
 
@@ -69,12 +69,12 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
 
     @Override
     public void showLoading() {
-        mLoadingView.showLoading();
+        getMLoadingView().showLoading();
     }
 
     @Override
     public void hideLoading() {
-        mLoadingView.hideLoading();
+        getMLoadingView().hideLoading();
     }
 
     @Override
