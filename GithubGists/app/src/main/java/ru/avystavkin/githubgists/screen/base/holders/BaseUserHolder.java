@@ -30,6 +30,6 @@ public abstract class BaseUserHolder extends BaseViewHolder {
 
         String url = user.getUrl();
         if (!TextUtils.isEmpty(url))
-            Images.loadImage(mImageView, url);
+            Images.INSTANCE.loadImage(mImageView, url);
     }
 }

@@ -30,7 +30,7 @@ public class UserViewHolder extends BaseViewHolder {
 
         String url = user.getUrl();
         if (!TextUtils.isEmpty(url))
-            Images.loadImage(mImageView, url);
+            Images.INSTANCE.loadImage(mImageView, url);
     }
 }
 
