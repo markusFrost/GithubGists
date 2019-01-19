@@ -110,13 +110,13 @@ public class GistDetailAdapter extends BaseRecyclerViewAdapter {
                 ((UserHeaderViewHolder)holder).bind(mGist);
             }break;
             case CONTENT_SECTION_TYPE: {
-                ((GistSectionHolder)holder).bind(AppDelegate.getContext().getResources().getString(R.string.content_section));
+                ((GistSectionHolder)holder).bind(AppDelegate.Companion.getContext().getResources().getString(R.string.content_section));
             }break;
             case CONTENT_TYPE: {
                 ((GistDetailContentViewHolder)holder).bind(mGist, position - mContentSectionIndex - 1);
             }break;
             case COMMITS_SECTION_TYPE: {
-                ((GistSectionHolder)holder).bind(AppDelegate.getContext().getResources().getString(R.string.commits_section));
+                ((GistSectionHolder)holder).bind(AppDelegate.Companion.getContext().getResources().getString(R.string.commits_section));
             }break;
             case COMMIT_TYPE: {
                 ((GistDetailCommitViewHolder)holder).bind(mListCommits, position - mCommitSectionIndex - 1);

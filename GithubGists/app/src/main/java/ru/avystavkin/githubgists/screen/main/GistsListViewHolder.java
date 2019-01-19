@@ -35,8 +35,8 @@ public class GistsListViewHolder extends BaseViewHolder implements OnItemClickLi
     public GistsListViewHolder(@Nullable OnGistClickListner onGistClickListener, View itemView) {
         super(itemView);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(AppDelegate.getContext()));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(AppDelegate.getContext()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(AppDelegate.Companion.getContext()));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(AppDelegate.Companion.getContext()));
         mRecyclerView.setEmptyView(mEmptyView);
 
         mAdapter = new GistsAdapter(new ArrayList<>());

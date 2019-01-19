@@ -36,10 +36,10 @@ public class UsersListViewHolder extends BaseViewHolder implements OnItemClickLi
         super(itemView);
 
         LinearLayoutManager horizontalLayoutManager
-                = new LinearLayoutManager(AppDelegate.getContext(), LinearLayoutManager.HORIZONTAL, false);
+                = new LinearLayoutManager(AppDelegate.Companion.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
         mRecyclerView.setLayoutManager(horizontalLayoutManager);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(AppDelegate.getContext()));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(AppDelegate.Companion.getContext()));
         mRecyclerView.setEmptyView(mEmptyView);
 
         mAdapter = new UserPopularAdapter(new ArrayList<>());

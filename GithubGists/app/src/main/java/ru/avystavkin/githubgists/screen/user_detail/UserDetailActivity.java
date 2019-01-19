@@ -38,7 +38,7 @@ public class UserDetailActivity extends BaseActivity implements UserView, OnItem
         mAdapter.attachToRecyclerView(mRecyclerView);
         mAdapter.setOnItemClickListener(this);
 
-        AppDelegate.getAppComponent().injectUserDetailActivity(this);
+        AppDelegate.Companion.getAppComponent().injectUserDetailActivity(this);
 
         mPresenter = new UserDetailPresenter(mRepository, compositeDisposable,this);
         mPresenter.init(getIntent());

@@ -37,7 +37,7 @@ public class DataModule {
     @Provides
     @Singleton
     AppDatabase provideAppDatabase() {
-        return  Room.databaseBuilder(AppDelegate.getContext(),
+        return  Room.databaseBuilder(AppDelegate.Companion.getContext(),
                 AppDatabase.class, "database").build();
     }
 

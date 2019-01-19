@@ -44,7 +44,7 @@ public class GistDetailActivity extends BaseActivity implements GistView {
         mAdapter = new GistDetailAdapter();
         mAdapter.attachToRecyclerView(mRecyclerView);
 
-        AppDelegate.getAppComponent().injectGistDetailActivity(this);
+        AppDelegate.Companion.getAppComponent().injectGistDetailActivity(this);
 
         mPresenter = new GistDetailPresenter(mRepository, compositeDisposable,this);
         mPresenter.init(getIntent());

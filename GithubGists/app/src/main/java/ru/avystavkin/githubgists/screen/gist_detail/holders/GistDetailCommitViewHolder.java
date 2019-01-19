@@ -36,15 +36,15 @@ public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
         super.bind(history.getUser());
         GistCommitsHistory status = history.getCommitsHistory();
         if (status != null) {
-            mTotal.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_total), status.getTotal()));
-            mAdditions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_additions), status.getAdditions()));
-            mDeletions.setText(String.format("%s: %d", AppDelegate.getContext().getResources().getString(R.string.commits_deletions), status.getDeletions()));
+            mTotal.setText(String.format("%s: %d", AppDelegate.Companion.getContext().getResources().getString(R.string.commits_total), status.getTotal()));
+            mAdditions.setText(String.format("%s: %d", AppDelegate.Companion.getContext().getResources().getString(R.string.commits_additions), status.getAdditions()));
+            mDeletions.setText(String.format("%s: %d", AppDelegate.Companion.getContext().getResources().getString(R.string.commits_deletions), status.getDeletions()));
         }
 
         String dateStr = history.getCommitDateTime();
         if (!TextUtils.isEmpty(dateStr)) {
             setName(String.format("%s %s",
-                    AppDelegate.getContext().getResources().getString(R.string.commits_date),
+                    AppDelegate.Companion.getContext().getResources().getString(R.string.commits_date),
                     dateStr.replace("T", " ").replace("Z", ""))
             );
         }

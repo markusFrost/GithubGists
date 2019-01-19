@@ -39,7 +39,7 @@ public class MainPageActivity extends BaseActivity implements MainPageView, OnMa
         setContentView(R.layout.activity_gists);
         super.onCreate(savedInstanceState);
 
-        AppDelegate.getAppComponent().injectGistActivity(this);
+        AppDelegate.Companion.getAppComponent().injectGistActivity(this);
 
         mAdapter = new MainPageAdapter(this);
         mAdapter.attachToRecyclerView(mRecyclerView);
