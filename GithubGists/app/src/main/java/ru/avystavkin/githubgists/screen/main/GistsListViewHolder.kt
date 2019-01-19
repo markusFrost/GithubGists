@@ -2,36 +2,29 @@ package ru.avystavkin.githubgists.screen.main
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import butterknife.BindView
+import kotlinx.android.synthetic.main.empty_text_view.view.*
+import kotlinx.android.synthetic.main.recylerview_vertical.view.*
 import ru.avystavkin.githubgists.AppDelegate
-import ru.avystavkin.githubgists.R
 import ru.avystavkin.githubgists.models.local.Gist
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 import ru.avystavkin.githubgists.screen.interfaces.OnGistClickListner
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener
 import ru.avystavkin.githubgists.screen.main.gist.GistsAdapter
 import ru.avystavkin.githubgists.widget.DividerItemDecoration
-import ru.avystavkin.githubgists.widget.EmptyRecyclerView
 import java.util.*
 
 class GistsListViewHolder(private val mOnGistClickListener: OnGistClickListner?, itemView: View) : BaseViewHolder(itemView), OnItemClickListener<Gist> {
-
-    @BindView(R.id.recyclerViewVertical)
-    internal lateinit var mRecyclerView: EmptyRecyclerView
-
-    @BindView(R.id.empty)
-    internal lateinit var mEmptyView: View
 
     private val mAdapter: GistsAdapter
 
     init {
 
-        mRecyclerView.layoutManager = LinearLayoutManager(AppDelegate.context)
-        mRecyclerView.addItemDecoration(DividerItemDecoration(AppDelegate.context))
-        mRecyclerView.emptyView = mEmptyView
+        itemView.recyclerViewVertical.layoutManager = LinearLayoutManager(AppDelegate.context)
+        itemView.recyclerViewVertical.addItemDecoration(DividerItemDecoration(AppDelegate.context))
+        itemView.recyclerViewVertical.emptyView = itemView.emptyView
 
         mAdapter = GistsAdapter(ArrayList())
-        mAdapter.attachToRecyclerView(mRecyclerView)
+        mAdapter.attachToRecyclerView(itemView.recyclerViewVertical)
         mAdapter.onItemClickListener = this
     }
 

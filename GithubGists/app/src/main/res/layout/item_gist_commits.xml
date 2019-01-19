@@ -15,13 +15,13 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:src="@drawable/cat1"
-        android:id="@+id/gist_img"/>
+        android:id="@+id/ivGistImg"/>
 
     <RelativeLayout
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="15dp"
-        android:layout_toRightOf="@+id/gist_img"
+        android:layout_toRightOf="@+id/ivGistImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -32,22 +32,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="rust-play"
-            android:id="@+id/gist_user_name"/>
+            android:id="@+id/tvGistUsername"/>
 
         <TextView
             android:layout_marginTop="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/gist_user_name"
+            android:layout_below="@+id/tvGistUsername"
             tools:text="Code shared from the Rust Playground"
             android:singleLine="false"
             android:textSize="13sp"
-            android:id="@+id/gist_name"/>
+            android:id="@+id/tvGistName"/>
 
         <RelativeLayout
             android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
-            android:layout_below="@+id/gist_name"
+            android:layout_below="@+id/tvGistName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="total: 8"
-            android:id="@+id/gist_commit_total"/>
+            android:id="@+id/tvGistCommitTotal"/>
 
         <TextView
             android:textColor="@android:color/holo_green_light"
@@ -65,9 +65,9 @@
             android:layout_marginTop="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/gist_commit_total"
+            android:layout_toRightOf="@id/tvGistCommitTotal"
             tools:text="additions: 8"
-            android:id="@+id/gist_commit_additions"/>
+            android:id="@+id/tvGistCommitAdditions"/>
 
         <TextView
             android:textColor="@android:color/holo_red_light"
@@ -75,9 +75,9 @@
             android:layout_marginTop="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/gist_commit_additions"
+            android:layout_toRightOf="@id/tvGistCommitAdditions"
             tools:text="deletions: 0"
-            android:id="@+id/gist_commit_deletions"/>
+            android:id="@+id/tvGistCommitDeletions"/>
 
         </RelativeLayout>
 

@@ -6,6 +6,6 @@
     <item name="recyclerView" type="id"/>
     <item name="recyclerViewHorizontal" type="id"/>
     <item name="recyclerViewVertical" type="id"/>
-    <item name="empty" type="id"/>
+    <item name="emptyView" type="id"/>
 
 </resources>

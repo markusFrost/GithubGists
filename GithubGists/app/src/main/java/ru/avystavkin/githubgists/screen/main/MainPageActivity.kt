@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_gists.*
 import ru.avystavkin.githubgists.AppDelegate
 import ru.avystavkin.githubgists.R
 import ru.avystavkin.githubgists.models.local.Gist
@@ -31,7 +32,7 @@ class MainPageActivity : BaseActivity(), MainPageView, OnMainPageClickListner {
         AppDelegate.appComponent.injectGistActivity(this)
 
         mAdapter = MainPageAdapter(this)
-        mAdapter.attachToRecyclerView(mRecyclerView)
+        mAdapter.attachToRecyclerView(recyclerView)
 
         mPresenter = MainPagePresenter(mRepository, compositeDisposable, this)
         mPresenter.init()
@@ -47,11 +48,11 @@ class MainPageActivity : BaseActivity(), MainPageView, OnMainPageClickListner {
     }
 
     override fun showLoading() {
-        mLoadingView.showLoading()
+        loadingView.showLoading()
     }
 
     override fun hideLoading() {
-        mLoadingView.hideLoading()
+        loadingView.hideLoading()
     }
 
     override fun showError(throwable: Throwable) {

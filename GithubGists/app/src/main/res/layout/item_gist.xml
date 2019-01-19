@@ -15,14 +15,14 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:src="@drawable/cat1"
-        android:id="@+id/gist_img"/>
+        android:id="@+id/ivGistImg"/>
 
     <RelativeLayout
         android:layout_centerVertical="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_toRightOf="@+id/gist_img"
+        android:layout_toRightOf="@+id/ivGistImg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -33,17 +33,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="rust-play"
-            android:id="@+id/gist_user_name"/>
+            android:id="@+id/tvGistUsername"/>
 
     <TextView
         android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gist_user_name"
+        android:layout_below="@+id/tvGistUsername"
         android:singleLine="false"
         android:textSize="13sp"
         tools:text="Code shared from the Rust Playground"
-        android:id="@+id/gist_name"/>
+        android:id="@+id/tvGistName"/>
 
     </RelativeLayout>
 </RelativeLayout>

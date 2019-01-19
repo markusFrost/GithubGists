@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_gists.*
 import ru.avystavkin.githubgists.AppDelegate
 import ru.avystavkin.githubgists.R
 import ru.avystavkin.githubgists.models.local.Gist
@@ -27,7 +28,7 @@ class GistDetailActivity : BaseActivity(), GistView {
         super.onCreate(savedInstanceState)
 
         mAdapter = GistDetailAdapter()
-        mAdapter.attachToRecyclerView(mRecyclerView)
+        mAdapter.attachToRecyclerView(recyclerView)
 
         AppDelegate.appComponent.injectGistDetailActivity(this)
 
@@ -47,11 +48,11 @@ class GistDetailActivity : BaseActivity(), GistView {
     }
 
     override fun showLoading() {
-        mLoadingView.showLoading()
+        loadingView.showLoading()
     }
 
     override fun hideLoading() {
-        mLoadingView.hideLoading()
+        loadingView.hideLoading()
     }
 
     override fun showNoAccessNetworkMessage(throwable: Throwable) {

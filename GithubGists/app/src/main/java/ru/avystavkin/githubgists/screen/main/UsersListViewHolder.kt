@@ -2,25 +2,18 @@ package ru.avystavkin.githubgists.screen.main
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import butterknife.BindView
+import kotlinx.android.synthetic.main.empty_text_view.view.*
+import kotlinx.android.synthetic.main.recylerview_horizontal.view.*
 import ru.avystavkin.githubgists.AppDelegate
-import ru.avystavkin.githubgists.R
 import ru.avystavkin.githubgists.models.local.User
 import ru.avystavkin.githubgists.screen.base.holders.BaseViewHolder
 import ru.avystavkin.githubgists.screen.interfaces.OnItemClickListener
 import ru.avystavkin.githubgists.screen.interfaces.OnUserClickListener
 import ru.avystavkin.githubgists.screen.main.users.UserPopularAdapter
 import ru.avystavkin.githubgists.widget.DividerItemDecoration
-import ru.avystavkin.githubgists.widget.EmptyRecyclerView
 import java.util.*
 
 class UsersListViewHolder(private val mOnUserClickListener: OnUserClickListener?, itemView: View) : BaseViewHolder(itemView), OnItemClickListener<User> {
-
-    @BindView(R.id.recyclerViewHorizontal)
-    internal lateinit var mRecyclerView: EmptyRecyclerView
-
-    @BindView(R.id.empty)
-    internal lateinit var mEmptyView: View
 
     private val mAdapter: UserPopularAdapter
 
@@ -28,12 +21,12 @@ class UsersListViewHolder(private val mOnUserClickListener: OnUserClickListener?
 
         val horizontalLayoutManager = LinearLayoutManager(AppDelegate.context, LinearLayoutManager.HORIZONTAL, false)
 
-        mRecyclerView.layoutManager = horizontalLayoutManager
-        mRecyclerView.addItemDecoration(DividerItemDecoration(AppDelegate.context))
-        mRecyclerView.emptyView = mEmptyView
+        itemView.recyclerViewHorizontal.layoutManager = horizontalLayoutManager
+        itemView.recyclerViewHorizontal.addItemDecoration(DividerItemDecoration(AppDelegate.context))
+        itemView.recyclerViewHorizontal.emptyView = itemView.emptyView
 
         mAdapter = UserPopularAdapter(ArrayList())
-        mAdapter.attachToRecyclerView(mRecyclerView)
+        mAdapter.attachToRecyclerView(itemView.recyclerViewHorizontal)
         mAdapter.onItemClickListener = this
     }
 

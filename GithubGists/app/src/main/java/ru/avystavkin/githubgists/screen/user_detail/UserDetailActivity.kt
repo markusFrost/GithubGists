@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_gists.*
 import ru.avystavkin.githubgists.AppDelegate
 import ru.avystavkin.githubgists.R
 import ru.avystavkin.githubgists.models.local.Gist
@@ -29,12 +30,12 @@ class UserDetailActivity : BaseActivity(), UserView, OnItemClickListener<Gist> {
         super.onCreate(savedInstanceState)
 
         mAdapter = GistsAdapter(ArrayList())
-        mAdapter.attachToRecyclerView(mRecyclerView)
+        mAdapter.attachToRecyclerView(recyclerView)
         mAdapter.onItemClickListener = this
 
         AppDelegate.appComponent.injectUserDetailActivity(this)
 
-        mPresenter = UserDetailPresenter(mRepository!!, compositeDisposable, this)
+        mPresenter = UserDetailPresenter(mRepository, compositeDisposable, this)
         mPresenter.init(intent)
     }
 
@@ -51,11 +52,11 @@ class UserDetailActivity : BaseActivity(), UserView, OnItemClickListener<Gist> {
     }
 
     override fun showLoading() {
-        mLoadingView.showLoading()
+        loadingView.showLoading()
     }
 
     override fun hideLoading() {
-        mLoadingView.hideLoading()
+        loadingView.hideLoading()
     }
 
     override fun onItemClick(gist: Gist) {
