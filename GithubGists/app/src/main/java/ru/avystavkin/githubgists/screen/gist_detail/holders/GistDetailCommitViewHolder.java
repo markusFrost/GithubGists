@@ -43,7 +43,7 @@ public class GistDetailCommitViewHolder extends BaseGistUserViewHolder {
 
         String dateStr = history.getCommitDateTime();
         if (!TextUtils.isEmpty(dateStr)) {
-            setName(String.format("%s %s",
+            name.setText(String.format("%s %s",
                     AppDelegate.Companion.getContext().getResources().getString(R.string.commits_date),
                     dateStr.replace("T", " ").replace("Z", ""))
             );
